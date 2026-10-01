@@ -17,7 +17,15 @@ export default function HomePage() {
           <p>Diabetic foot ulcer wound healing research.</p>
           <Link className="button" href="/dfu">Open DFU</Link>
         </article>
-        {[1, 2, 3].map(member => (
+
+        <article className="module-card">
+          <p className="module-owner">Your section</p>
+          <h3>Retinopathy</h3>
+          <p>Diabetic retinopathy detection research.</p>
+          <Link className="button" href="/retino">Open Retinopathy</Link>
+        </article>
+
+        {[1, 2].map(member => (
           <article className="module-card" key={member}>
             <p className="module-owner">Team section</p>
             <h3>Member {member}</h3>
