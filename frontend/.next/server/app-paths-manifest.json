@@ -1,0 +1,12 @@
+{
+  "/(workspace)/dfu/page": "app/(workspace)/dfu/page.js",
+  "/(workspace)/home/page": "app/(workspace)/home/page.js",
+  "/(workspace)/members/[member]/page": "app/(workspace)/members/[member]/page.js",
+  "/(workspace)/retino/[stage]/page": "app/(workspace)/retino/[stage]/page.js",
+  "/(workspace)/retino/page": "app/(workspace)/retino/page.js",
+  "/(workspace)/retino/upload/page": "app/(workspace)/retino/upload/page.js",
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

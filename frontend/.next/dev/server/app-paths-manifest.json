@@ -1,0 +1,7 @@
+{
+  "/(workspace)/home/page": "app/(workspace)/home/page.js",
+  "/(workspace)/retino/page": "app/(workspace)/retino/page.js",
+  "/(workspace)/retino/upload/page": "app/(workspace)/retino/upload/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

@@ -1,0 +1,39 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(workspace)/layout,_N_T_/(workspace)/retino/layout,_N_T_/(workspace)/retino/page,_N_T_/retino"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHdvcmtzcGFjZSk/retino/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 160,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/578af8aadaf5c9ffc03fd8dee5d1dc293e47434e660d223a355c8c384d79f525/$/retino",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(workspace)/retino/page"
+    },
+    "isFallback": false
+  }
+}
