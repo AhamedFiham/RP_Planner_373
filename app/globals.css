@@ -131,3 +131,98 @@ nav a[aria-current="page"] { font-weight: bold; text-decoration: underline; text
   .home-team-links { grid-template-columns: 1fr; }
   .home-footer { padding: 24px 18px; }
 }
+
+/* DFU visit-image workspace */
+.dfu-main { width: 100%; min-height: calc(100vh - 150px); background: #f5f8f7; color: #273033; }
+.dfu-page-inner { max-width: 1320px; margin: 0 auto; padding: 42px 36px 78px; }
+.dfu-heading { max-width: 820px; margin-bottom: 38px; }
+.dfu-back { display: inline-block; margin-bottom: 25px; color: #32617a; font-size: 13px; font-weight: 700; text-decoration: none; }
+.dfu-back:hover { text-decoration: underline; }
+.dfu-kicker { margin: 0 0 14px; color: #477588; font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+.dfu-heading h1 { margin: 0 0 15px; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(40px, 4.5vw, 62px); font-weight: 400; letter-spacing: -.05em; line-height: 1.08; }
+.dfu-heading > p:last-child { max-width: 660px; margin: 0; color: #657173; font-size: 16px; line-height: 1.65; }
+.dfu-workspace-grid { display: grid; grid-template-columns: minmax(330px, .88fr) minmax(0, 1.38fr); align-items: start; gap: 23px; }
+.dfu-left-column, .dfu-right-column { display: grid; gap: 23px; min-width: 0; }
+.dfu-card { min-width: 0; padding: 28px; background: #fff; border: 1px solid #e0e8e6; border-radius: 17px; box-shadow: 0 3px 15px #21363b06; }
+.dfu-card-heading { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 25px; }
+.dfu-card-heading.compact { margin-bottom: 19px; }
+.dfu-step { flex: 0 0 39px; display: grid; width: 39px; height: 39px; place-items: center; border-radius: 10px; background: #e8f5f8; color: #217795; font-size: 12px; font-weight: 800; }
+.dfu-card-heading h2 { margin: 1px 0 5px; font-family: Georgia, 'Times New Roman', serif; font-size: 27px; font-weight: 400; letter-spacing: -.035em; line-height: 1.2; }
+.dfu-card-heading p { margin: 0; color: #737d7f; font-size: 13px; line-height: 1.5; }
+.dfu-upload-card form label { margin: 20px 0 7px; color: #344143; font-size: 13px; font-weight: 700; }
+.dfu-upload-card form input { min-height: 44px; padding: 10px 12px; border: 1px solid #cdd8d7; border-radius: 7px; background: #fff; color: #273033; }
+.dfu-upload-card form input:disabled { background: #f1f5f4; color: #647071; }
+.dfu-upload-card form input[type='file'] { height: auto; padding: 8px; font-size: 12px; }
+.dfu-upload-card form input[type='file']::file-selector-button { margin-right: 12px; padding: 9px 12px; border: 0; border-radius: 5px; background: #e9f2f8; color: #225f83; font-weight: 700; cursor: pointer; }
+.dfu-field-help { margin: 6px 0 0; color: #7a8586; font-size: 11px; line-height: 1.5; }
+.dfu-form-error { margin: 17px 0 0; padding: 10px 12px; border-radius: 7px; background: #fff1f0; color: #9c302b; font-size: 12px; }
+.dfu-form-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
+.dfu-primary-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 18px; min-height: 44px; padding: 11px 16px 11px 19px; border: 0; border-radius: 7px; background: #266fd1; color: #fff; font-size: 13px; font-weight: 700; cursor: pointer; }
+.dfu-primary-button:hover { background: #1558ad; }
+.dfu-primary-button span { font-size: 17px; font-weight: 400; line-height: 1; }
+.dfu-text-button { padding: 8px 2px; border: 0; background: transparent; color: #32617a; font-size: 12px; cursor: pointer; }
+.dfu-text-button:hover { text-decoration: underline; }
+.dfu-image-frame { display: grid; min-height: 245px; place-items: center; overflow: hidden; border-radius: 11px; background: #e9eff0; color: #a9b8bb; }
+.dfu-image-frame > svg { width: 69px; height: 69px; }
+.dfu-image-frame > img { display: block; width: 100%; max-height: 390px; object-fit: contain; }
+.dfu-image-filename { overflow-wrap: anywhere; margin: 10px 0 0; color: #6d797b; font-size: 11px; }
+.dfu-classified-placeholder { align-content: center; gap: 12px; border: 1px dashed #cbd9da; background: #f1f5f5; text-align: center; }
+.dfu-classified-placeholder span { color: #758487; font-size: 12px; }
+.dfu-muted-note { margin: 15px 0 0; color: #788486; font-size: 12px; line-height: 1.55; }
+.dfu-status { display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 999px; background: #edf4f6; color: #39728a; font-size: 11px; font-weight: 700; }
+.dfu-status span { width: 7px; height: 7px; border-radius: 50%; background: #54bed8; }
+.dfu-outlook-copy { max-width: 570px; margin: 23px 0 27px; color: #5f6c6e; font-size: 15px; line-height: 1.7; }
+.dfu-outlook-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; }
+.dfu-outlook-metrics div { display: flex; min-height: 103px; flex-direction: column; justify-content: space-between; padding: 16px; border: 1px solid #e3eae8; border-radius: 11px; background: #fbfcfb; }
+.dfu-outlook-metrics span { color: #6e7a7b; font-size: 12px; }
+.dfu-outlook-metrics strong { color: #859193; font-family: Georgia, 'Times New Roman', serif; font-size: 28px; font-weight: 400; line-height: 1; }
+.dfu-explanation { margin-top: 22px; padding: 18px 19px; border: 1px solid #e3eae8; border-radius: 8px; background: #fbfcfb; }
+.dfu-explanation strong { color: #30464d; font-size: 12px; }
+.dfu-explanation p { margin: 6px 0 0; color: #6c797b; font-size: 12px; line-height: 1.6; }
+.dfu-guidance-note { margin-top: 22px; padding: 18px 19px; border-left: 3px solid #53bad4; border-radius: 0 8px 8px 0; background: #f1f8fa; }
+.dfu-guidance-note strong { color: #30464d; font-size: 12px; }
+.dfu-guidance-note p { margin: 6px 0 0; color: #5e7076; font-size: 12px; line-height: 1.6; }
+.dfu-chart { min-height: 220px; padding: 25px 25px 17px; border: 1px dashed #cbd9d9; border-radius: 11px; background: #f7faf9; text-align: center; }
+.dfu-chart-empty-bars { display: flex; height: 122px; justify-content: center; align-items: flex-end; gap: 28px; }
+.dfu-chart-empty-bars span { width: min(18%, 72px); height: 92px; border: 1px dashed #c5d6d8; border-radius: 6px 6px 0 0; background: transparent; }
+.dfu-chart-axis { max-width: 350px; height: 1px; margin: 0 auto; background: #c6d5d6; }
+.dfu-chart p { margin: 15px 0 0; color: #748183; font-size: 11px; }
+.dfu-visit-heading { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin: 30px 0 13px; }
+.dfu-visit-heading h3 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: 21px; font-weight: 400; }
+.dfu-visit-heading span { color: #839092; font-size: 12px; }
+.dfu-visits-empty { margin: 0; padding: 20px; border: 1px solid #e5ecea; border-radius: 9px; color: #788587; font-size: 12px; text-align: center; }
+.dfu-visit-list { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.dfu-visit-list li { display: flex; align-items: center; min-width: 0; gap: 13px; padding: 10px; border: 1px solid #e5ecea; border-radius: 10px; }
+.dfu-visit-list img { flex: 0 0 54px; width: 54px; height: 54px; object-fit: cover; border-radius: 6px; background: #e9eff0; }
+.dfu-visit-info { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 3px; }
+.dfu-visit-info strong { color: #344143; font-size: 12px; }
+.dfu-visit-info strong span { color: #7a888a; font-weight: 400; }
+.dfu-visit-info > span { color: #798688; font-size: 11px; }
+.dfu-visit-list button { padding: 7px 5px; border: 0; background: transparent; color: #39728a; font-size: 11px; cursor: pointer; }
+.dfu-visit-list button:hover { text-decoration: underline; }
+.dfu-page-bottom { display: flex; justify-content: space-between; align-items: center; gap: 22px; margin-top: 28px; padding: 18px 21px; border: 1px solid #e3eae8; border-radius: 10px; background: #fff; }
+.dfu-page-bottom p { max-width: 790px; margin: 0; color: #758183; font-size: 12px; line-height: 1.6; }
+.dfu-page-bottom button { flex: 0 0 auto; border: 0; background: transparent; color: #32617a; font-size: 12px; font-weight: 700; cursor: pointer; }
+.dfu-page-bottom button:hover { text-decoration: underline; }
+
+@media (max-width: 1000px) {
+  .dfu-workspace-grid { grid-template-columns: 1fr 1fr; }
+  .dfu-card { padding: 23px; }
+}
+
+@media (max-width: 760px) {
+  .dfu-page-inner { padding: 35px 22px 65px; }
+  .dfu-workspace-grid { grid-template-columns: 1fr; }
+  .dfu-left-column, .dfu-right-column { gap: 17px; }
+  .dfu-right-column { margin-top: 0; }
+}
+
+@media (max-width: 500px) {
+  .dfu-page-inner { padding: 28px 18px 50px; }
+  .dfu-heading h1 { font-size: 42px; }
+  .dfu-heading > p:last-child { font-size: 14px; }
+  .dfu-card { padding: 20px; }
+  .dfu-card-heading h2 { font-size: 24px; }
+  .dfu-outlook-metrics { grid-template-columns: 1fr; }
+  .dfu-page-bottom { align-items: flex-start; flex-direction: column; }
+}
