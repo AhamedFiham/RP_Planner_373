@@ -1,39 +1,77 @@
 import Link from 'next/link';
-import WelcomeMessage from '@/components/welcome-message';
 
-export const metadata = { title: 'Home' };
+export const metadata = {
+  title: { absolute: 'DCare AI | Home' },
+  description: 'Explore DCare AI research on diabetic foot ulcers, retinopathy, and related care.',
+};
+
+const researchAreas = [
+  {
+    number: '01',
+    title: 'Diabetic foot ulcers',
+    tag: 'DFU research',
+    description: 'Exploring how patient and visit information could help us understand wound healing over time.',
+    href: '/dfu',
+    action: 'Explore DFU',
+  },
+  {
+    number: '02',
+    title: 'Diabetic retinopathy',
+    tag: 'Retinopathy research',
+    description: 'A space for our team’s work on retinal images, clinical records, and future analysis.',
+    href: '/retino',
+    action: 'Explore retinopathy',
+  },
+];
 
 export default function HomePage() {
   return (
-    <>
-      <h1>Home</h1>
-      <WelcomeMessage />
-      <h2>Project modules</h2>
-      <p className="muted">Select a section to open your work area.</p>
-      <div className="module-grid">
-        <article className="module-card">
-          <p className="module-owner">Your section</p>
-          <h3>DFU</h3>
-          <p>Diabetic foot ulcer wound healing research.</p>
-          <Link className="button" href="/dfu">Open DFU</Link>
-        </article>
+    <div className="home-page">
+      <div className="home-visual-space" aria-hidden="true" />
 
-        <article className="module-card">
-          <p className="module-owner">Your section</p>
-          <h3>Retinopathy</h3>
-          <p>Diabetic retinopathy detection research.</p>
-          <Link className="button" href="/retino">Open Retinopathy</Link>
-        </article>
+      <section className="home-intro" aria-labelledby="home-title">
+        <p className="home-eyebrow"><span aria-hidden="true" /> DCare AI · Research in progress</p>
+        <h1 id="home-title">Research for better<br />diabetes care.</h1>
+        <p className="home-intro-copy">
+          One place for our team’s work on diabetic foot ulcers, retinopathy, and the ideas we’re developing together.
+        </p>
+        <a className="home-intro-link" href="#our-work">Explore our work <span aria-hidden="true">↗</span></a>
+      </section>
 
-        {[1, 2].map(member => (
-          <article className="module-card" key={member}>
-            <p className="module-owner">Team section</p>
-            <h3>Member {member}</h3>
-            <p>A work area for Member {member}.</p>
-            <Link className="button secondary" href={`/members/${member}`} aria-label={`Open Member ${member} section`}>Open section</Link>
-          </article>
-        ))}
-      </div>
-    </>
+      <section className="home-work" id="our-work" aria-labelledby="home-work-title">
+        <div className="home-work-heading">
+          <p className="home-eyebrow"><span aria-hidden="true" /> Our work</p>
+          <h2 id="home-work-title">Explore the research.</h2>
+          <p>Choose a section to see what each part of the project is becoming.</p>
+        </div>
+
+        <div className="home-research-grid">
+          {researchAreas.map(area => (
+            <Link className="home-research-card" href={area.href} key={area.href}>
+              <span className="home-research-top"><span>{area.tag}</span><span>{area.number} / 02</span></span>
+              <span className="home-research-body">
+                <span className="home-research-title">{area.title}</span>
+                <span className="home-research-copy">{area.description}</span>
+              </span>
+              <span className="home-research-action">{area.action} <span aria-hidden="true">↗</span></span>
+            </Link>
+          ))}
+        </div>
+
+        <div className="home-team">
+          <div>
+            <p className="home-eyebrow"><span aria-hidden="true" /> Team spaces</p>
+            <h3>More from the team</h3>
+          </div>
+          <div className="home-team-links">
+            {[1, 2, 3].map(member => (
+              <Link href={`/members/${member}`} key={member}>
+                <span>Member {member}</span><span aria-hidden="true">↗</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
