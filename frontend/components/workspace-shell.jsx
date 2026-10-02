@@ -14,12 +14,12 @@ export default function WorkspaceShell({ children }) {
   const usesResearchHeader = isHome || pathname === '/dfu';
 
   useEffect(() => {
-    if (ready && !user) router.replace('/login');
+    if (ready && !user) router.replace('/dashboard');
   }, [ready, user, router]);
 
   function handleLogout() {
     logout();
-    router.replace('/login');
+    router.replace('/dashboard');
   }
 
   if (!ready || !user) {
