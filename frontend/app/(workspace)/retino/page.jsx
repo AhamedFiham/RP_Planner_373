@@ -5,7 +5,7 @@ export const metadata = { title: 'Retinopathy' };
 export default function RetinoPage() {
   return (
     <>
-      <Link className="back-link" href="/home">← Back to home</Link>
+      <Link className="back-link" href="/dashboard">← Back to dashboard</Link>
       <h1>Retinopathy</h1>
       <p className="muted">Diabetic retinopathy detection research</p>
 
