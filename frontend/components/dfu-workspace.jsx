@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
+import DashboardShell from '@/components/dashboard/DashboardShell';
 
 const acceptedTypes = ['image/jpeg', 'image/png', 'image/webp'];
 const maxImageBytes = 10 * 1024 * 1024;
@@ -112,12 +112,12 @@ export default function DfuWorkspace() {
   const currentImage = selected ?? visits.at(-1) ?? null;
 
   return (
+    <DashboardShell title="Wound Healing" contentAs="div" showSkipLink={false}>
     <div className="dfu-page">
       <div className="dfu-page-inner">
         <header className="dfu-heading">
-          <Link className="dfu-back" href="/home">← Back to home</Link>
-          <p className="dfu-kicker">DFU / Wound healing research</p>
-          <h1>See the journey, visit by visit.</h1>
+          <p className="dashboard-kicker">WOUND HEALING WORKSPACE</p>
+          <h2>Track your wound, visit by visit</h2>
           <p>Collect dated wound images here. Future image analysis will support a conditional healing estimate and changes between visits.</p>
         </header>
 
@@ -280,5 +280,6 @@ export default function DfuWorkspace() {
         </div>
       </div>
     </div>
+    </DashboardShell>
   );
 }
