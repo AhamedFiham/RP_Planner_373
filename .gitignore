@@ -6,3 +6,8 @@
 !.env.example
 *.log
 .DS_Store
+
+# Dependencies and build output in project subdirectories
+**/node_modules/
+**/.next/
+**/out/
