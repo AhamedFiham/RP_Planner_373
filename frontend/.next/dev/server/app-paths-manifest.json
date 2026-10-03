@@ -1,7 +1,10 @@
 {
-  "/(workspace)/home/page": "app/(workspace)/home/page.js",
   "/(workspace)/retino/page": "app/(workspace)/retino/page.js",
-  "/(workspace)/retino/upload/page": "app/(workspace)/retino/upload/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/diabetes/page": "app/diabetes/page.js",
+  "/diet/page": "app/diet/page.js",
   "/login/page": "app/login/page.js",
-  "/page": "app/page.js"
+  "/page": "app/page.js",
+  "/retinopathy/page": "app/retinopathy/page.js",
+  "/wound/page": "app/wound/page.js"
 }

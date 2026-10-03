@@ -14,8 +14,8 @@
     "static/chunks/node_modules_next_dist_client_0_90u2t._.js",
     "static/chunks/node_modules_next_dist_1e8vcs8._.js",
     "static/chunks/node_modules_@swc_helpers_cjs_1r9vbqw._.js",
-    "static/chunks/frontend_1anvha4._.js",
-    "static/chunks/turbopack-frontend_08bm286._.js"
+    "static/chunks/_1anvha4._.js",
+    "static/chunks/turbopack-_08bm286._.js"
   ],
   "pages": {},
   "ampFirstPages": [],
@@ -29,9 +29,9 @@
       "static/chunks/node_modules_next_dist_client_0_90u2t._.js",
       "static/chunks/node_modules_next_dist_1e8vcs8._.js",
       "static/chunks/node_modules_@swc_helpers_cjs_1r9vbqw._.js",
-      "static/chunks/frontend_1anvha4._.js",
-      "static/chunks/turbopack-frontend_08bm286._.js",
-      "static/chunks/frontend_1urspxg._.js"
+      "static/chunks/_1anvha4._.js",
+      "static/chunks/turbopack-_08bm286._.js",
+      "static/chunks/_1urspxg._.js"
     ]
   },
   "pagesChunkGroupBootstrapParams": {},
