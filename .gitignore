@@ -1,9 +1,9 @@
-node_modules/
-.next/
-out/
+# Dependencies and build output
+**/node_modules/
+**/.next/
+**/out/
 /work/
 .env*
 !.env.example
 *.log
 .DS_Store
-
