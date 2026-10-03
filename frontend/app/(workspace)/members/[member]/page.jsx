@@ -18,7 +18,7 @@ export default async function MemberPage({ params }) {
 
   return (
     <>
-      <Link className="back-link" href="/home">← Back to home</Link>
+      <Link className="back-link" href="/dashboard">← Back to dashboard</Link>
       <h1>Member {member}</h1>
       <p className="muted">Team member work area</p>
       <section className="content-box" aria-labelledby="member-heading">

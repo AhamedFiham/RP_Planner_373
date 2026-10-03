@@ -5,7 +5,7 @@ export default function NotFoundPage() {
     <main className="container">
       <h1>Page not found</h1>
       <p>This project section does not exist.</p>
-      <Link className="button" href="/home">Back to home</Link>
+      <Link className="button" href="/dashboard">Back to dashboard</Link>
     </main>
   );
 }

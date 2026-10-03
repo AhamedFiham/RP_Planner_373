@@ -1,5 +1,4 @@
 import './globals.css';
-import { DemoSessionProvider } from '@/components/demo-session';
 
 export const metadata = {
   title: { default: 'RP Planner', template: '%s | RP Planner' },
@@ -10,7 +9,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <DemoSessionProvider>{children}</DemoSessionProvider>
+        {children}
       </body>
     </html>
   );
