@@ -11,3 +11,16 @@
 **/node_modules/
 **/.next/
 **/out/
+
+# Python and backend runtime artifacts
+**/__pycache__/
+*.py[cod]
+**/.venv/
+.pytest_cache/
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/outputs/*
+!backend/outputs/.gitkeep
+backend/trained_models/**/*
+!backend/trained_models/**/
+!backend/trained_models/**/.gitkeep
