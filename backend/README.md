@@ -38,3 +38,12 @@ Without `MONGODB_URI`, local development uses persistent SQLite in
 in-memory fallback cannot be recovered after a restart and must be registered again.
 Logout removes the browser session, not the saved account. Set a strong
 `JWT_SECRET` before deploying.
+
+## Component demo accounts
+
+For development only, run `python -m scripts.seed_demo_accounts` from `backend`
+to create diabetes@diabeticcare.com, retinopathy@diabeticcare.com,
+wound@diabeticcare.com, and diet@diabeticcare.com, each with password `2026!`.
+Existing accounts are not overwritten. Each signs in through `/login` and opens
+its component dashboard. These are test identifiers, not verified email inboxes.
+New public registrations still require the stronger password policy.

@@ -304,3 +304,9 @@ body:has(.dfu-main > .dashboard-page) > .home-footer { display: none; }
 @media(max-width:760px){.dashboard-welcome{padding:23px}.dashboard-sidebar{background:#f8faf9}}
 .auth-wordmark { font-size:28px; font-weight:800; color:#0b1f3a; letter-spacing:-.04em; }.auth-wordmark span { color:#16805b; }.auth-logo { text-decoration:none; }
 .auth-panel select { display:block; width:100%; margin-top:7px; padding:12px; min-height:44px; border:1px solid #cbd5e1; border-radius:10px; background:rgba(255,255,255,.72); color:#07111f; font:inherit; }.auth-field-help { display:block; margin-top:5px; color:#64748b; font-weight:400; }.auth-panel select:focus-visible { outline:3px solid #3475b5; outline-offset:3px; }
+.registration-panel { width:min(560px,calc(100% - 48px)); }
+.registration-panel form { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:18px; }
+.registration-panel form > label { margin-top:12px; }
+.registration-panel form > .auth-submit,.registration-panel form > .auth-error { grid-column:1 / -1; }
+.registration-panel input { margin-top:7px; }.registration-panel .auth-input { margin-top:7px; }.registration-panel .auth-input input { margin-top:0; }
+@media(max-width:540px){.registration-panel form{grid-template-columns:1fr}.registration-panel{width:calc(100% - 36px)}}
