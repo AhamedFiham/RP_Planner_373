@@ -302,3 +302,5 @@ body:has(.dfu-main > .dashboard-page) > .home-footer { display: none; }
 .card-action,.view-link,.row-link { font-size:12px; }.quick-action strong { font-size:12px; }.assessment-copy strong,.recommendations strong,.reminder strong { font-size:13px; }.assessment-copy small,.recommendations small,.reminder small { font-size:12px; }
 .auth-eyebrow,.auth-kicker { color:#126344; }.auth-points svg { color:#16805b; }.auth-error { color:#9c302b; background:#fde8e6; }
 @media(max-width:760px){.dashboard-welcome{padding:23px}.dashboard-sidebar{background:#f8faf9}}
+.auth-wordmark { font-size:28px; font-weight:800; color:#0b1f3a; letter-spacing:-.04em; }.auth-wordmark span { color:#16805b; }.auth-logo { text-decoration:none; }
+.auth-panel select { display:block; width:100%; margin-top:7px; padding:12px; min-height:44px; border:1px solid #cbd5e1; border-radius:10px; background:rgba(255,255,255,.72); color:#07111f; font:inherit; }.auth-field-help { display:block; margin-top:5px; color:#64748b; font-weight:400; }.auth-panel select:focus-visible { outline:3px solid #3475b5; outline-offset:3px; }

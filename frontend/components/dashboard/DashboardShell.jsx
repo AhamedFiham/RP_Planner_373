@@ -47,7 +47,7 @@ export default function DashboardShell({ children, title, contentAs: ContentElem
       <aside className={`dashboard-sidebar ${open ? 'open' : ''}`}>
         <div className="dashboard-brand">
           <div className="brand-mark"><Sparkles size={18} /></div>
-          <div><strong>DiaCare AI</strong><span>Smart Diabetes Care</span></div>
+          <div><strong>DiabeticCARE</strong><span>Smart Diabetes Care</span></div>
           <button className="sidebar-close" type="button" onClick={closeMenu} aria-label="Close menu"><X size={20} /></button>
         </div>
         <nav className="dashboard-nav" aria-label="Dashboard navigation">

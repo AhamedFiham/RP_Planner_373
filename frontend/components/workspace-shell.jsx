@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 
 export default function WorkspaceShell({ children }) {
@@ -13,15 +12,8 @@ export default function WorkspaceShell({ children }) {
       <a className="skip-link" href="#main-content">Skip to content</a>
       <header className="home-header">
         <div className="home-header-inner">
-          <Link className="home-brand" href="/dashboard" aria-label="DCare AI dashboard">
-            <Image
-              className="home-brand-image"
-              src="/dcare-ai-logo.png"
-              alt="DCare AI"
-              width={1970}
-              height={452}
-              priority
-            />
+          <Link className="home-brand" href="/dashboard" aria-label="DiabeticCARE dashboard">
+            <span className="auth-wordmark">Diabetic<span>CARE</span></span>
           </Link>
           <nav className="home-nav" aria-label="Research sections">
             <Link href="/dashboard">Dashboard</Link>
@@ -35,7 +27,7 @@ export default function WorkspaceShell({ children }) {
       </header>
       <main id="main-content" className={isDfu ? 'dfu-main' : 'container'} tabIndex={-1}>{children}</main>
       <footer className="home-footer">
-        <span>DCare AI</span>
+        <span>DiabeticCARE</span>
         <span>Student research project</span>
       </footer>
     </>

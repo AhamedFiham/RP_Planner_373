@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api import auth, diabetes, diet, retinopathy, wound
 
-app = FastAPI(title="DiaCare AI Backend")
+app = FastAPI(title="DiabeticCARE Backend")
 
 for router in (auth.router, diabetes.router, retinopathy.router, wound.router, diet.router):
     app.include_router(router, prefix="/api")
