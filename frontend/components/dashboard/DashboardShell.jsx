@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { useAuth } from '@/components/auth-provider';
 import {
   Activity, Bell, ClipboardList, Eye, Home, Menu, Search,
   ShieldCheck, Sparkles, Stethoscope, Utensils, X,
@@ -37,6 +38,7 @@ function NavLink({ href, label, icon: Icon, active = false, onClick }) {
 export default function DashboardShell({ children, title, contentAs: ContentElement = 'main', showSkipLink = true }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const { logout } = useAuth() || {};
   const closeMenu = () => setOpen(false);
 
   return (
@@ -54,7 +56,7 @@ export default function DashboardShell({ children, title, contentAs: ContentElem
           {healthTools.map(tool => <NavLink key={tool.href} {...tool} active={pathname === tool.href} onClick={closeMenu} />)}
           <p className="nav-label">My Health</p>
           {healthLinks.map(link => <NavLink key={link.label} {...link} onClick={closeMenu} />)}
-        </nav>
+        </nav><button className="dashboard-logout" type="button" onClick={logout}><X size={17} /> Sign out</button>
       </aside>
       {open && <button className="dashboard-overlay" type="button" onClick={closeMenu} aria-label="Close navigation" />}
       <ContentElement className="dashboard-content" id={showSkipLink ? 'main-content' : undefined} tabIndex={-1}>

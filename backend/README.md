@@ -28,3 +28,13 @@ Each member owns their component files in `app/api`, `app/services`, `app/models
 Keep local configuration in `.env` and document variable names in `.env.example`.
 Uploaded files, generated outputs, and model artifacts are excluded from Git;
 `.gitkeep` files preserve the folder structure.
+
+## Account storage
+
+Authentication loads `backend/.env`. Set `MONGODB_URI` and `MONGODB_DATABASE`
+to use MongoDB; connection failures return HTTP 503 and never silently discard accounts.
+Without `MONGODB_URI`, local development uses persistent SQLite in
+`backend/outputs/auth.sqlite3` (excluded from Git). Accounts created by the old
+in-memory fallback cannot be recovered after a restart and must be registered again.
+Logout removes the browser session, not the saved account. Set a strong
+`JWT_SECRET` before deploying.
