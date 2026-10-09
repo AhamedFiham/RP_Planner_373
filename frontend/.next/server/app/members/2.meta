@@ -1,0 +1,44 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(workspace)/layout,_N_T_/(workspace)/members/layout,_N_T_/(workspace)/members/[member]/layout,_N_T_/(workspace)/members/[member]/page,_N_T_/members/2"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KHdvcmtzcGFjZSk/members/$d$member/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 96,
+            "slots": {
+              "children": {
+                "hints": 96,
+                "slots": {
+                  "children": {
+                    "hints": 160,
+                    "slots": null
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/a70f0da666bb992cd413924270eeffc5520aa6287e143585674070ebdbb730d8/$/members/2",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/(workspace)/members/[member]/page"
+    },
+    "isFallback": false
+  }
+}

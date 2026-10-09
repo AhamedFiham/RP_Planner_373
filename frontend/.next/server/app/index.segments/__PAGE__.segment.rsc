@@ -1,0 +1,21 @@
+1:"$Sreact.fragment"
+3:I[97367,["/_next/static/chunks/40y-opbdkrsch.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/40y-opbdkrsch.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/40y-opbdkrsch.js"],"MetadataBoundary"]
+b:I[5968,["/_next/static/chunks/40y-opbdkrsch.js"],"DemoSessionProvider"]
+c:I[39756,["/_next/static/chunks/40y-opbdkrsch.js"],"default"]
+d:I[37457,["/_next/static/chunks/40y-opbdkrsch.js"],"default"]
+e:I[22016,["/_next/static/chunks/40y-opbdkrsch.js","/_next/static/chunks/0axdrs6tow-4n.js"],""]
+:HL["/_next/static/chunks/0tacbgfw50pwh.css","style"]
+7:X
+0:{"buildId":"xma9LlPUX22BB0wuKf8jt","data":[{"rsc":["$","$1","c",{"children":["$L2",null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"RP Planner"}],["$","meta","1",{"name":"description","content":"Research project workspace for DFU and four team members."}]]}]}]}],null]}],"isPartial":"$@a","staleTime":"$7","varyParams":null},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0tacbgfw50pwh.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/40y-opbdkrsch.js","async":true}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$Lb",null,{"children":["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}],"notFound":[["$","main",null,{"className":"container","children":[["$","h1",null,{"children":"Page not found"}],["$","p",null,{"children":"This project section does not exist."}],["$","$Le",null,{"className":"button","href":"/home","children":"Back to home"}]]}],[]]}]}]}]}]]}],"isPartial":"$@f","staleTime":"$7","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+2:E{"digest":"NEXT_REDIRECT;replace;/login;307;"}
+5:null
+7:300
+11:true
+7:C
+10:0
+a:"$undefined"
+f:"$undefined"
+6:"$undefined"

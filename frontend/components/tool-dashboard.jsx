@@ -1,6 +1,0 @@
-import Link from 'next/link';
-import DashboardShell from '@/components/dashboard/DashboardShell';
-import { ArrowRight, Activity, ClipboardList, ShieldCheck } from 'lucide-react';
-export default function ToolDashboard({ title, description, action, href, steps }) {
-  return <DashboardShell title={title} hideSidebar><div className="dashboard-inner"><section className="dashboard-welcome"><div><p className="dashboard-kicker">YOUR CARE WORKSPACE</p><h2>{title}</h2><p>{description}</p></div><Link className="button" href={href}>{action} <ArrowRight size={16}/></Link></section><div className="dashboard-columns"><section className="dashboard-card"><Activity size={24}/><h2>Assessment overview</h2><p className="muted">No assessment results connected yet. Complete an assessment in the workspace to begin tracking this part of your care.</p><Link className="card-action" href={href}>Open workspace <ArrowRight size={16}/></Link></section><section className="dashboard-card"><ClipboardList size={24}/><h2>Prepare for your assessment</h2><ol>{steps.map(step=><li key={step}>{step}</li>)}</ol></section></div><section className="dashboard-card"><ShieldCheck size={24}/><h2>Care history</h2><p className="muted">Your care history will appear here when saved assessments are connected.</p></section></div></DashboardShell>;
-}

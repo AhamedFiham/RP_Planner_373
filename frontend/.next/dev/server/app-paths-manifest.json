@@ -1,0 +1,10 @@
+{
+  "/(workspace)/retino/page": "app/(workspace)/retino/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/diabetes/page": "app/diabetes/page.js",
+  "/diet/page": "app/diet/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js",
+  "/retinopathy/page": "app/retinopathy/page.js",
+  "/wound/page": "app/wound/page.js"
+}

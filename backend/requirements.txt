@@ -1,7 +1,2 @@
 fastapi
 uvicorn[standard]
-pymongo
-python-jose[cryptography]
-bcrypt
-email-validator
-python-dotenv

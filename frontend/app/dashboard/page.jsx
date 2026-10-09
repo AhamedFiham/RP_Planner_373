@@ -8,10 +8,10 @@ import {
 import DashboardShell from '@/components/dashboard/DashboardShell';
 
 const tools = [
-  { title: 'Diabetes Risk', result: 'Moderate Risk', detail: '68% risk probability', note: 'Based on your latest health assessment.', action: 'View Assessment', href: '/dashboard/diabetes', icon: HeartPulse, tone: 'warning', progress: 68 },
-  { title: 'Retinopathy', result: 'Moderate NPDR', detail: '87% confidence', note: 'Latest retinal fundus image assessment.', action: 'View Analysis', href: '/dashboard/retinopathy', icon: Eye, tone: 'warning' },
-  { title: 'Wound Healing', result: 'Healing', detail: '72% healing progress', note: 'Latest diabetic foot wound assessment.', action: 'View Progress', href: '/dashboard/wound', icon: ShieldCheck, tone: 'success', progress: 72 },
-  { title: 'Diet Planning', result: 'Moderate Glycemic Load', detail: "Today's GL target: Low–Moderate", note: 'Personalized recommendations based on your profile.', action: 'View Diet Plan', href: '/dashboard/diet', icon: Utensils, tone: 'info' },
+  { title: 'Diabetes Risk', result: 'Moderate Risk', detail: '68% risk probability', note: 'Based on your latest health assessment.', action: 'View Assessment', href: '/diabetes', icon: HeartPulse, tone: 'warning', progress: 68 },
+  { title: 'Retinopathy', result: 'Moderate NPDR', detail: '87% confidence', note: 'Latest retinal fundus image assessment.', action: 'View Analysis', href: '/retinopathy', icon: Eye, tone: 'warning' },
+  { title: 'Wound Healing', result: 'Healing', detail: '72% healing progress', note: 'Latest diabetic foot wound assessment.', action: 'View Progress', href: '/dfu', icon: ShieldCheck, tone: 'success', progress: 72 },
+  { title: 'Diet Planning', result: 'Moderate Glycemic Load', detail: "Today's GL target: Low–Moderate", note: 'Personalized recommendations based on your profile.', action: 'View Diet Plan', href: '/diet', icon: Utensils, tone: 'info' },
 ];
 
 const quickActions = [
