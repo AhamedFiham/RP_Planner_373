@@ -24,3 +24,8 @@ backend/outputs/*
 backend/trained_models/**/*
 !backend/trained_models/**/
 !backend/trained_models/**/.gitkeep
+
+# Component datasets
+backend/datasets/**/*
+!backend/datasets/**/
+!backend/datasets/**/.gitkeep
