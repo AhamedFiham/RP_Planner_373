@@ -5,3 +5,7 @@ python-jose[cryptography]
 bcrypt
 email-validator
 python-dotenv
+
+Pillow
+
+PyYAML

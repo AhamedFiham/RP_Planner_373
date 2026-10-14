@@ -1,7 +1,7 @@
 """Create validated, consistently named diet dataset copies; never modify raw data.
 
 Run from backend: python scripts/clean_diet_datasets.py
-Requires Pillow. Skips existing output directories without modifying them.
+Requires Pillow and PyYAML. Skips existing output directories without modifying them.
 """
 from pathlib import Path
 from collections import Counter
@@ -11,11 +11,13 @@ import json
 import math
 import shutil
 from PIL import Image
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1] / 'datasets' / 'diet'
 SOURCES = {
     'sl_meal_recognition_coco': 'SL Meal Recognition.v1i.coco-segmentation',
     'sri_lankan_food_detection_yolov8': 'sri-lankan-food-detection.v2i.yolov8',
+    'food_detect2_yolov8': 'food_detetct2.v1i.yolov8',
 }
 
 
@@ -40,12 +42,19 @@ def clean(key, source_name):
     # Validate before writing, so invalid labeled samples can be excluded together.
     rows, issues, seen, plans = [], [], {}, {}
     coco = key.endswith('coco')
+    config = None
+    if not coco:
+        config = yaml.safe_load((source / 'data.yaml').read_text())
+        names = config['names']
+        class_ids = set(range(len(names))) if isinstance(names, list) else {int(i) for i in names}
+        if int(config['nc']) != len(class_ids) or class_ids != set(range(len(class_ids))):
+            raise ValueError('YOLO class names and nc must describe contiguous class IDs.')
     for split in ('test', 'valid', 'train'):
         folder = source / split
         data = json.loads((folder / '_annotations.coco.json').read_text()) if coco else None
         paths = sorted(folder.glob('*.jpg')) if coco else sorted((folder / 'images').glob('*.jpg'))
         metadata = {r['file_name']: r for r in data['images']} if coco else {}
-        categories = {r['id'] for r in data['categories']} if coco else set(range(14))
+        categories = {r['id'] for r in data['categories']} if coco else class_ids
         annotations = {}
         if coco:
             for ann in data['annotations']:
@@ -147,9 +156,8 @@ def clean(key, source_name):
         if p.is_file() and p.suffix.lower() == '.txt':
             shutil.copy2(p, target / p.name)
     if not coco:
-        yaml = (source / 'data.yaml').read_text()
-        yaml = yaml.replace('train: ../train/images', 'train: train/images').replace('val: ../valid/images', 'val: valid/images').replace('test: ../test/images', 'test: test/images')
-        (target / 'data.yaml').write_text('path: ' + json.dumps(str(target)) + '\n' + yaml)
+        config.update(path=str(target), train='train/images', val='valid/images', test='test/images')
+        (target / 'data.yaml').write_text(yaml.safe_dump(config, sort_keys=False))
     with (target / 'manifest.csv').open('w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=['split', 'original', 'cleaned', 'status', 'reason'])
         writer.writeheader()
