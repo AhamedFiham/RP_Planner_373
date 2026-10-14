@@ -52,3 +52,19 @@ wound@diabeticcare.com, and diet@diabeticcare.com, each with password `2026!`.
 Existing accounts are not overwritten. Each signs in through `/login` and opens
 its component dashboard. These are test identifiers, not verified email inboxes.
 New public registrations still require the stronger password policy.
+
+## Diet dataset cleaning
+
+From `backend`, run `python3 scripts/clean_diet_datasets.py` with Pillow and
+PyYAML installed. The script handles the three meal datasets and Fruits-360
+when present in `datasets/diet/raw/`. Existing cleaned folders are skipped.
+Fruits-360 is a classification dataset: its images are stored under
+`processed/fruits360_classification/train/<class>/` and `test/<class>/`.
+Original images and licenses are preserved; exact pixel duplicates are excluded
+and recorded in the cleaning report. Near duplicates need manual review.
+
+`python3 scripts/export_food_names.py` rebuilds `processed/food_names.csv`.
+Class IDs are specific to each dataset. `annotation_count` counts annotated
+objects for detection/segmentation and labeled images for classification.
+Food class names retain the original spelling. The CSV is tracked in Git;
+image datasets remain excluded.

@@ -29,3 +29,6 @@ backend/trained_models/**/*
 backend/datasets/**/*
 !backend/datasets/**/
 !backend/datasets/**/.gitkeep
+
+# Share the diet class catalog without committing image datasets
+!backend/datasets/diet/processed/food_names.csv
