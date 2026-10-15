@@ -67,3 +67,10 @@ Class IDs are specific to each dataset. `annotation_count` counts annotated
 objects for detection/segmentation and labeled images for classification.
 Food class names retain the original spelling. The CSV is tracked in Git;
 image datasets remain excluded.
+
+## Fruit and vegetable reference notebook
+
+See `notebooks/diet/README.md` for the sanitized food-recognition notebook.
+Its source images are missing locally. The shared food-name CSV includes 36
+reference-only names under `fruit_vegetable_notebook_reference`, with blank
+class IDs and zero annotation counts. They do not represent cleaned images.
