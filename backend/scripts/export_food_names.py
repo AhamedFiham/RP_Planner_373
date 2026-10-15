@@ -38,11 +38,6 @@ def export_food_names():
             pairs = [(cat['id'], cat['name']) for cat in data[0]['categories'] if counts[cat['id']]]
         for cid, name in sorted(pairs):
             rows.append(dict(dataset=dataset.name, class_id=cid, food_name=name, annotation_count=counts[cid]))
-    reference = Path(__file__).resolve().parents[1] / 'notebooks/diet/reference_food_names.csv'
-    if reference.exists():
-        with reference.open() as handle:
-            for row in csv.DictReader(handle):
-                rows.append(dict(dataset='fruit_vegetable_notebook_reference', class_id='', food_name=row['food_name'], annotation_count=0))
     output = ROOT / 'food_names.csv'
     with output.open('w', newline='', encoding='utf-8') as handle:
         writer = csv.DictWriter(handle, fieldnames=['dataset', 'class_id', 'food_name', 'annotation_count'], lineterminator='\n')

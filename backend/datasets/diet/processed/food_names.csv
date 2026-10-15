@@ -18,6 +18,41 @@ food_detect_yolov8,7,Pittu,72
 food_detect_yolov8,8,Pol Sambol,91
 food_detect_yolov8,9,String Hoppers,66
 food_detect_yolov8,10,Watalappam,74
+sl_food_yolov8,0,Basmathi Rice,292
+sl_food_yolov8,1,Bean Curry,177
+sl_food_yolov8,2,Beat,105
+sl_food_yolov8,3,Bitter Gourd Curry,82
+sl_food_yolov8,4,Boiled Eggs,135
+sl_food_yolov8,5,Brinjal,200
+sl_food_yolov8,6,Capsicum Curry,34
+sl_food_yolov8,7,Cashew Nuwt curry,54
+sl_food_yolov8,8,Cauliflower curry,31
+sl_food_yolov8,9,Chicken,30
+sl_food_yolov8,10,Coconut Relish,91
+sl_food_yolov8,11,Cucumber,41
+sl_food_yolov8,12,Cutlet,74
+sl_food_yolov8,13,Dhal Curry,356
+sl_food_yolov8,14,Dried Halmasso,21
+sl_food_yolov8,15,Fish AmbulThiyal,31
+sl_food_yolov8,16,Fish Curry,104
+sl_food_yolov8,17,Fried Potato,210
+sl_food_yolov8,18,Fried Sprat,20
+sl_food_yolov8,19,Grilled Fish,1
+sl_food_yolov8,20,Lunu Miris,84
+sl_food_yolov8,21,Mallum,179
+sl_food_yolov8,22,Mango Curry,10
+sl_food_yolov8,23,Meat Curry,332
+sl_food_yolov8,24,Omlet,21
+sl_food_yolov8,25,Pappadam,238
+sl_food_yolov8,26,Pea Curry,102
+sl_food_yolov8,27,Polos Ambula,41
+sl_food_yolov8,28,Potato MilkyCurry,172
+sl_food_yolov8,29,Pumpkin Curry,51
+sl_food_yolov8,30,Shrimp Curry,93
+sl_food_yolov8,31,Soya Curry,51
+sl_food_yolov8,32,Vegetable Salad,191
+sl_food_yolov8,33,White Rice,516
+sl_food_yolov8,34,json,10
 sl_meal_recognition_coco,1,Basmathi Rice,40
 sl_meal_recognition_coco,2,Bean Curry,24
 sl_meal_recognition_coco,3,Beat,15
@@ -53,6 +88,9 @@ sl_meal_recognition_coco,32,Soya Curry,6
 sl_meal_recognition_coco,33,Vegetable Salad,29
 sl_meal_recognition_coco,34,White Rice,66
 sl_meal_recognition_coco,35,json,1
+sri_lankan_dishes_yolov8,0,dhal_curry,20
+sri_lankan_dishes_yolov8,1,fish_curry,16
+sri_lankan_dishes_yolov8,2,milk_rice,8
 sri_lankan_food_detection_yolov8,0,Carrot,25
 sri_lankan_food_detection_yolov8,1,Egg,18
 sri_lankan_food_detection_yolov8,2,Gotukola sambol,18
@@ -67,39 +105,102 @@ sri_lankan_food_detection_yolov8,10,onions,18
 sri_lankan_food_detection_yolov8,11,potato,11
 sri_lankan_food_detection_yolov8,12,white_rice,107
 sri_lankan_food_detection_yolov8,13,yellow_rice,65
-fruit_vegetable_notebook_reference,,apple,0
-fruit_vegetable_notebook_reference,,banana,0
-fruit_vegetable_notebook_reference,,beetroot,0
-fruit_vegetable_notebook_reference,,bell pepper,0
-fruit_vegetable_notebook_reference,,cabbage,0
-fruit_vegetable_notebook_reference,,capsicum,0
-fruit_vegetable_notebook_reference,,carrot,0
-fruit_vegetable_notebook_reference,,cauliflower,0
-fruit_vegetable_notebook_reference,,chilli pepper,0
-fruit_vegetable_notebook_reference,,corn,0
-fruit_vegetable_notebook_reference,,cucumber,0
-fruit_vegetable_notebook_reference,,eggplant,0
-fruit_vegetable_notebook_reference,,garlic,0
-fruit_vegetable_notebook_reference,,ginger,0
-fruit_vegetable_notebook_reference,,grapes,0
-fruit_vegetable_notebook_reference,,jalepeno,0
-fruit_vegetable_notebook_reference,,kiwi,0
-fruit_vegetable_notebook_reference,,lemon,0
-fruit_vegetable_notebook_reference,,lettuce,0
-fruit_vegetable_notebook_reference,,mango,0
-fruit_vegetable_notebook_reference,,onion,0
-fruit_vegetable_notebook_reference,,orange,0
-fruit_vegetable_notebook_reference,,paprika,0
-fruit_vegetable_notebook_reference,,pear,0
-fruit_vegetable_notebook_reference,,peas,0
-fruit_vegetable_notebook_reference,,pineapple,0
-fruit_vegetable_notebook_reference,,pomegranate,0
-fruit_vegetable_notebook_reference,,potato,0
-fruit_vegetable_notebook_reference,,raddish,0
-fruit_vegetable_notebook_reference,,soy beans,0
-fruit_vegetable_notebook_reference,,spinach,0
-fruit_vegetable_notebook_reference,,sweetcorn,0
-fruit_vegetable_notebook_reference,,sweetpotato,0
-fruit_vegetable_notebook_reference,,tomato,0
-fruit_vegetable_notebook_reference,,turnip,0
-fruit_vegetable_notebook_reference,,watermelon,0
+vision_project_yolov8,0,Ashplantain Curry,6
+vision_project_yolov8,1,Beef Curry,23
+vision_project_yolov8,2,Beetroot Curry,7
+vision_project_yolov8,3,Bittergourd Curry,7
+vision_project_yolov8,4,Black Chicken Curry,19
+vision_project_yolov8,5,Boiled Cowpea,11
+vision_project_yolov8,6,Boiled jackfruit,10
+vision_project_yolov8,7,Brinjol Curry,7
+vision_project_yolov8,8,Butter cake,12
+vision_project_yolov8,9,Cabbage Curry,6
+vision_project_yolov8,10,Canned Fish curry,12
+vision_project_yolov8,11,Chicken Curry,50
+vision_project_yolov8,12,Chicken Kottu,9
+vision_project_yolov8,13,Chickpeas,10
+vision_project_yolov8,14,Chili Paste,24
+vision_project_yolov8,15,Coconut Roti,9
+vision_project_yolov8,16,Coconut Sambol,8
+vision_project_yolov8,17,Common Mallum,10
+vision_project_yolov8,18,Corn flakes,10
+vision_project_yolov8,19,Crab Curry,13
+vision_project_yolov8,20,Curb,13
+vision_project_yolov8,21,Cuttlefish curry,39
+vision_project_yolov8,22,Del Curry,13
+vision_project_yolov8,23,Devilled chicken,11
+vision_project_yolov8,24,Dhal Curry,30
+vision_project_yolov8,25,Dried Fish Curry,20
+vision_project_yolov8,26,Fish Curry,19
+vision_project_yolov8,27,Fish cutlets,12
+vision_project_yolov8,28,Flavourd mild cartoons,12
+vision_project_yolov8,29,French Fries,10
+vision_project_yolov8,30,Fresh Milk,3
+vision_project_yolov8,31,Fried Rice,23
+vision_project_yolov8,32,Gotukola Sambol,12
+vision_project_yolov8,33,Green Beans Curry,6
+vision_project_yolov8,34,Greengram boiled,15
+vision_project_yolov8,35,Ice cream,12
+vision_project_yolov8,36,Icing cake,13
+vision_project_yolov8,37,Jackfruit Curry,6
+vision_project_yolov8,38,Jam,10
+vision_project_yolov8,39,Jelly,12
+vision_project_yolov8,40,Keselmuwa Curry,6
+vision_project_yolov8,41,Kohila Curry,6
+vision_project_yolov8,42,Kotu Roti,12
+vision_project_yolov8,43,Leeks Curry,6
+vision_project_yolov8,44,Manioc boiled,16
+vision_project_yolov8,45,Milk packet,18
+vision_project_yolov8,46,Milk rice,80
+vision_project_yolov8,47,Muesli,14
+vision_project_yolov8,48,Mushroom Curry,10
+vision_project_yolov8,49,Mutton Curry,13
+vision_project_yolov8,50,Oats,11
+vision_project_yolov8,51,Okra Curry,6
+vision_project_yolov8,52,Organ meat curry,12
+vision_project_yolov8,53,Papadam,9
+vision_project_yolov8,54,Pasta,11
+vision_project_yolov8,55,Pastuerized Milk,15
+vision_project_yolov8,56,Peanut,1
+vision_project_yolov8,57,Pineapple,22
+vision_project_yolov8,58,Pitu Red,16
+vision_project_yolov8,59,Pitu white,23
+vision_project_yolov8,60,Plain Thosai,3
+vision_project_yolov8,61,Polished Rice,63
+vision_project_yolov8,62,Polos Curry,6
+vision_project_yolov8,63,Pork Curry,44
+vision_project_yolov8,64,Potato Curry,10
+vision_project_yolov8,65,Potato Tempered,6
+vision_project_yolov8,66,Prawn curry,25
+vision_project_yolov8,67,Pudding,11
+vision_project_yolov8,68,Pumpkin Curry,7
+vision_project_yolov8,69,Raddish Curry,9
+vision_project_yolov8,70,Red String Hoppers,9
+vision_project_yolov8,71,Roti,6
+vision_project_yolov8,72,Samaposha,9
+vision_project_yolov8,73,Sausage,15
+vision_project_yolov8,74,Set yoghurt,66
+vision_project_yolov8,75,Snakegourd Curry,9
+vision_project_yolov8,76,Soy milk,6
+vision_project_yolov8,77,Soya Curry,10
+vision_project_yolov8,78,Sprats tempered,10
+vision_project_yolov8,79,Spring Onion,18
+vision_project_yolov8,80,String Hoppers,31
+vision_project_yolov8,81,Sweet Potato,16
+vision_project_yolov8,82,Thosai,12
+vision_project_yolov8,83,Tibbatu Mallum,9
+vision_project_yolov8,84,Tomato sauce,12
+vision_project_yolov8,85,Unpolished Rice,14
+vision_project_yolov8,86,Vegetable Chopsuey,8
+vision_project_yolov8,87,Vegetable Salad,7
+vision_project_yolov8,88,Vegetable soup,6
+vision_project_yolov8,89,Wada,18
+vision_project_yolov8,90,Watalappan,11
+vision_project_yolov8,91,White String Hoppers,11
+vision_project_yolov8,92,White fish curry,20
+vision_project_yolov8,93,Yellow Rice,13
+vision_project_yolov8,94,Yougurt Molk,42
+vision_project_yolov8,95,bread,12
+vision_project_yolov8,96,noodles,12
+vision_project_yolov8,97,sour fish curry,12
+vision_project_yolov8,98,spoon,766

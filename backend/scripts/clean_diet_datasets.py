@@ -19,6 +19,9 @@ SOURCES = {
     'sri_lankan_food_detection_yolov8': 'sri-lankan-food-detection.v2i.yolov8',
     'food_detect2_yolov8': 'food_detetct2.v1i.yolov8',
     'food_detect_yolov8': 'food detect.v1i.yolov8',
+    'vision_project_yolov8': 'vision project.v11i.yolov8',
+    'sri_lankan_dishes_yolov8': 'Sri Lankan Dishes.v2i.yolov8',
+    'sl_food_yolov8': 'SL Food.v2i.yolov8',
 }
 
 

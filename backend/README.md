@@ -56,7 +56,7 @@ New public registrations still require the stronger password policy.
 ## Diet dataset cleaning
 
 From `backend`, run `python3 scripts/clean_diet_datasets.py` with Pillow and
-PyYAML installed. The script handles the four meal datasets in `datasets/diet/raw/`.
+PyYAML installed. The script handles the seven meal datasets in `datasets/diet/raw/`.
 Existing cleaned folders are skipped. Fruits-360 processing is disabled in this
 command; the optional standalone Fruits-360 script is retained.
 Original images and licenses are preserved; exact pixel duplicates are excluded
@@ -67,10 +67,3 @@ Class IDs are specific to each dataset. `annotation_count` counts annotated
 objects for detection/segmentation and labeled images for classification.
 Food class names retain the original spelling. The CSV is tracked in Git;
 image datasets remain excluded.
-
-## Fruit and vegetable reference notebook
-
-See `notebooks/diet/README.md` for the sanitized food-recognition notebook.
-Its source images are missing locally. The shared food-name CSV includes 36
-reference-only names under `fruit_vegetable_notebook_reference`, with blank
-class IDs and zero annotation counts. They do not represent cleaned images.
