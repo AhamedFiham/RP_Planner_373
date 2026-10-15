@@ -18,6 +18,7 @@ SOURCES = {
     'sl_meal_recognition_coco': 'SL Meal Recognition.v1i.coco-segmentation',
     'sri_lankan_food_detection_yolov8': 'sri-lankan-food-detection.v2i.yolov8',
     'food_detect2_yolov8': 'food_detetct2.v1i.yolov8',
+    'food_detect_yolov8': 'food detect.v1i.yolov8',
 }
 
 
@@ -171,8 +172,5 @@ def clean(key, source_name):
 if __name__ == '__main__':
     for key, source_name in SOURCES.items():
         clean(key, source_name)
-    from clean_fruits_dataset import clean_fruits
     from export_food_names import export_food_names
-    if (ROOT / 'raw' / 'fruits-360-100x100-main').exists():
-        clean_fruits()
     export_food_names()
