@@ -1,8 +1,8 @@
 'use client';
-import { ClipboardList } from 'lucide-react';
+import { ClipboardList, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { percent } from '@/lib/retinopathy/constants';
-import { normalizeRecord } from '@/lib/retinopathy/contract';
+import { displayHistoricalQuality, normalizeRecord } from '@/lib/retinopathy/contract';
 import useRetinopathyArtifacts from '@/hooks/useRetinopathyArtifacts';
 import RetinopathyResult from './RetinopathyResult';
 
@@ -15,7 +15,7 @@ function Detail({ id, api }) {
   },[api,id]);
   if (error) return <p role="alert" className="retino-error">{error}</p>;
   if (!record) return <p role="status">Loading saved assessment…</p>;
-  return <div className="retino-record-details"><p>Status: {record.assessment_status} · Quality: {record.image_quality || 'Not assessed'} · Quality model: {record.quality_model_version || 'Unavailable'}</p><p>Original quality probabilities and guidance text were not retained in this record.</p>{result ? <RetinopathyResult api={api} result={result} /> : <><p>No saved severity prediction. This record is {record.assessment_status.replaceAll('_',' ')}.</p><StoredOriginal record={record} api={api} /></>}</div>;
+  return <div className="retino-record-details"><p>Status: {record.assessment_status} · Quality: {displayHistoricalQuality(record.image_quality)} · Quality model: {record.quality_model_version || 'Unavailable'}</p><p>Original quality probabilities and guidance text were not retained in this record.</p>{result ? <RetinopathyResult api={api} result={result} /> : <><p>No saved severity prediction. This record is {record.assessment_status.replaceAll('_',' ')}.</p><StoredOriginal record={record} api={api} /></>}</div>;
 }
 function StoredOriginal({ record, api }) {
   const [reference] = useState(() => ({ original: record.artifacts?.find(a=>a.artifact_type==='original')?.url }));
@@ -37,7 +37,7 @@ export default function RetinopathyHistory({ api, revision, onDeleted }) {
   return <section className="retino-card" aria-labelledby="history-title">
     <div className="retino-card-heading"><div className="retino-icon blue"><ClipboardList size={20} /></div><div><h2 id="history-title">Recent Retinopathy Assessments</h2><p>Your saved assessment history, newest first.</p></div></div>
     {error && <p className="retino-error" role="alert">{error}</p>}{!data && !error && <p role="status">Loading history…</p>}{data?.items.length===0 && <p>No assessments on this page.</p>}
-    <div className="retino-history-table-wrap" tabIndex={0} role="region" aria-label="Assessment history"><table className="retino-history-table"><thead><tr><th>Assessment date</th><th>Severity / status</th><th>Confidence</th><th>Image quality</th><th>Actions</th></tr></thead><tbody>{data?.items.map(record=><tr key={record.id}><th scope="row">{new Date(record.created_at).toLocaleString()}</th><td>{record.severity_label || 'No prediction'} · {record.assessment_status}</td><td>{record.confidence == null ? 'Unavailable' : `${percent(record.confidence)} (${record.is_calibrated ? 'calibrated' : 'uncalibrated'})`}</td><td>{record.image_quality || 'Not assessed'}</td><td><button className="retino-details-button" type="button" onClick={()=>setOpen(open===record.id?null:record.id)} aria-expanded={open===record.id}>View details</button><button className="retino-details-button" type="button" disabled={deleting} onClick={()=>setConfirm(record.id)}>Delete</button></td></tr>)}</tbody></table></div>
+    <div className="retino-history-table-wrap" tabIndex={0} role="region" aria-label="Assessment history"><table className="retino-history-table"><thead><tr><th>Assessment date</th><th>Severity / status</th><th>Confidence</th><th>Image quality</th><th>Actions</th></tr></thead><tbody>{data?.items.map(record=><tr key={record.id}><th scope="row">{new Date(record.created_at).toLocaleString()}</th><td>{record.severity_label || 'No prediction'} · {record.assessment_status}</td><td>{record.confidence == null ? 'Unavailable' : `${percent(record.confidence)} (${record.is_calibrated ? 'calibrated' : 'uncalibrated'})`}</td><td>{displayHistoricalQuality(record.image_quality)}</td><td><div className="retino-history-actions"><button className="retino-details-button" type="button" onClick={()=>setOpen(open===record.id?null:record.id)} aria-expanded={open===record.id}>View details</button><button className="retino-details-button retino-delete-button" type="button" disabled={deleting} onClick={()=>setConfirm(record.id)} aria-label={`Delete assessment from ${new Date(record.created_at).toLocaleString()}`}><Trash2 size={14} aria-hidden="true" />Delete</button></div></td></tr>)}</tbody></table></div>
     {confirm && <div className="retino-record-details" role="group" aria-label="Confirm assessment deletion"><p>Delete this assessment and its stored retinal images? This cannot be undone.</p><button className="retino-button ghost" disabled={deleting} onClick={()=>setDeleting(true)}>{deleting?'Deleting…':'Confirm deletion'}</button><button className="retino-button ghost" disabled={deleting} onClick={()=>setConfirm(null)}>Cancel</button></div>}
     {open && <Detail key={open} id={open} api={api} />}
     <div className="retino-upload-actions"><button className="retino-button ghost" disabled={page===1} onClick={()=>setPage(p=>p-1)}>Previous</button><span>Page {page}{data?` · ${data.total} assessments`:''}</span><button className="retino-button ghost" disabled={!data || page*data.limit>=data.total} onClick={()=>setPage(p=>p+1)}>Next</button><button className="retino-button ghost" onClick={()=>setRefresh(v=>v+1)}>Refresh history</button></div>
