@@ -9,3 +9,9 @@ python-dotenv
 Pillow
 
 PyYAML
+
+# YOLOv8n baseline training
+ultralytics==8.4.182
+
+# Multipart image uploads
+python-multipart

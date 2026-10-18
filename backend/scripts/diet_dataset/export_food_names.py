@@ -1,14 +1,24 @@
 """Export dataset class names and annotation/image counts to processed/food_names.csv."""
+import sys
 from pathlib import Path
+
+if __package__ in (None, ''):
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from collections import Counter
 import csv
 import json
 import yaml
 
-ROOT = Path(__file__).resolve().parents[1] / 'datasets' / 'diet' / 'processed'
+ROOT = Path(__file__).resolve().parents[2] / 'datasets' / 'diet' / 'processed'
 
 
 def export_food_names():
+    prepared = ROOT.parent / 'normalized/reports'
+    if (prepared / 'pipeline_metadata.json').exists():
+        import shutil
+        shutil.copy2(prepared / 'food_names.csv', ROOT / 'food_names.csv')
+        print('Exported food names from the validated modular pipeline reports.')
+        return
     rows = []
     normalized = ROOT.parent / 'normalized'
     using_normalized = (normalized / 'normalization_report.json').exists()

@@ -1,161 +1,1143 @@
 {
-  "Ashplantain_Curry": 0,
-  "Basmati_Rice": 1,
-  "Bean_Curry": 2,
-  "Beans": 3,
-  "Beat": 4,
-  "Beef_Curry": 5,
-  "Beetroot": 6,
-  "Beetroot_Curry": 7,
-  "Bitter_Gourd_Curry": 8,
-  "Black_Chicken_Curry": 9,
-  "Boiled_Cowpea": 10,
-  "Boiled_Eggs": 11,
-  "Boiled_Jackfruit": 12,
-  "Bonchi": 13,
-  "Bread": 14,
-  "Brinjal": 15,
-  "Brinjol_Curry": 16,
-  "Butter_Cake": 17,
-  "Cabbage_Curry": 18,
-  "Canned_Fish_Curry": 19,
-  "Capsicum_Curry": 20,
-  "Carrot": 21,
-  "Cashew_Nut_Curry": 22,
-  "Cauliflower_Curry": 23,
-  "Chicken": 24,
-  "Chicken_Curry": 25,
-  "Chicken_Kottu": 26,
-  "Chickpeas": 27,
-  "Chili_Paste": 28,
-  "Coconut_Relish": 29,
-  "Coconut_Roti": 30,
-  "Coconut_Sambol": 31,
-  "Common_Mallum": 32,
-  "Corn_Flakes": 33,
-  "Crab_Curry": 34,
-  "Cucumber": 35,
-  "Curb": 36,
-  "Cutlet": 37,
-  "Cuttlefish_Curry": 38,
-  "Del_Curry": 39,
-  "Devilled_Chicken": 40,
-  "Dhal_Curry": 41,
-  "Dried_Fish_Curry": 42,
-  "Dried_Halmasso": 43,
-  "Egg": 44,
-  "Fish": 45,
-  "Fish_Ambulthiyal": 46,
-  "Fish_Curry": 47,
-  "Fish_Cutlets": 48,
-  "Flavourd_Mild_Cartoons": 49,
-  "French_Fries": 50,
-  "Fresh_Milk": 51,
-  "Fried_Potato": 52,
-  "Fried_Rice": 53,
-  "Fried_Sprat": 54,
-  "Gotukola_Sambol": 55,
-  "Green_Beans_Curry": 56,
-  "Greengram_Boiled": 57,
-  "Grilled_Fish": 58,
-  "Hoppers": 59,
-  "Ice_Cream": 60,
-  "Icing_Cake": 61,
-  "Jackfruit_Curry": 62,
-  "Jam": 63,
-  "Jelly": 64,
-  "Kavum": 65,
-  "Keselmuwa_Curry": 66,
-  "Kiribath": 67,
-  "Kohila_Curry": 68,
-  "Kokis": 69,
-  "Kottu": 70,
-  "Kotu_Roti": 71,
-  "Leeks_Curry": 72,
-  "Long_Beans": 73,
-  "Lunu_Miris": 74,
-  "Lunu_Sambol": 75,
-  "Mallum": 76,
-  "Mango_Curry": 77,
-  "Manioc_Boiled": 78,
-  "Meat_Curry": 79,
-  "Milk_Packet": 80,
-  "Muesli": 81,
-  "Mukunuwenna_Mallum": 82,
-  "Mushroom_Curry": 83,
-  "Mutton_Curry": 84,
-  "Noodles": 85,
-  "Oats": 86,
-  "Okra_Curry": 87,
-  "Omelette": 88,
-  "Onions": 89,
-  "Organ_Meat_Curry": 90,
-  "Pappadam": 91,
-  "Pasta": 92,
-  "Pasteurized_Milk": 93,
-  "Pea_Curry": 94,
-  "Peanut": 95,
-  "Pineapple": 96,
-  "Pittu": 97,
-  "Pitu_Red": 98,
-  "Pitu_White": 99,
-  "Plain_Thosai": 100,
-  "Polos_Ambula": 101,
-  "Polos_Curry": 102,
-  "Pork_Curry": 103,
-  "Potato": 104,
-  "Potato_Curry": 105,
-  "Potato_Milkycurry": 106,
-  "Potato_Tempered": 107,
-  "Pudding": 108,
-  "Pumpkin_Curry": 109,
-  "Radish_Curry": 110,
-  "Red_String_Hoppers": 111,
-  "Roti": 112,
-  "Samaposha": 113,
-  "Sausage": 114,
-  "Set_Yoghurt": 115,
-  "Shrimp_Curry": 116,
-  "Snake_Gourd": 117,
-  "Snakegourd_Curry": 118,
-  "Sour_Fish_Curry": 119,
-  "Soy_Milk": 120,
-  "Soya_Curry": 121,
-  "Spring_Onion": 122,
-  "String_Hoppers": 123,
-  "Sweet_Potato": 124,
-  "Tempered_Sprats": 125,
-  "Thosai": 126,
-  "Tibbatu_Mallum": 127,
-  "Tomato_Sauce": 128,
-  "Unpolished_Rice": 129,
-  "Vegetable_Chopsuey": 130,
-  "Vegetable_Salad": 131,
-  "Vegetable_Soup": 132,
-  "Wada": 133,
-  "Watalappam": 134,
-  "White_Fish_Curry": 135,
-  "White_Rice": 136,
-  "White_String_Hoppers": 137,
-  "Yellow_Rice": 138,
-  "Yougurt_Molk": 139,
-  "Apple": 140,
-  "Avocado": 141,
-  "Banana": 142,
-  "Green_Apple": 143,
-  "Guava": 144,
-  "Mango": 145,
-  "Orange": 146,
-  "Papaya": 147,
-  "Watermelon": 148,
-  "Wood_Apple": 149,
-  "Apple_Juice": 150,
-  "Avocado_Juice": 151,
-  "Falooda": 152,
-  "King_Coconut": 153,
-  "Lime_Juice": 154,
-  "Mango_Juice": 155,
-  "Milk_Tea": 156,
-  "Plain_Tea": 157,
-  "Soft_Drinks": 158
+  "Almond": {
+    "id": 0,
+    "category": "Nuts_Seeds",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Apple": {
+    "id": 1,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Apple_Juice": {
+    "id": 2,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Ashplantain_Curry": {
+    "id": 3,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Avocado": {
+    "id": 4,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Avocado_Juice": {
+    "id": 5,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Banana": {
+    "id": 6,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Basmati_Rice": {
+    "id": 7,
+    "category": "Rice",
+    "status": "available",
+    "detection_annotations": 327,
+    "classification_images": 0
+  },
+  "Bean_Curry": {
+    "id": 8,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 199,
+    "classification_images": 0
+  },
+  "Beans": {
+    "id": 9,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Beef_Curry": {
+    "id": 10,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 16,
+    "classification_images": 0
+  },
+  "Beetroot": {
+    "id": 11,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 175,
+    "classification_images": 0
+  },
+  "Beetroot_Curry": {
+    "id": 12,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Bitter_Gourd_Curry": {
+    "id": 13,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 98,
+    "classification_images": 0
+  },
+  "Black_Chicken_Curry": {
+    "id": 14,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 19,
+    "classification_images": 0
+  },
+  "Boiled_Cowpea": {
+    "id": 15,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Boiled_Eggs": {
+    "id": 16,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 151,
+    "classification_images": 0
+  },
+  "Boiled_Jackfruit": {
+    "id": 17,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Bonchi": {
+    "id": 18,
+    "category": "Other",
+    "status": "available",
+    "detection_annotations": 49,
+    "classification_images": 0
+  },
+  "Bread": {
+    "id": 19,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Brinjal": {
+    "id": 20,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 224,
+    "classification_images": 0
+  },
+  "Brinjal_Curry": {
+    "id": 21,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Butter_Cake": {
+    "id": 22,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Cabbage_Curry": {
+    "id": 23,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Canned_Fish_Curry": {
+    "id": 24,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Capsicum_Curry": {
+    "id": 25,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 39,
+    "classification_images": 0
+  },
+  "Carrot": {
+    "id": 26,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 15,
+    "classification_images": 0
+  },
+  "Cashew": {
+    "id": 27,
+    "category": "Nuts_Seeds",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Cashew_Nut_Curry": {
+    "id": 28,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 63,
+    "classification_images": 0
+  },
+  "Cauliflower_Curry": {
+    "id": 29,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 35,
+    "classification_images": 0
+  },
+  "Chicken": {
+    "id": 30,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 33,
+    "classification_images": 0
+  },
+  "Chicken_Curry": {
+    "id": 31,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 100,
+    "classification_images": 0
+  },
+  "Chicken_Kottu": {
+    "id": 32,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Chickpeas": {
+    "id": 33,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Chili_Paste": {
+    "id": 34,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 24,
+    "classification_images": 0
+  },
+  "Coconut_Relish": {
+    "id": 35,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 99,
+    "classification_images": 0
+  },
+  "Coconut_Roti": {
+    "id": 36,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Coconut_Sambol": {
+    "id": 37,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 98,
+    "classification_images": 0
+  },
+  "Common_Mallum": {
+    "id": 38,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Corn_Flakes": {
+    "id": 39,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Crab_Curry": {
+    "id": 40,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 13,
+    "classification_images": 0
+  },
+  "Cucumber": {
+    "id": 41,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 46,
+    "classification_images": 0
+  },
+  "Cutlet": {
+    "id": 42,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 85,
+    "classification_images": 0
+  },
+  "Cuttlefish_Curry": {
+    "id": 43,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 35,
+    "classification_images": 0
+  },
+  "Devilled_Chicken": {
+    "id": 44,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 7,
+    "classification_images": 0
+  },
+  "Dhal_Curry": {
+    "id": 45,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 627,
+    "classification_images": 0
+  },
+  "Dried_Fish_Curry": {
+    "id": 46,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 18,
+    "classification_images": 0
+  },
+  "Dried_Halmasso": {
+    "id": 47,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 24,
+    "classification_images": 0
+  },
+  "Egg": {
+    "id": 48,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 10,
+    "classification_images": 0
+  },
+  "Falooda": {
+    "id": 49,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 4
+  },
+  "Fish": {
+    "id": 50,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 20,
+    "classification_images": 0
+  },
+  "Fish_Ambulthiyal": {
+    "id": 51,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 35,
+    "classification_images": 0
+  },
+  "Fish_Curry": {
+    "id": 52,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 246,
+    "classification_images": 0
+  },
+  "Fish_Cutlets": {
+    "id": 53,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "French_Fries": {
+    "id": 54,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Fresh_Milk": {
+    "id": 55,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 3,
+    "classification_images": 11
+  },
+  "Fried_Potato": {
+    "id": 56,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 235,
+    "classification_images": 0
+  },
+  "Fried_Rice": {
+    "id": 57,
+    "category": "Mixed_Meals",
+    "status": "available",
+    "detection_annotations": 20,
+    "classification_images": 0
+  },
+  "Fried_Sprat": {
+    "id": 58,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 22,
+    "classification_images": 0
+  },
+  "Gotukola_Sambol": {
+    "id": 59,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 59,
+    "classification_images": 0
+  },
+  "Green_Apple": {
+    "id": 60,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Green_Beans_Curry": {
+    "id": 61,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Greengram_Boiled": {
+    "id": 62,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 14,
+    "classification_images": 0
+  },
+  "Grilled_Fish": {
+    "id": 63,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 2,
+    "classification_images": 0
+  },
+  "Guava": {
+    "id": 64,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Hoppers": {
+    "id": 65,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 180,
+    "classification_images": 0
+  },
+  "Ice_Cream": {
+    "id": 66,
+    "category": "Dairy",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Icing_Cake": {
+    "id": 67,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Jackfruit_Curry": {
+    "id": 68,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Jam": {
+    "id": 69,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Jelly": {
+    "id": 70,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Kavum": {
+    "id": 71,
+    "category": "Traditional_Sweets",
+    "status": "available",
+    "detection_annotations": 38,
+    "classification_images": 0
+  },
+  "Keselmuwa_Curry": {
+    "id": 72,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 4,
+    "classification_images": 0
+  },
+  "King_Coconut": {
+    "id": 73,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 10
+  },
+  "Kiribath": {
+    "id": 74,
+    "category": "Rice",
+    "status": "available",
+    "detection_annotations": 223,
+    "classification_images": 0
+  },
+  "Kohila_Curry": {
+    "id": 75,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Kokis": {
+    "id": 76,
+    "category": "Traditional_Sweets",
+    "status": "available",
+    "detection_annotations": 44,
+    "classification_images": 0
+  },
+  "Kottu": {
+    "id": 77,
+    "category": "Mixed_Meals",
+    "status": "available",
+    "detection_annotations": 87,
+    "classification_images": 0
+  },
+  "Kotu_Roti": {
+    "id": 78,
+    "category": "Mixed_Meals",
+    "status": "available",
+    "detection_annotations": 10,
+    "classification_images": 0
+  },
+  "Leeks_Curry": {
+    "id": 79,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 4,
+    "classification_images": 0
+  },
+  "Lime_Juice": {
+    "id": 80,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Long_Beans": {
+    "id": 81,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 4,
+    "classification_images": 0
+  },
+  "Lunu_Miris": {
+    "id": 82,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 96,
+    "classification_images": 0
+  },
+  "Lunu_Sambol": {
+    "id": 83,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 91,
+    "classification_images": 0
+  },
+  "Mallum": {
+    "id": 84,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 203,
+    "classification_images": 0
+  },
+  "Mango": {
+    "id": 85,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Mango_Curry": {
+    "id": 86,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Mango_Juice": {
+    "id": 87,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Manioc_Boiled": {
+    "id": 88,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Meat_Curry": {
+    "id": 89,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 371,
+    "classification_images": 0
+  },
+  "Milk_Packet": {
+    "id": 90,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 18,
+    "classification_images": 0
+  },
+  "Milk_Tea": {
+    "id": 91,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Muesli": {
+    "id": 92,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 13,
+    "classification_images": 0
+  },
+  "Mukunuwenna_Mallum": {
+    "id": 93,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Mushroom_Curry": {
+    "id": 94,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 7,
+    "classification_images": 0
+  },
+  "Mutton_Curry": {
+    "id": 95,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 13,
+    "classification_images": 0
+  },
+  "Noodles": {
+    "id": 96,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Oats": {
+    "id": 97,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 8,
+    "classification_images": 0
+  },
+  "Okra_Curry": {
+    "id": 98,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 4,
+    "classification_images": 0
+  },
+  "Omelette": {
+    "id": 99,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 24,
+    "classification_images": 0
+  },
+  "Onions": {
+    "id": 100,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Orange": {
+    "id": 101,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Orange_Juice": {
+    "id": 102,
+    "category": "Drinks",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Organ_Meat_Curry": {
+    "id": 103,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 8,
+    "classification_images": 0
+  },
+  "Papaya": {
+    "id": 104,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Papaya_Juice": {
+    "id": 105,
+    "category": "Drinks",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Pappadam": {
+    "id": 106,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 269,
+    "classification_images": 0
+  },
+  "Pasta": {
+    "id": 107,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 8,
+    "classification_images": 0
+  },
+  "Pasteurized_Milk": {
+    "id": 108,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 15,
+    "classification_images": 0
+  },
+  "Pea_Curry": {
+    "id": 109,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 113,
+    "classification_images": 0
+  },
+  "Peanut": {
+    "id": 110,
+    "category": "Nuts_Seeds",
+    "status": "available",
+    "detection_annotations": 1,
+    "classification_images": 0
+  },
+  "Pineapple": {
+    "id": 111,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 22,
+    "classification_images": 5
+  },
+  "Pistachio": {
+    "id": 112,
+    "category": "Nuts_Seeds",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Pittu": {
+    "id": 113,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 72,
+    "classification_images": 0
+  },
+  "Plain_Tea": {
+    "id": 114,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Plain_Thosai": {
+    "id": 115,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 3,
+    "classification_images": 0
+  },
+  "Polos_Ambula": {
+    "id": 116,
+    "category": "Other",
+    "status": "available",
+    "detection_annotations": 46,
+    "classification_images": 0
+  },
+  "Polos_Curry": {
+    "id": 117,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 5,
+    "classification_images": 0
+  },
+  "Pork_Curry": {
+    "id": 118,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 40,
+    "classification_images": 0
+  },
+  "Potato": {
+    "id": 119,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 3,
+    "classification_images": 0
+  },
+  "Potato_Curry": {
+    "id": 120,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 7,
+    "classification_images": 0
+  },
+  "Potato_Milky_Curry": {
+    "id": 121,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 191,
+    "classification_images": 0
+  },
+  "Potato_Tempered": {
+    "id": 122,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 4,
+    "classification_images": 0
+  },
+  "Pudding": {
+    "id": 123,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Pumpkin_Curry": {
+    "id": 124,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 62,
+    "classification_images": 0
+  },
+  "Radish_Curry": {
+    "id": 125,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 7,
+    "classification_images": 0
+  },
+  "Red_Pittu": {
+    "id": 126,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 10,
+    "classification_images": 0
+  },
+  "Red_Rice": {
+    "id": 127,
+    "category": "Rice",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Red_String_Hoppers": {
+    "id": 128,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Roti": {
+    "id": 129,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Samaposha": {
+    "id": 130,
+    "category": "Other",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Sausage": {
+    "id": 131,
+    "category": "Protein",
+    "status": "available",
+    "detection_annotations": 15,
+    "classification_images": 0
+  },
+  "Set_Yoghurt": {
+    "id": 132,
+    "category": "Dairy",
+    "status": "available",
+    "detection_annotations": 66,
+    "classification_images": 0
+  },
+  "Shrimp_Curry": {
+    "id": 133,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 125,
+    "classification_images": 0
+  },
+  "Snake_Gourd": {
+    "id": 134,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Snakegourd_Curry": {
+    "id": 135,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Soft_Drinks": {
+    "id": 136,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 11
+  },
+  "Sour_Fish_Curry": {
+    "id": 137,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Soy_Milk": {
+    "id": 138,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Soya_Curry": {
+    "id": 139,
+    "category": "Legumes",
+    "status": "available",
+    "detection_annotations": 65,
+    "classification_images": 0
+  },
+  "Spring_Onion": {
+    "id": 140,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 18,
+    "classification_images": 0
+  },
+  "String_Hoppers": {
+    "id": 141,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 97,
+    "classification_images": 0
+  },
+  "Sweet_Potato": {
+    "id": 142,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Tempered_Sprats": {
+    "id": 143,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 16,
+    "classification_images": 0
+  },
+  "Thosai": {
+    "id": 144,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Tibbatu_Mallum": {
+    "id": 145,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Tomato_Sauce": {
+    "id": 146,
+    "category": "Condiments",
+    "status": "available",
+    "detection_annotations": 9,
+    "classification_images": 0
+  },
+  "Unpolished_Rice": {
+    "id": 147,
+    "category": "Rice",
+    "status": "available",
+    "detection_annotations": 12,
+    "classification_images": 0
+  },
+  "Vegetable_Chopsuey": {
+    "id": 148,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Vegetable_Salad": {
+    "id": 149,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 217,
+    "classification_images": 0
+  },
+  "Vegetable_Soup": {
+    "id": 150,
+    "category": "Vegetables",
+    "status": "available",
+    "detection_annotations": 6,
+    "classification_images": 0
+  },
+  "Wada": {
+    "id": 151,
+    "category": "Snacks",
+    "status": "available",
+    "detection_annotations": 18,
+    "classification_images": 0
+  },
+  "Walnut": {
+    "id": 152,
+    "category": "Nuts_Seeds",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Watalappam": {
+    "id": 153,
+    "category": "Traditional_Sweets",
+    "status": "available",
+    "detection_annotations": 85,
+    "classification_images": 0
+  },
+  "Watermelon": {
+    "id": 154,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "White_Fish_Curry": {
+    "id": 155,
+    "category": "Fish_Seafood",
+    "status": "available",
+    "detection_annotations": 20,
+    "classification_images": 0
+  },
+  "White_Pittu": {
+    "id": 156,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 16,
+    "classification_images": 0
+  },
+  "White_Rice": {
+    "id": 157,
+    "category": "Rice",
+    "status": "available",
+    "detection_annotations": 676,
+    "classification_images": 0
+  },
+  "White_String_Hoppers": {
+    "id": 158,
+    "category": "Cereal_Staples",
+    "status": "available",
+    "detection_annotations": 11,
+    "classification_images": 0
+  },
+  "Wood_Apple": {
+    "id": 159,
+    "category": "Fruits",
+    "status": "available",
+    "detection_annotations": 0,
+    "classification_images": 5
+  },
+  "Wood_Apple_Juice": {
+    "id": 160,
+    "category": "Drinks",
+    "status": "data_needed",
+    "detection_annotations": 0,
+    "classification_images": 0
+  },
+  "Yellow_Rice": {
+    "id": 161,
+    "category": "Rice",
+    "status": "available",
+    "detection_annotations": 37,
+    "classification_images": 0
+  },
+  "Yoghurt_Milk": {
+    "id": 162,
+    "category": "Drinks",
+    "status": "available",
+    "detection_annotations": 42,
+    "classification_images": 0
+  }
 }

@@ -2,7 +2,8 @@
 
 FastAPI starter structure for the four research components: diabetes, retinopathy,
 wound healing, and diet planning. Component routers are registered under `/api`;
-prediction endpoints, trained models, and database integration are not implemented yet.
+the diet food-detection endpoint uses the packaged YOLOv8n model. Other component
+prediction modules remain separate.
 
 ## Run locally
 
@@ -53,74 +54,103 @@ Existing accounts are not overwritten. Each signs in through `/login` and opens
 its component dashboard. These are test identifiers, not verified email inboxes.
 New public registrations still require the stronger password policy.
 
-## Diet dataset cleaning
+## Diet Dataset Preparation
 
-From `backend`, run `python3 scripts/clean_diet_datasets.py` with Pillow and
-PyYAML installed. The script handles the seven meal datasets in `datasets/diet/raw/`.
-Existing cleaned folders are skipped. Fruits-360 processing is disabled in this
-command; the optional standalone Fruits-360 script is retained.
-Original images and licenses are preserved; exact pixel duplicates are excluded
-and recorded in the cleaning report. Near duplicates need manual review.
+Diet scripts are isolated under `scripts/diet_dataset/`. From `backend`:
 
-`python3 scripts/export_food_names.py` rebuilds `processed/food_names.csv`.
-Class IDs are specific to each dataset. `annotation_count` counts annotated
-objects for detection/segmentation and labeled images for classification.
-Food class names retain the original spelling. The CSV is tracked in Git;
-image datasets remain excluded.
+```sh
+python3 scripts/diet_dataset/prepare_diet_dataset.py --dry-run
+python3 scripts/diet_dataset/prepare_diet_dataset.py --execute
+```
 
-## Normalized diet training labels
+The pipeline discovers raw YOLO, COCO, and classification datasets. Raw images
+remain unchanged. Classification fruit/drink images remain separate from the
+normalized detector. Shared class configuration is under `config/diet_*`.
 
-Use `datasets/diet/normalized/<dataset>/` for the shared food taxonomy. The
-original `raw/` and `processed/` annotations retain their source class IDs.
-`config/diet_classes.json` defines the shared zero-based IDs;
-`config/diet_class_mapping.csv` records every source ID, canonical name, removal,
-and decision requiring review. Do not pair the normalized CSV IDs with the
-original processed annotation files.
+The prepared subsets are `datasets/diet/training_v1/` and
+`datasets/diet/training_v2/`. Their builders are
+`scripts/diet_dataset/build_diet_training_v1.py` and
+`scripts/diet_dataset/build_diet_training_v2.py`. No model is trained by them.
 
-Run `python3 scripts/normalize_diet_classes.py` once after cleaning, then
-`python3 scripts/export_food_names.py`. The normalizer refuses to overwrite an
-existing normalized folder. Move that folder aside before rebuilding after
-source or mapping changes. Existing canonical IDs are preserved in config/diet_classes.json; new
-classes are appended. Version this registry with trained models. The CSV exporter uses normalized annotations when a completed
-normalization report exists; it otherwise uses the original processed datasets.
+See [the Diet pipeline documentation](scripts/diet_dataset/README.md) for
+conversion rules, class mapping, reports, tests, and rebuild instructions.
+The old cleaning scripts and normalization wrapper have been retired.
 
-Requested merges include Dhal_Curry, White_Rice, Kiribath, and Gotukola_Sambol
-(including Gotukola Mallum, as requested). Other clear spelling/alias merges
-include Pappadam, Watalappam, Shrimp_Curry, Tempered_Sprats, and Coconut_Sambol.
-Generic foods and specific preparations are kept separate: Fish/Fish_Curry,
-Chicken/Chicken_Curry, raw vegetables/curries, and red/white/generic pittu and
-string hoppers. Ambiguous labels such as Beat, Curb, and Flavourd mild cartoons
-are preserved with review_required=True rather than guessed. Ambiguous canonical
-labels still require that review before final training.
 
-Annotations for `json` and `spoon` are dropped without changing image pixels,
-bounding boxes, or segmentation geometry. Empty labels are retained as background
-images. Keep all datasets' splits separate; the previously reported duplicate
-across datasets must be resolved before combined training/evaluation.
+## Diet food-detection API
 
-## Manually collected fruit images
+From `backend`, install dependencies and start the existing application:
 
-`raw/Fruits/<class>/` is cleaned with `python3 scripts/clean_manual_fruits.py`
-(or the main cleaning command). WebP images are supported and original bytes
-are preserved. The output is `processed/manual_fruits_classification/images/`.
-There are 55 images in 11 classes, without a supplied train/test split. This is
-a classification dataset; it has no bounding boxes or segmentation polygons.
+```sh
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m uvicorn app.main:app --reload --host 127.0.0.1 --port 8000
+```
 
-Normalization includes these classes under `normalized/manual_fruits_classification/`.
-The shared registry currently contains 159 canonical names. The food CSV has
-223 dataset-specific rows; annotation_count counts images for classification.
-Previous normalized copies are preserved locally in
-`datasets/diet/normalized_before_manual_fruits/`. Image folders are excluded
-from Git; source code, class mappings, and the food-name CSV are tracked.
+`POST http://127.0.0.1:8000/api/diet/detect-food` accepts `multipart/form-data`
+with one **file** field named `image`. Supported extensions/MIME types are
+JPG/JPEG (`image/jpeg`), PNG (`image/png`), and WebP (`image/webp`). Filename,
+MIME, encoded format, nonempty bytes and decoded dimensions are validated.
+Limits: 10 MiB encoded bytes and 20 million decoded pixels. Source uploads and
+prediction images are not saved. Boxes are xyxy pixel coordinates in the decoded
+image, with no automatic EXIF rotation; detections are sorted by confidence.
 
-## Manually collected drink images
+```sh
+curl -X POST http://127.0.0.1:8000/api/diet/detect-food \
+  -F 'image=@/absolute/path/to/meal.jpg;type=image/jpeg'
+```
 
-Run `python3 scripts/clean_manual_drinks.py` (or the main cleaning command)
-for `raw/Drinks/<class>/`. Outputs are in
-`processed/manual_drinks_classification/images/` and, after normalization,
-`normalized/manual_drinks_classification/images/`. Of 70 WebP images in 10
-classes, 69 are retained and one exact Falooda duplicate is excluded. Raw files
-remain intact. This unsplit classification dataset has no bounding boxes.
-Existing canonical IDs are preserved; Fresh_Milk shares its existing ID.
-The previous normalized outputs are backed up locally in
-`datasets/diet/normalized_before_manual_drinks/`.
+Postman: select **POST**, use the URL above, choose **Body → form-data**, add key
+`image`, change its type from Text to **File**, and select a supported image.
+Let Postman set the multipart Content-Type and boundary automatically.
+
+Example response (values from the local smoke test, shortened for readability):
+
+```json
+{
+  "success": true,
+  "detection_count": 1,
+  "detections": [{
+    "class_id": 9,
+    "food_name": "Chicken_Curry",
+    "confidence": 0.73396,
+    "bounding_box": {"x1": 221.376, "y1": 71.553, "x2": 920.769, "y2": 584.176}
+  }],
+  "image_width": 940,
+  "image_height": 640,
+  "model_name": "YOLOv8n",
+  "confidence_threshold": 0.25
+}
+```
+
+No detections returns HTTP 200, `success: true`, `detection_count: 0`, and
+`detections: []`. Invalid uploads return HTTP 400; model/configuration/inference
+failures return HTTP 500 with a generic public message and details in server logs.
+
+`GET /api/diet/model-info` returns selected model, dataset version, class count,
+input image size and confidence threshold without local filesystem paths.
+
+The cached lazy loader reads `trained_models/diet/best.pt`, checks its SHA256
+against metadata, and verifies the 46 IDs (0–45) and canonical names against
+`class_names.json`. One model is loaded per server worker process; concurrent
+first requests cannot duplicate loading. The first diet request incurs load
+latency. Prediction uses CPU and a per-process lock around the shared predictor.
+Multiple workers each allocate a separate model. Model-info also validates/loads
+the package. `/health` remains lightweight and does not promise diet model readiness.
+
+Set `DIET_DETECTION_CONFIDENCE=0.25` in `backend/.env` (default 0.25, finite range
+0–1). Restart the server after configuration changes. The threshold is a baseline,
+not a calibrated production choice. No new nutrition, portion, carbohydrate,
+GI/GL, glucose-personalization or recommendation processing is included.
+
+Run focused tests (mocked inference plus one actual package-load test):
+
+```sh
+python -m pip install -r requirements-dev.txt
+python -m unittest discover -s tests -p test_diet_detection.py -v
+```
+
+A one-image real inference request was also checked locally through FastAPI's
+ASGI TestClient. The recorded response and protected-file verification are in
+`outputs/diet/api_integration_verification.json`; this is an integration smoke
+test, not a new model evaluation or benchmark.
