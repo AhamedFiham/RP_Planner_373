@@ -18,6 +18,16 @@ food_detect_yolov8,7,Pittu,97,Pittu,keep,False,preserve_meaning_format_only
 food_detect_yolov8,8,Pol Sambol,31,Coconut_Sambol,keep,False,alias_or_spelling
 food_detect_yolov8,9,String Hoppers,123,String_Hoppers,keep,False,preserve_meaning_format_only
 food_detect_yolov8,10,Watalappam,134,Watalappam,keep,False,alias_or_spelling
+manual_drinks_classification,0,Apple_Juice,150,Apple_Juice,keep,False,preserve_meaning_format_only
+manual_drinks_classification,1,Avocado_Juice,151,Avocado_Juice,keep,False,preserve_meaning_format_only
+manual_drinks_classification,2,Falooda,152,Falooda,keep,False,preserve_meaning_format_only
+manual_drinks_classification,3,Fresh_Milk,51,Fresh_Milk,keep,False,preserve_meaning_format_only
+manual_drinks_classification,4,King_Coconut,153,King_Coconut,keep,False,preserve_meaning_format_only
+manual_drinks_classification,5,Lime_Juice,154,Lime_Juice,keep,False,preserve_meaning_format_only
+manual_drinks_classification,6,Mango_Juice,155,Mango_Juice,keep,False,preserve_meaning_format_only
+manual_drinks_classification,7,Milk_Tea,156,Milk_Tea,keep,False,preserve_meaning_format_only
+manual_drinks_classification,8,Plain_Tea,157,Plain_Tea,keep,False,preserve_meaning_format_only
+manual_drinks_classification,9,Soft_Drinks,158,Soft_Drinks,keep,False,preserve_meaning_format_only
 manual_fruits_classification,0,Apple,140,Apple,keep,False,preserve_meaning_format_only
 manual_fruits_classification,1,Avocado,141,Avocado,keep,False,preserve_meaning_format_only
 manual_fruits_classification,2,Banana,142,Banana,keep,False,preserve_meaning_format_only

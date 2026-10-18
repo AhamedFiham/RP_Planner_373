@@ -107,8 +107,20 @@ There are 55 images in 11 classes, without a supplied train/test split. This is
 a classification dataset; it has no bounding boxes or segmentation polygons.
 
 Normalization includes these classes under `normalized/manual_fruits_classification/`.
-The shared registry currently contains 150 canonical names. The food CSV has
-213 dataset-specific rows; annotation_count counts images for classification.
+The shared registry currently contains 159 canonical names. The food CSV has
+223 dataset-specific rows; annotation_count counts images for classification.
 Previous normalized copies are preserved locally in
 `datasets/diet/normalized_before_manual_fruits/`. Image folders are excluded
 from Git; source code, class mappings, and the food-name CSV are tracked.
+
+## Manually collected drink images
+
+Run `python3 scripts/clean_manual_drinks.py` (or the main cleaning command)
+for `raw/Drinks/<class>/`. Outputs are in
+`processed/manual_drinks_classification/images/` and, after normalization,
+`normalized/manual_drinks_classification/images/`. Of 70 WebP images in 10
+classes, 69 are retained and one exact Falooda duplicate is excluded. Raw files
+remain intact. This unsplit classification dataset has no bounding boxes.
+Existing canonical IDs are preserved; Fresh_Milk shares its existing ID.
+The previous normalized outputs are backed up locally in
+`datasets/diet/normalized_before_manual_drinks/`.

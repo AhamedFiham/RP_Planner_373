@@ -178,5 +178,8 @@ if __name__ == '__main__':
     from clean_manual_fruits import clean_manual_fruits
     if (ROOT / 'raw/Fruits').exists():
         clean_manual_fruits()
+    from clean_manual_drinks import clean_manual_drinks
+    if (ROOT / 'raw/Drinks').exists():
+        clean_manual_drinks()
     from export_food_names import export_food_names
     export_food_names()

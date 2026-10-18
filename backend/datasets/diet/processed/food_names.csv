@@ -18,6 +18,16 @@ food_detect_yolov8,75,Lunu_Sambol,92
 food_detect_yolov8,97,Pittu,72
 food_detect_yolov8,123,String_Hoppers,66
 food_detect_yolov8,134,Watalappam,74
+manual_drinks_classification,51,Fresh_Milk,11
+manual_drinks_classification,150,Apple_Juice,5
+manual_drinks_classification,151,Avocado_Juice,5
+manual_drinks_classification,152,Falooda,4
+manual_drinks_classification,153,King_Coconut,10
+manual_drinks_classification,154,Lime_Juice,5
+manual_drinks_classification,155,Mango_Juice,5
+manual_drinks_classification,156,Milk_Tea,5
+manual_drinks_classification,157,Plain_Tea,5
+manual_drinks_classification,158,Soft_Drinks,14
 manual_fruits_classification,96,Pineapple,5
 manual_fruits_classification,140,Apple,5
 manual_fruits_classification,141,Avocado,5

@@ -9,10 +9,10 @@ from clean_fruits_dataset import inspect
 ROOT = Path(__file__).resolve().parents[1] / 'datasets/diet'
 
 
-def clean_manual_fruits():
-    source, target = ROOT / 'raw/Fruits', ROOT / 'processed/manual_fruits_classification'
+def clean_manual_dataset(source_name, dataset_name):
+    source, target = ROOT / 'raw' / source_name, ROOT / 'processed' / dataset_name
     if target.exists():
-        print('Skipped manual Fruits: cleaned folder already exists.')
+        print(f'Skipped {source_name}: cleaned folder already exists.')
         return
     classes = {p.name: i for i, p in enumerate(sorted(p for p in source.iterdir() if p.is_dir()))}
     rows, seen = [], {}
@@ -36,9 +36,13 @@ def clean_manual_fruits():
     with (target/'manifest.csv').open('w', newline='') as handle:
         writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(rows)
-    report = dict(source='Fruits', counts=dict(Counter(r['status'] for r in rows)), classes=len(classes), excluded=[r for r in rows if r['status']=='excluded'], limitations=['No train/test split supplied; unsplit classification only', 'Near duplicates and semantic labels need manual review'])
+    report = dict(source=source_name, counts=dict(Counter(r['status'] for r in rows)), classes=len(classes), excluded=[r for r in rows if r['status']=='excluded'], limitations=['No train/test split supplied; unsplit classification only', 'Near duplicates and semantic labels need manual review'])
     (target/'cleaning_report.json').write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
+
+
+def clean_manual_fruits():
+    clean_manual_dataset('Fruits', 'manual_fruits_classification')
 
 
 if __name__ == '__main__':
