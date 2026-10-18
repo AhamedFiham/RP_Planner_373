@@ -67,3 +67,48 @@ Class IDs are specific to each dataset. `annotation_count` counts annotated
 objects for detection/segmentation and labeled images for classification.
 Food class names retain the original spelling. The CSV is tracked in Git;
 image datasets remain excluded.
+
+## Normalized diet training labels
+
+Use `datasets/diet/normalized/<dataset>/` for the shared food taxonomy. The
+original `raw/` and `processed/` annotations retain their source class IDs.
+`config/diet_classes.json` defines the shared zero-based IDs;
+`config/diet_class_mapping.csv` records every source ID, canonical name, removal,
+and decision requiring review. Do not pair the normalized CSV IDs with the
+original processed annotation files.
+
+Run `python3 scripts/normalize_diet_classes.py` once after cleaning, then
+`python3 scripts/export_food_names.py`. The normalizer refuses to overwrite an
+existing normalized folder. Move that folder aside before rebuilding after
+source or mapping changes. Existing canonical IDs are preserved in config/diet_classes.json; new
+classes are appended. Version this registry with trained models. The CSV exporter uses normalized annotations when a completed
+normalization report exists; it otherwise uses the original processed datasets.
+
+Requested merges include Dhal_Curry, White_Rice, Kiribath, and Gotukola_Sambol
+(including Gotukola Mallum, as requested). Other clear spelling/alias merges
+include Pappadam, Watalappam, Shrimp_Curry, Tempered_Sprats, and Coconut_Sambol.
+Generic foods and specific preparations are kept separate: Fish/Fish_Curry,
+Chicken/Chicken_Curry, raw vegetables/curries, and red/white/generic pittu and
+string hoppers. Ambiguous labels such as Beat, Curb, and Flavourd mild cartoons
+are preserved with review_required=True rather than guessed. Ambiguous canonical
+labels still require that review before final training.
+
+Annotations for `json` and `spoon` are dropped without changing image pixels,
+bounding boxes, or segmentation geometry. Empty labels are retained as background
+images. Keep all datasets' splits separate; the previously reported duplicate
+across datasets must be resolved before combined training/evaluation.
+
+## Manually collected fruit images
+
+`raw/Fruits/<class>/` is cleaned with `python3 scripts/clean_manual_fruits.py`
+(or the main cleaning command). WebP images are supported and original bytes
+are preserved. The output is `processed/manual_fruits_classification/images/`.
+There are 55 images in 11 classes, without a supplied train/test split. This is
+a classification dataset; it has no bounding boxes or segmentation polygons.
+
+Normalization includes these classes under `normalized/manual_fruits_classification/`.
+The shared registry currently contains 150 canonical names. The food CSV has
+213 dataset-specific rows; annotation_count counts images for classification.
+Previous normalized copies are preserved locally in
+`datasets/diet/normalized_before_manual_fruits/`. Image folders are excluded
+from Git; source code, class mappings, and the food-name CSV are tracked.

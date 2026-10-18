@@ -10,7 +10,10 @@ ROOT = Path(__file__).resolve().parents[1] / 'datasets' / 'diet' / 'processed'
 
 def export_food_names():
     rows = []
-    for dataset in sorted(ROOT.iterdir()):
+    normalized = ROOT.parent / 'normalized'
+    using_normalized = (normalized / 'normalization_report.json').exists()
+    source_root = normalized if using_normalized else ROOT
+    for dataset in sorted(source_root.iterdir()):
         if not dataset.is_dir():
             continue
         counts = Counter()
@@ -37,6 +40,8 @@ def export_food_names():
                 counts.update(ann['category_id'] for ann in split['annotations'])
             pairs = [(cat['id'], cat['name']) for cat in data[0]['categories'] if counts[cat['id']]]
         for cid, name in sorted(pairs):
+            if using_normalized and not counts[cid]:
+                continue
             rows.append(dict(dataset=dataset.name, class_id=cid, food_name=name, annotation_count=counts[cid]))
     output = ROOT / 'food_names.csv'
     with output.open('w', newline='', encoding='utf-8') as handle:

@@ -1,0 +1,218 @@
+dataset,original_class_id,original_name,canonical_class_id,canonical_name,action,review_required,decision
+food_detect2_yolov8,0,Beetroot,6,Beetroot,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,1,Bonchi,13,Bonchi,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,2,Chicken Curry,25,Chicken_Curry,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,3,Dhal Curry,41,Dhal_Curry,keep,False,user_requested_merge
+food_detect2_yolov8,4,Hoppers,59,Hoppers,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,5,Kavum,65,Kavum,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,6,Kokis,69,Kokis,keep,False,preserve_meaning_format_only
+food_detect2_yolov8,7,Milk Rice,67,Kiribath,keep,False,user_requested_merge
+food_detect_yolov8,0,Dhal Curry,41,Dhal_Curry,keep,False,user_requested_merge
+food_detect_yolov8,1,Fish Curry,47,Fish_Curry,keep,False,preserve_meaning_format_only
+food_detect_yolov8,2,Gotukola Mallum,55,Gotukola_Sambol,keep,False,user_requested_merge
+food_detect_yolov8,3,Hoppers,59,Hoppers,keep,False,preserve_meaning_format_only
+food_detect_yolov8,4,Kiribath,67,Kiribath,keep,False,user_requested_merge
+food_detect_yolov8,5,Kottu,70,Kottu,keep,False,preserve_meaning_format_only
+food_detect_yolov8,6,Lunu sambol,75,Lunu_Sambol,keep,False,preserve_meaning_format_only
+food_detect_yolov8,7,Pittu,97,Pittu,keep,False,preserve_meaning_format_only
+food_detect_yolov8,8,Pol Sambol,31,Coconut_Sambol,keep,False,alias_or_spelling
+food_detect_yolov8,9,String Hoppers,123,String_Hoppers,keep,False,preserve_meaning_format_only
+food_detect_yolov8,10,Watalappam,134,Watalappam,keep,False,alias_or_spelling
+manual_fruits_classification,0,Apple,140,Apple,keep,False,preserve_meaning_format_only
+manual_fruits_classification,1,Avocado,141,Avocado,keep,False,preserve_meaning_format_only
+manual_fruits_classification,2,Banana,142,Banana,keep,False,preserve_meaning_format_only
+manual_fruits_classification,3,Green_Apple,143,Green_Apple,keep,False,preserve_meaning_format_only
+manual_fruits_classification,4,Guava,144,Guava,keep,False,preserve_meaning_format_only
+manual_fruits_classification,5,Mango,145,Mango,keep,False,preserve_meaning_format_only
+manual_fruits_classification,6,Orange,146,Orange,keep,False,preserve_meaning_format_only
+manual_fruits_classification,7,Papaya,147,Papaya,keep,False,preserve_meaning_format_only
+manual_fruits_classification,8,Pineapple,96,Pineapple,keep,False,preserve_meaning_format_only
+manual_fruits_classification,9,Watermelon,148,Watermelon,keep,False,preserve_meaning_format_only
+manual_fruits_classification,10,Wood_Apple,149,Wood_Apple,keep,False,preserve_meaning_format_only
+sl_food_yolov8,0,Basmathi Rice,1,Basmati_Rice,keep,False,alias_or_spelling
+sl_food_yolov8,1,Bean Curry,2,Bean_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,2,Beat,4,Beat,keep,True,preserve_meaning_format_only
+sl_food_yolov8,3,Bitter Gourd Curry,8,Bitter_Gourd_Curry,keep,False,alias_or_spelling
+sl_food_yolov8,4,Boiled Eggs,11,Boiled_Eggs,keep,False,preserve_meaning_format_only
+sl_food_yolov8,5,Brinjal,15,Brinjal,keep,False,preserve_meaning_format_only
+sl_food_yolov8,6,Capsicum Curry,20,Capsicum_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,7,Cashew Nuwt curry,22,Cashew_Nut_Curry,keep,False,alias_or_spelling
+sl_food_yolov8,8,Cauliflower curry,23,Cauliflower_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,9,Chicken,24,Chicken,keep,True,preserve_meaning_format_only
+sl_food_yolov8,10,Coconut Relish,29,Coconut_Relish,keep,True,preserve_meaning_format_only
+sl_food_yolov8,11,Cucumber,35,Cucumber,keep,False,preserve_meaning_format_only
+sl_food_yolov8,12,Cutlet,37,Cutlet,keep,False,preserve_meaning_format_only
+sl_food_yolov8,13,Dhal Curry,41,Dhal_Curry,keep,False,user_requested_merge
+sl_food_yolov8,14,Dried Halmasso,43,Dried_Halmasso,keep,False,preserve_meaning_format_only
+sl_food_yolov8,15,Fish AmbulThiyal,46,Fish_Ambulthiyal,keep,False,preserve_meaning_format_only
+sl_food_yolov8,16,Fish Curry,47,Fish_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,17,Fried Potato,52,Fried_Potato,keep,False,preserve_meaning_format_only
+sl_food_yolov8,18,Fried Sprat,54,Fried_Sprat,keep,False,preserve_meaning_format_only
+sl_food_yolov8,19,Grilled Fish,58,Grilled_Fish,keep,False,preserve_meaning_format_only
+sl_food_yolov8,20,Lunu Miris,74,Lunu_Miris,keep,False,preserve_meaning_format_only
+sl_food_yolov8,21,Mallum,76,Mallum,keep,True,preserve_meaning_format_only
+sl_food_yolov8,22,Mango Curry,77,Mango_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,23,Meat Curry,79,Meat_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,24,Omlet,88,Omelette,keep,False,alias_or_spelling
+sl_food_yolov8,25,Pappadam,91,Pappadam,keep,False,alias_or_spelling
+sl_food_yolov8,26,Pea Curry,94,Pea_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,27,Polos Ambula,101,Polos_Ambula,keep,False,preserve_meaning_format_only
+sl_food_yolov8,28,Potato MilkyCurry,106,Potato_Milkycurry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,29,Pumpkin Curry,109,Pumpkin_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,30,Shrimp Curry,116,Shrimp_Curry,keep,False,alias_or_spelling
+sl_food_yolov8,31,Soya Curry,121,Soya_Curry,keep,False,preserve_meaning_format_only
+sl_food_yolov8,32,Vegetable Salad,131,Vegetable_Salad,keep,False,preserve_meaning_format_only
+sl_food_yolov8,33,White Rice,136,White_Rice,keep,False,user_requested_merge
+sl_food_yolov8,34,json,,,drop,False,remove_nonfood
+sl_meal_recognition_coco,0,Meal-items,,,drop,False,remove_nonfood
+sl_meal_recognition_coco,1,Basmathi Rice,1,Basmati_Rice,keep,False,alias_or_spelling
+sl_meal_recognition_coco,2,Bean Curry,2,Bean_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,3,Beat,4,Beat,keep,True,preserve_meaning_format_only
+sl_meal_recognition_coco,4,Bitter Gourd Curry,8,Bitter_Gourd_Curry,keep,False,alias_or_spelling
+sl_meal_recognition_coco,5,Boiled Eggs,11,Boiled_Eggs,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,6,Brinjal,15,Brinjal,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,7,Capsicum Curry,20,Capsicum_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,8,Cashew Nuwt curry,22,Cashew_Nut_Curry,keep,False,alias_or_spelling
+sl_meal_recognition_coco,9,Cauliflower curry,23,Cauliflower_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,10,Chicken,24,Chicken,keep,True,preserve_meaning_format_only
+sl_meal_recognition_coco,11,Coconut Relish,29,Coconut_Relish,keep,True,preserve_meaning_format_only
+sl_meal_recognition_coco,12,Cucumber,35,Cucumber,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,13,Cutlet,37,Cutlet,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,14,Dhal Curry,41,Dhal_Curry,keep,False,user_requested_merge
+sl_meal_recognition_coco,15,Dried Halmasso,43,Dried_Halmasso,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,16,Fish AmbulThiyal,46,Fish_Ambulthiyal,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,17,Fish Curry,47,Fish_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,18,Fried Potato,52,Fried_Potato,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,19,Fried Sprat,54,Fried_Sprat,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,20,Grilled Fish,58,Grilled_Fish,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,21,Lunu Miris,74,Lunu_Miris,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,22,Mallum,76,Mallum,keep,True,preserve_meaning_format_only
+sl_meal_recognition_coco,23,Mango Curry,77,Mango_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,24,Meat Curry,79,Meat_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,25,Omlet,88,Omelette,keep,False,alias_or_spelling
+sl_meal_recognition_coco,26,Pappadam,91,Pappadam,keep,False,alias_or_spelling
+sl_meal_recognition_coco,27,Pea Curry,94,Pea_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,28,Polos Ambula,101,Polos_Ambula,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,29,Potato MilkyCurry,106,Potato_Milkycurry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,30,Pumpkin Curry,109,Pumpkin_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,31,Shrimp Curry,116,Shrimp_Curry,keep,False,alias_or_spelling
+sl_meal_recognition_coco,32,Soya Curry,121,Soya_Curry,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,33,Vegetable Salad,131,Vegetable_Salad,keep,False,preserve_meaning_format_only
+sl_meal_recognition_coco,34,White Rice,136,White_Rice,keep,False,user_requested_merge
+sl_meal_recognition_coco,35,json,,,drop,False,remove_nonfood
+sri_lankan_dishes_yolov8,0,dhal_curry,41,Dhal_Curry,keep,False,user_requested_merge
+sri_lankan_dishes_yolov8,1,fish_curry,47,Fish_Curry,keep,False,preserve_meaning_format_only
+sri_lankan_dishes_yolov8,2,milk_rice,67,Kiribath,keep,False,user_requested_merge
+sri_lankan_food_detection_yolov8,0,Carrot,21,Carrot,keep,False,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,1,Egg,44,Egg,keep,True,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,2,Gotukola sambol,55,Gotukola_Sambol,keep,False,user_requested_merge
+sri_lankan_food_detection_yolov8,3,Snake Gourd,117,Snake_Gourd,keep,True,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,4,Tempered Sprats,125,Tempered_Sprats,keep,False,alias_or_spelling
+sri_lankan_food_detection_yolov8,5,beans,3,Beans,keep,True,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,6,dhal,41,Dhal_Curry,keep,False,user_requested_merge
+sri_lankan_food_detection_yolov8,7,fish,45,Fish,keep,True,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,8,long_beans,73,Long_Beans,keep,False,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,9,mukunuwenna_mallum,82,Mukunuwenna_Mallum,keep,False,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,10,onions,89,Onions,keep,False,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,11,potato,104,Potato,keep,True,preserve_meaning_format_only
+sri_lankan_food_detection_yolov8,12,white_rice,136,White_Rice,keep,False,user_requested_merge
+sri_lankan_food_detection_yolov8,13,yellow_rice,138,Yellow_Rice,keep,False,preserve_meaning_format_only
+vision_project_yolov8,0,Ashplantain Curry,0,Ashplantain_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,1,Beef Curry,5,Beef_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,2,Beetroot Curry,7,Beetroot_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,3,Bittergourd Curry,8,Bitter_Gourd_Curry,keep,False,alias_or_spelling
+vision_project_yolov8,4,Black Chicken Curry,9,Black_Chicken_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,5,Boiled Cowpea,10,Boiled_Cowpea,keep,False,preserve_meaning_format_only
+vision_project_yolov8,6,Boiled jackfruit,12,Boiled_Jackfruit,keep,False,preserve_meaning_format_only
+vision_project_yolov8,7,Brinjol Curry,16,Brinjol_Curry,keep,True,preserve_meaning_format_only
+vision_project_yolov8,8,Butter cake,17,Butter_Cake,keep,False,preserve_meaning_format_only
+vision_project_yolov8,9,Cabbage Curry,18,Cabbage_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,10,Canned Fish curry,19,Canned_Fish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,11,Chicken Curry,25,Chicken_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,12,Chicken Kottu,26,Chicken_Kottu,keep,False,preserve_meaning_format_only
+vision_project_yolov8,13,Chickpeas,27,Chickpeas,keep,False,preserve_meaning_format_only
+vision_project_yolov8,14,Chili Paste,28,Chili_Paste,keep,False,preserve_meaning_format_only
+vision_project_yolov8,15,Coconut Roti,30,Coconut_Roti,keep,False,preserve_meaning_format_only
+vision_project_yolov8,16,Coconut Sambol,31,Coconut_Sambol,keep,False,alias_or_spelling
+vision_project_yolov8,17,Common Mallum,32,Common_Mallum,keep,True,preserve_meaning_format_only
+vision_project_yolov8,18,Corn flakes,33,Corn_Flakes,keep,False,preserve_meaning_format_only
+vision_project_yolov8,19,Crab Curry,34,Crab_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,20,Curb,36,Curb,keep,True,preserve_meaning_format_only
+vision_project_yolov8,21,Cuttlefish curry,38,Cuttlefish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,22,Del Curry,39,Del_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,23,Devilled chicken,40,Devilled_Chicken,keep,False,preserve_meaning_format_only
+vision_project_yolov8,24,Dhal Curry,41,Dhal_Curry,keep,False,user_requested_merge
+vision_project_yolov8,25,Dried Fish Curry,42,Dried_Fish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,26,Fish Curry,47,Fish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,27,Fish cutlets,48,Fish_Cutlets,keep,False,preserve_meaning_format_only
+vision_project_yolov8,28,Flavourd mild cartoons,49,Flavourd_Mild_Cartoons,keep,True,preserve_meaning_format_only
+vision_project_yolov8,29,French Fries,50,French_Fries,keep,False,preserve_meaning_format_only
+vision_project_yolov8,30,Fresh Milk,51,Fresh_Milk,keep,False,preserve_meaning_format_only
+vision_project_yolov8,31,Fried Rice,53,Fried_Rice,keep,False,preserve_meaning_format_only
+vision_project_yolov8,32,Gotukola Sambol,55,Gotukola_Sambol,keep,False,user_requested_merge
+vision_project_yolov8,33,Green Beans Curry,56,Green_Beans_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,34,Greengram boiled,57,Greengram_Boiled,keep,False,preserve_meaning_format_only
+vision_project_yolov8,35,Ice cream,60,Ice_Cream,keep,False,preserve_meaning_format_only
+vision_project_yolov8,36,Icing cake,61,Icing_Cake,keep,False,preserve_meaning_format_only
+vision_project_yolov8,37,Jackfruit Curry,62,Jackfruit_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,38,Jam,63,Jam,keep,False,preserve_meaning_format_only
+vision_project_yolov8,39,Jelly,64,Jelly,keep,False,preserve_meaning_format_only
+vision_project_yolov8,40,Keselmuwa Curry,66,Keselmuwa_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,41,Kohila Curry,68,Kohila_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,42,Kotu Roti,71,Kotu_Roti,keep,True,preserve_meaning_format_only
+vision_project_yolov8,43,Leeks Curry,72,Leeks_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,44,Manioc boiled,78,Manioc_Boiled,keep,False,preserve_meaning_format_only
+vision_project_yolov8,45,Milk packet,80,Milk_Packet,keep,False,preserve_meaning_format_only
+vision_project_yolov8,46,Milk rice,67,Kiribath,keep,False,user_requested_merge
+vision_project_yolov8,47,Muesli,81,Muesli,keep,False,preserve_meaning_format_only
+vision_project_yolov8,48,Mushroom Curry,83,Mushroom_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,49,Mutton Curry,84,Mutton_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,50,Oats,86,Oats,keep,False,preserve_meaning_format_only
+vision_project_yolov8,51,Okra Curry,87,Okra_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,52,Organ meat curry,90,Organ_Meat_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,53,Papadam,91,Pappadam,keep,False,alias_or_spelling
+vision_project_yolov8,54,Pasta,92,Pasta,keep,False,preserve_meaning_format_only
+vision_project_yolov8,55,Pastuerized Milk,93,Pasteurized_Milk,keep,False,alias_or_spelling
+vision_project_yolov8,56,Peanut,95,Peanut,keep,False,preserve_meaning_format_only
+vision_project_yolov8,57,Pineapple,96,Pineapple,keep,False,preserve_meaning_format_only
+vision_project_yolov8,58,Pitu Red,98,Pitu_Red,keep,True,preserve_meaning_format_only
+vision_project_yolov8,59,Pitu white,99,Pitu_White,keep,True,preserve_meaning_format_only
+vision_project_yolov8,60,Plain Thosai,100,Plain_Thosai,keep,False,preserve_meaning_format_only
+vision_project_yolov8,61,Polished Rice,136,White_Rice,keep,False,user_requested_merge
+vision_project_yolov8,62,Polos Curry,102,Polos_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,63,Pork Curry,103,Pork_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,64,Potato Curry,105,Potato_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,65,Potato Tempered,107,Potato_Tempered,keep,False,preserve_meaning_format_only
+vision_project_yolov8,66,Prawn curry,116,Shrimp_Curry,keep,False,alias_or_spelling
+vision_project_yolov8,67,Pudding,108,Pudding,keep,False,preserve_meaning_format_only
+vision_project_yolov8,68,Pumpkin Curry,109,Pumpkin_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,69,Raddish Curry,110,Radish_Curry,keep,False,alias_or_spelling
+vision_project_yolov8,70,Red String Hoppers,111,Red_String_Hoppers,keep,False,preserve_meaning_format_only
+vision_project_yolov8,71,Roti,112,Roti,keep,False,preserve_meaning_format_only
+vision_project_yolov8,72,Samaposha,113,Samaposha,keep,False,preserve_meaning_format_only
+vision_project_yolov8,73,Sausage,114,Sausage,keep,False,preserve_meaning_format_only
+vision_project_yolov8,74,Set yoghurt,115,Set_Yoghurt,keep,False,preserve_meaning_format_only
+vision_project_yolov8,75,Snakegourd Curry,118,Snakegourd_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,76,Soy milk,120,Soy_Milk,keep,False,preserve_meaning_format_only
+vision_project_yolov8,77,Soya Curry,121,Soya_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,78,Sprats tempered,125,Tempered_Sprats,keep,False,alias_or_spelling
+vision_project_yolov8,79,Spring Onion,122,Spring_Onion,keep,False,preserve_meaning_format_only
+vision_project_yolov8,80,String Hoppers,123,String_Hoppers,keep,False,preserve_meaning_format_only
+vision_project_yolov8,81,Sweet Potato,124,Sweet_Potato,keep,False,preserve_meaning_format_only
+vision_project_yolov8,82,Thosai,126,Thosai,keep,False,preserve_meaning_format_only
+vision_project_yolov8,83,Tibbatu Mallum,127,Tibbatu_Mallum,keep,False,preserve_meaning_format_only
+vision_project_yolov8,84,Tomato sauce,128,Tomato_Sauce,keep,False,preserve_meaning_format_only
+vision_project_yolov8,85,Unpolished Rice,129,Unpolished_Rice,keep,False,preserve_meaning_format_only
+vision_project_yolov8,86,Vegetable Chopsuey,130,Vegetable_Chopsuey,keep,False,preserve_meaning_format_only
+vision_project_yolov8,87,Vegetable Salad,131,Vegetable_Salad,keep,False,preserve_meaning_format_only
+vision_project_yolov8,88,Vegetable soup,132,Vegetable_Soup,keep,False,preserve_meaning_format_only
+vision_project_yolov8,89,Wada,133,Wada,keep,False,preserve_meaning_format_only
+vision_project_yolov8,90,Watalappan,134,Watalappam,keep,False,alias_or_spelling
+vision_project_yolov8,91,White String Hoppers,137,White_String_Hoppers,keep,False,preserve_meaning_format_only
+vision_project_yolov8,92,White fish curry,135,White_Fish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,93,Yellow Rice,138,Yellow_Rice,keep,False,preserve_meaning_format_only
+vision_project_yolov8,94,Yougurt Molk,139,Yougurt_Molk,keep,True,preserve_meaning_format_only
+vision_project_yolov8,95,bread,14,Bread,keep,False,preserve_meaning_format_only
+vision_project_yolov8,96,noodles,85,Noodles,keep,False,preserve_meaning_format_only
+vision_project_yolov8,97,sour fish curry,119,Sour_Fish_Curry,keep,False,preserve_meaning_format_only
+vision_project_yolov8,98,spoon,,,drop,False,remove_nonfood

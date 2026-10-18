@@ -175,5 +175,8 @@ def clean(key, source_name):
 if __name__ == '__main__':
     for key, source_name in SOURCES.items():
         clean(key, source_name)
+    from clean_manual_fruits import clean_manual_fruits
+    if (ROOT / 'raw/Fruits').exists():
+        clean_manual_fruits()
     from export_food_names import export_food_names
     export_food_names()
