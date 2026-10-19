@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { detectMeal } from '@/lib/api';
 import { validateMealFile } from '@/lib/diet-detection';
 
-export default function useDietDetection() {
+export default function useDietDetection(analyzeRequest = detectMeal) {
   const [selectedFile, setFile] = useState(null);
   const [previewUrl, setPreview] = useState(null);
   const [dimensions, setDimensions] = useState(null);
@@ -45,7 +45,7 @@ export default function useDietDetection() {
     let timedOut = false;
     const timeout = setTimeout(() => { timedOut = true; request.abort(); }, 60000);
     try {
-      const data = await detectMeal(selectedFile, { signal: request.signal });
+      const data = await analyzeRequest(selectedFile, { signal: request.signal });
       if (version === generation.current) setResult(data);
     } catch (failure) {
       if (version === generation.current && (failure.name !== 'AbortError' || timedOut)) setError(timedOut ? 'Analysis took too long. Please try again.' : failure.message);

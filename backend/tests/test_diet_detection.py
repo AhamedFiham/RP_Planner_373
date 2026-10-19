@@ -177,6 +177,8 @@ class DietPackageTests(unittest.TestCase):
                         for _ in range(2):
                             self.assertEqual(client.post('/api/diet/detect-food',files={'image':('meal.png',image_bytes(),'image/png')}).status_code,200)
                 self.assertEqual(loader.call_count,1)
+                with TestClient(app) as client:
+                    self.assertEqual(client.post('/api/diet/detect-food', files={'image':('broken.png',b'broken','image/png')}).status_code,400)
         finally:
             service._detector=previous
 

@@ -1,0 +1,745 @@
+{
+  "schema_version": 1,
+  "research_baseline_thresholds": {
+    "status": "train_quantiles_and_provisional_count_rules",
+    "validated": false,
+    "calibration_type": "visual_research_baseline",
+    "minimum_training_annotations": 10,
+    "area_calibration_split": "train",
+    "area_percentiles": [
+      33,
+      67
+    ],
+    "quantile_interpolation": "linear at (n-1)*p",
+    "description": "Research-baseline visual portion categories, not validated physical serving weights. Count categories are an explicit provisional policy, not fitted weight estimates."
+  },
+  "foods": {
+    "Basmati_Rice": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.12830675719711915,
+        "medium_max_relative_area": 0.1874825361621235
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 259,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Bean_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.07266739145751953,
+        "medium_max_relative_area": 0.09466330489548776
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 150,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Beetroot": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.07367297095472387,
+        "medium_max_relative_area": 0.11444924376180172
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 128,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Bitter_Gourd_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.11505540651533619,
+        "medium_max_relative_area": 0.13100957546713868
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 74,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Boiled_Eggs": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 124,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Brinjal": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.07281020847657893,
+        "medium_max_relative_area": 0.10000877919009019
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 180,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Capsicum_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.15200374315124032,
+        "medium_max_relative_area": 0.2061660161364421
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 22,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Cashew_Nut_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.09133373129962195,
+        "medium_max_relative_area": 0.10376519916259765
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 46,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Cauliflower_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.11938258695705312,
+        "medium_max_relative_area": 0.13375487635796157
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 22,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Chicken_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.040929535062,
+        "medium_max_relative_area": 0.6357810505102125
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 77,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Chili_Paste": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06931102819162491,
+        "medium_max_relative_area": 0.12802300324429688
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 15,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Coconut_Sambol": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.25524617919921877,
+        "medium_max_relative_area": 0.52427265625
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 79,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Cucumber": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06911138074905875,
+        "medium_max_relative_area": 0.11853809387698554
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 33,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Cutlet": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 68,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Cuttlefish_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.02010388345331201,
+        "medium_max_relative_area": 0.0388599537381713
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 23,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Dhal_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.0578791479270821,
+        "medium_max_relative_area": 0.1544625441534299
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 450,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Dried_Halmasso": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06179637518534401,
+        "medium_max_relative_area": 0.09813644878360671
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 22,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Fish_Ambulthiyal": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.05714795387835235,
+        "medium_max_relative_area": 0.07492085770201318
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 22,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Fish_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.14888053956947056,
+        "medium_max_relative_area": 0.45359772949218746
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 208,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Fried_Potato": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.07463694846136987,
+        "medium_max_relative_area": 0.11206466191422526
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 187,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Fried_Rice": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.16563549226629598,
+        "medium_max_relative_area": 0.8229554891682295
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 15,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Gotukola_Sambol": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.3022225646972656,
+        "medium_max_relative_area": 0.4600212735547838
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 44,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Hoppers": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 146,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Kavum": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 24,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Kiribath": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.19014431450414063,
+        "medium_max_relative_area": 0.5775733020607253
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 180,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Kokis": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 31,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Kottu": {
+      "method": "reference_based",
+      "portion_rules": null,
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "not_established",
+      "rationale": "Bundles or mixed preparations are not reliably unit-countable from these detection boxes; requires a validated reference.",
+      "validated_physical_portion": false,
+      "training_samples": 71,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "none_reference_required",
+      "calibration_status": "reference_required"
+    },
+    "Lunu_Miris": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.019741257012168504,
+        "medium_max_relative_area": 0.02447169949959796
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 72,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Lunu_Sambol": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.043970556640625,
+        "medium_max_relative_area": 0.08807147216796876
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 78,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Mallum": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.05103245434570313,
+        "medium_max_relative_area": 0.07884547621705106
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 126,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Omelette": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.16258040217197603,
+        "medium_max_relative_area": 0.196367495728845
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 21,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Pappadam": {
+      "method": "count_based",
+      "portion_rules": {
+        "small_max_count": 1,
+        "medium_max_count": 2
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Count only separate non-overlapping detected regions; individual units inside a region remain unverified.",
+      "validated_physical_portion": false,
+      "training_samples": 218,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "research_baseline_count_rule",
+      "calibration_status": "provisional_count_rule"
+    },
+    "Pea_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06554826228982778,
+        "medium_max_relative_area": 0.1003902228975017
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 99,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Pittu": {
+      "method": "reference_based",
+      "portion_rules": null,
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "not_established",
+      "rationale": "Bundles or mixed preparations are not reliably unit-countable from these detection boxes; requires a validated reference.",
+      "validated_physical_portion": false,
+      "training_samples": 61,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "none_reference_required",
+      "calibration_status": "reference_required"
+    },
+    "Polos_Ambula": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.07960163646802461,
+        "medium_max_relative_area": 0.11846418399935743
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 24,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Pork_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.017328900187155626,
+        "medium_max_relative_area": 0.06141857341152985
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 24,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Potato_Milky_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.10246685022954558,
+        "medium_max_relative_area": 0.12393077455201633
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 145,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Pumpkin_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06820693661264648,
+        "medium_max_relative_area": 0.08312973664670985
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 40,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Shrimp_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.08431687880859376,
+        "medium_max_relative_area": 0.11170661608866837
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 104,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Soya_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.08942112145361496,
+        "medium_max_relative_area": 0.09894779691989086
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 40,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "String_Hoppers": {
+      "method": "reference_based",
+      "portion_rules": null,
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "not_established",
+      "rationale": "Bundles or mixed preparations are not reliably unit-countable from these detection boxes; requires a validated reference.",
+      "validated_physical_portion": false,
+      "training_samples": 85,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "none_reference_required",
+      "calibration_status": "reference_required"
+    },
+    "Vegetable_Salad": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.06129787345249023,
+        "medium_max_relative_area": 0.11946292535516387
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 178,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Watalappam": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.38045213623046875,
+        "medium_max_relative_area": 0.65921689453125
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 70,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "White_Fish_Curry": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.12717642877292282,
+        "medium_max_relative_area": 0.26090055516796945
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 16,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "White_Rice": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.10153026690731752,
+        "medium_max_relative_area": 0.16346076329072848
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 484,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    },
+    "Yellow_Rice": {
+      "method": "area_based",
+      "portion_rules": {
+        "small_max_relative_area": 0.01209811152535121,
+        "medium_max_relative_area": 0.2756510763045829
+      },
+      "serving_weights": null,
+      "validated": false,
+      "threshold_source": "research_baseline_provisional",
+      "rationale": "Bounding rectangle coverage is an uncalibrated visible-area proxy, not segmentation, volume or mass.",
+      "validated_physical_portion": false,
+      "training_samples": 19,
+      "calibration_type": "visual_research_baseline",
+      "calibration_method": "training_v3_train_quantiles_33_67",
+      "calibration_status": "calibrated"
+    }
+  }
+}

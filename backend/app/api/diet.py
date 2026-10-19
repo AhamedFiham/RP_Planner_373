@@ -4,8 +4,8 @@ from fastapi import APIRouter, File, HTTPException, UploadFile
 from starlette.concurrency import run_in_threadpool
 from fastapi.exceptions import RequestValidationError
 from fastapi.routing import APIRoute
-from app.schemas.diet_schema import DietModelInfo, FoodDetectionResponse
-from app.services import diet_service
+from app.schemas.diet_schema import DietModelInfo, FoodDetectionResponse, PortionEstimationResponse, NutritionMappingResponse, ConsumedNutritionResponse
+from app.services import diet_service, portion_estimation_service, nutrition_mapping_service, consumed_nutrition_service
 from app.utils.image_processing import MAX_IMAGE_BYTES, decode_image, validate_image_upload
 
 class DietRoute(APIRoute):
@@ -66,3 +66,40 @@ def model_info():
     except Exception:
         logger.exception('Diet model information unavailable')
         raise HTTPException(status_code=500, detail='Diet model information is unavailable.') from None
+
+
+@router.post('/estimate-portions', response_model=PortionEstimationResponse,
+             responses={400: {'description': 'Missing, empty, unsupported or invalid image'},
+                        500: {'description': 'Detection or portion configuration failure'}})
+async def estimate_portions(image: UploadFile | None = File(default=None)):
+    # Reuse the existing bounded upload validation and singleton detector unchanged.
+    detection = await detect_food(image)
+    try:
+        return await run_in_threadpool(portion_estimation_service.estimate_from_detection, detection)
+    except Exception:
+        logger.exception('Diet portion estimation request failed')
+        raise HTTPException(status_code=500, detail='Portion estimation is unavailable. Please try again later.') from None
+
+
+@router.post('/map-nutrition', response_model=NutritionMappingResponse,
+             responses={400: {'description': 'Missing, empty, unsupported or invalid image'},
+                        500: {'description': 'Detection, portion or nutrition configuration failure'}})
+async def map_nutrition(image: UploadFile | None = File(default=None)):
+    portions = await estimate_portions(image)
+    try:
+        return await run_in_threadpool(nutrition_mapping_service.map_nutrition, portions)
+    except Exception:
+        logger.exception('Diet nutrition reference mapping request failed')
+        raise HTTPException(status_code=500, detail='Nutrition reference mapping is unavailable. Please try again later.') from None
+
+
+@router.post('/estimate-consumed-nutrition', response_model=ConsumedNutritionResponse,
+             responses={400: {'description': 'Invalid or missing image'},
+                        500: {'description': 'Analysis or serving-reference configuration failure'}})
+async def estimate_consumed_nutrition(image: UploadFile | None = File(default=None)):
+    mapped = await map_nutrition(image)
+    try:
+        return await run_in_threadpool(consumed_nutrition_service.estimate_consumed_nutrition, mapped)
+    except Exception:
+        logger.exception('Diet consumed nutrition request failed')
+        raise HTTPException(status_code=500, detail='Consumed nutrition estimation is unavailable. Please try again later.') from None

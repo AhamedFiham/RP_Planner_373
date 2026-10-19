@@ -4,6 +4,10 @@ from pathlib import Path
 import warnings
 from PIL import Image, UnidentifiedImageError
 
+# Capture before the lazy YOLO import: its global Image.open patch attempts an
+# optional HEIF plugin on decode failures, even for unsupported/corrupt uploads.
+_open_image = Image.open
+
 SUPPORTED_IMAGES = {'.jpg': ('image/jpeg', 'JPEG'), '.jpeg': ('image/jpeg', 'JPEG'),
                     '.png': ('image/png', 'PNG'), '.webp': ('image/webp', 'WEBP')}
 MAX_IMAGE_BYTES = 10 * 1024 * 1024
@@ -27,13 +31,13 @@ def decode_image(data: bytes, expected_format: str) -> Image.Image:
     try:
         with warnings.catch_warnings():
             warnings.simplefilter('error', Image.DecompressionBombWarning)
-            with Image.open(BytesIO(data)) as image:
+            with _open_image(BytesIO(data), formats=[expected_format]) as image:
                 if image.format != expected_format:
                     raise ValueError('Image contents do not match the uploaded format.')
                 if image.width <= 0 or image.height <= 0 or image.width * image.height > MAX_IMAGE_PIXELS:
                     raise ValueError('Image dimensions are invalid or exceed 20 million pixels.')
                 image.verify()
-            with Image.open(BytesIO(data)) as image:
+            with _open_image(BytesIO(data), formats=[expected_format]) as image:
                 image.load()
                 return image.convert('RGB')
     except ValueError:

@@ -388,3 +388,17 @@ and records the application-specific final selection in
 Conflicting source evidence stops selection before outputs are written.
 No inference, training, checkpoint opening/copying, or FastAPI integration occurs.
 The documents retain recall, per-class, training-history and dataset limitations.
+
+
+## Train-only visual portion calibration
+
+```sh
+.venv/bin/python scripts/diet_dataset/calibrate_portion_categories.py
+```
+
+Reads the V3 taxonomy and train labels only; per-food normalized box areas produce
+linear Q33/Q67 boundaries with minimum support 10. Updates `config/portion_reference.json`
+and writes reports under `outputs/diet/portion_calibration/`. The explicit count
+rule is 1 Small, 2 Medium, 3+ Large. References, insufficient support and degenerate
+quantiles remain Unknown. No detector or dataset is modified. These are visual
+research bins, not validated serving masses; grams remain null.
