@@ -255,3 +255,569 @@ body:has(.dfu-main > .dashboard-page) > .home-footer { display: none; }
 @media (max-width: 1000px) { .dashboard-page .dfu-workspace-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 760px) { .dashboard-page .dfu-page-inner { padding: 27px 18px 42px; } .dashboard-page .dfu-workspace-grid { grid-template-columns: 1fr; } .dashboard-page .dfu-heading h2 { font-size: 25px; } }
 @media (max-width: 500px) { .dashboard-page .dfu-card { padding: 17px; } }
+
+
+
+/* =====================================================
+   DIABETES RISK PREDICTION
+   Scoped styles - preserves other project modules
+===================================================== */
+
+.diabetes-page {
+  --diabetes-navy: #0f4c81;
+  --diabetes-teal: #0e7490;
+  --diabetes-ink: #1e293b;
+  --diabetes-muted: #64748b;
+  --diabetes-border: #e2e8f0;
+
+  min-height: 100vh;
+  width: 100%;
+  background: #f7fafc;
+  color: var(--diabetes-ink);
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.5;
+}
+
+.diabetes-page,
+.diabetes-page * {
+  box-sizing: border-box;
+}
+
+.diabetes-page-inner {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 38px clamp(20px, 4vw, 48px) 48px;
+}
+
+.diabetes-page-heading {
+  max-width: 800px;
+  margin-bottom: 24px;
+}
+
+.diabetes-eyebrow {
+  margin: 0 0 10px;
+  color: var(--diabetes-teal);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.diabetes-page-heading h1 {
+  margin: 0 0 12px;
+  color: var(--diabetes-ink);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 750;
+  letter-spacing: -0.045em;
+  line-height: 1.2;
+}
+
+.diabetes-page-heading > p:last-child {
+  max-width: 680px;
+  margin: 0;
+  color: var(--diabetes-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.diabetes-notice {
+  margin-bottom: 24px;
+  padding: 17px 20px;
+  border: 1px solid #b7d7e6;
+  border-radius: 12px;
+  background: #eef8fc;
+  color: #195b74;
+}
+
+.diabetes-notice strong {
+  font-size: 13px;
+}
+
+.diabetes-notice p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Main two-column layout */
+
+.diabetes-page .diabetes-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  align-items: start;
+  gap: 24px;
+}
+
+.diabetes-page .diabetes-card {
+  min-width: 0;
+  padding: clamp(20px, 2.3vw, 30px);
+  border: 1px solid var(--diabetes-border);
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgb(15 23 42 / 5%);
+}
+
+.diabetes-card-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.diabetes-step {
+  display: inline-grid;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 12px;
+  place-items: center;
+  border-radius: 10px;
+  background: #eaf3f9;
+  color: var(--diabetes-navy);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.diabetes-card-heading h2 {
+  margin: 0 0 7px;
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.diabetes-card-heading p {
+  margin: 0;
+  color: var(--diabetes-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Measurement form */
+
+.diabetes-page .diabetes-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 21px 18px;
+}
+
+.diabetes-page .diabetes-field {
+  min-width: 0;
+}
+
+.diabetes-page .diabetes-field label {
+  display: block;
+  margin: 0 0 8px;
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.diabetes-field .required-mark {
+  color: #dc2626;
+}
+
+.diabetes-field .optional-mark {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+.diabetes-page .diabetes-field input {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 46px;
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: var(--diabetes-ink);
+  font-family: inherit;
+  font-size: 13px;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.diabetes-page .diabetes-field input::placeholder {
+  color: #94a3b8;
+  font-size: 12px;
+}
+
+.diabetes-page .diabetes-field input:focus {
+  border-color: var(--diabetes-teal);
+  box-shadow: 0 0 0 3px rgb(14 116 144 / 12%);
+}
+
+.diabetes-page .diabetes-field input:disabled {
+  background: #f1f5f9;
+  cursor: not-allowed;
+}
+
+.diabetes-page .diabetes-field small {
+  display: block;
+  margin-top: 7px;
+  color: var(--diabetes-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Buttons */
+
+.diabetes-form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.diabetes-page .diabetes-primary-button,
+.diabetes-page .diabetes-secondary-button {
+  display: inline-flex;
+  min-height: 45px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.diabetes-page .diabetes-primary-button {
+  background: var(--diabetes-navy);
+  color: #ffffff;
+}
+
+.diabetes-page .diabetes-primary-button:hover:not(:disabled) {
+  background: #0b3d68;
+}
+
+.diabetes-page .diabetes-secondary-button {
+  border-color: var(--diabetes-border);
+  background: #ffffff;
+  color: var(--diabetes-muted);
+}
+
+.diabetes-page .diabetes-secondary-button:hover:not(:disabled) {
+  background: #f8fafc;
+}
+
+.diabetes-page .diabetes-primary-button:disabled,
+.diabetes-page .diabetes-secondary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.diabetes-form-note {
+  margin: 19px 0 0;
+  color: var(--diabetes-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.diabetes-model-badge {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eaf3f9;
+  color: var(--diabetes-navy);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* Prediction result panel */
+
+.diabetes-empty-result {
+  min-height: 330px;
+}
+
+.diabetes-empty-result > p {
+  color: var(--diabetes-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.diabetes-result-icon {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  place-items: center;
+  border: 5px solid #eaf3f9;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--diabetes-navy);
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.diabetes-empty-indicator {
+  margin-top: 23px;
+  padding: 14px;
+  border: 1px dashed #cbd5e1;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: var(--diabetes-muted);
+  font-size: 12px;
+  text-align: center;
+}
+
+.diabetes-prediction-summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--diabetes-border);
+  border-radius: 11px;
+  background: #f8fafc;
+}
+
+.diabetes-result-label {
+  color: var(--diabetes-muted);
+  font-size: 11px;
+}
+
+.diabetes-prediction-summary h3 {
+  margin: 5px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.diabetes-prediction-summary p {
+  margin: 0;
+  color: var(--diabetes-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.result-warning {
+  border-color: #ffedd5;
+  color: #c2410c;
+}
+
+.result-positive {
+  border-color: #dcfce7;
+  color: #15803d;
+}
+
+.diabetes-probability-box {
+  margin-top: 23px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--diabetes-border);
+}
+
+.diabetes-probability-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 11px;
+  font-size: 11px;
+}
+
+.diabetes-probability-heading strong {
+  color: var(--diabetes-navy);
+  font-size: 16px;
+}
+
+.diabetes-progress-track {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e2e8f0;
+}
+
+.diabetes-progress-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--diabetes-teal);
+  transition: width 0.35s ease;
+}
+
+.diabetes-probability-box > small {
+  display: block;
+  margin-top: 10px;
+  color: var(--diabetes-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.diabetes-explanation-section {
+  margin-top: 23px;
+}
+
+.diabetes-explanation-section h3,
+.diabetes-awareness h3 {
+  margin: 0 0 14px;
+  font-size: 14px;
+}
+
+.diabetes-explanation-list {
+  display: grid;
+  gap: 0;
+}
+
+.diabetes-explanation-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 13px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.diabetes-explanation-row > div {
+  min-width: 0;
+}
+
+.diabetes-explanation-row strong,
+.diabetes-explanation-row small {
+  display: block;
+}
+
+.diabetes-explanation-row strong {
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+
+.diabetes-explanation-row small {
+  margin-top: 4px;
+  color: var(--diabetes-muted);
+  font-size: 10px;
+}
+
+.factor-increases,
+.factor-decreases {
+  flex-shrink: 0;
+  font-size: 10px;
+  font-weight: 700;
+  text-align: right;
+}
+
+.factor-increases {
+  color: #b45309;
+}
+
+.factor-decreases {
+  color: var(--diabetes-teal);
+}
+
+.diabetes-awareness {
+  display: grid;
+  gap: 14px;
+  margin-top: 23px;
+  padding: 17px;
+  border: 1px solid #cde8ed;
+  border-radius: 10px;
+  background: #f0fafb;
+}
+
+.diabetes-awareness h3 {
+  margin-bottom: 0;
+}
+
+.diabetes-awareness strong {
+  font-size: 12px;
+}
+
+.diabetes-awareness p {
+  margin: 5px 0 0;
+  color: #526777;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.diabetes-disclaimer {
+  margin: 22px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--diabetes-border);
+  color: var(--diabetes-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.diabetes-error {
+  margin-bottom: 20px;
+  padding: 15px 17px;
+  border: 1px solid #fecaca;
+  border-radius: 9px;
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+.diabetes-error strong {
+  font-size: 13px;
+}
+
+.diabetes-error p {
+  margin: 6px 0;
+  font-size: 12px;
+}
+
+.diabetes-error small {
+  font-size: 11px;
+}
+
+.diabetes-page-footer {
+  margin: 27px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Tablet */
+
+@media (max-width: 1050px) {
+  .diabetes-page .diabetes-workspace {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .diabetes-empty-result {
+    min-height: auto;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+  .diabetes-page-inner {
+    padding: 25px 15px 35px;
+  }
+
+  .diabetes-page .diabetes-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .diabetes-page .diabetes-card {
+    padding: 19px;
+  }
+
+  .diabetes-card-heading {
+    margin-bottom: 21px;
+  }
+
+  .diabetes-form-actions {
+    flex-direction: column;
+  }
+
+  .diabetes-page .diabetes-primary-button,
+  .diabetes-page .diabetes-secondary-button {
+    width: 100%;
+  }
+
+  .diabetes-prediction-summary {
+    padding: 13px;
+  }
+
+  .diabetes-model-badge {
+    align-self: flex-start;
+  }
+
+  .diabetes-explanation-row {
+    align-items: flex-start;
+  }
+}
