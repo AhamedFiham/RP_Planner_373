@@ -17,6 +17,7 @@ function ImagePlaceholderIcon() {
 }
 
 function displayDate(date) {
+  if (!date) return 'Date unknown';
   const [year, month, day] = date.split('-');
   return `${day}/${month}/${year}`;
 }
@@ -29,6 +30,7 @@ export default function DfuWorkspace() {
   const inputRef = useRef(null);
   const dateInputRef = useRef(null);
   const imageUrls = useRef(new Set());
+  const nextImageId = useRef(1);
 
   useEffect(() => {
     const urls = imageUrls.current;
@@ -75,17 +77,12 @@ export default function DfuWorkspace() {
     const researchId = caseId.trim();
     const visitDate = dateInputRef.current?.value ?? '';
 
-    if (!researchId || !visitDate || !selected) {
-      setError('Enter a research case ID, visit date, and image before adding the visit.');
+    if (!researchId || !selected) {
+      setError('Enter a patient ID and choose an image before adding it.');
       return;
     }
-    if (visits.some(visit => visit.date === visitDate)) {
-      setError('This case already has an image for that visit date. Choose a different date or remove the earlier entry.');
-      return;
-    }
-
-    const newVisit = { date: visitDate, name: selected.name, url: selected.url };
-    setVisits(current => [...current, newVisit].sort((a, b) => a.date.localeCompare(b.date)));
+    const newVisit = { id: nextImageId.current++, date: visitDate || null, name: selected.name, url: selected.url };
+    setVisits(current => [...current, newVisit]);
     setCaseId(researchId);
     setSelected(null);
     if (dateInputRef.current) dateInputRef.current.value = '';
@@ -93,14 +90,14 @@ export default function DfuWorkspace() {
     if (inputRef.current) inputRef.current.value = '';
   }
 
-  function removeVisit(date) {
-    const visit = visits.find(item => item.date === date);
+  function removeVisit(id) {
+    const visit = visits.find(item => item.id === id);
     releaseUrl(visit?.url);
-    setVisits(current => current.filter(item => item.date !== date));
+    setVisits(current => current.filter(item => item.id !== id));
   }
 
   function clearCase() {
-    if (!window.confirm('Discard this case and its visit images from this browser tab?')) return;
+    if (!window.confirm('Discard this case and its images from this browser tab?')) return;
     clearSelection();
     for (const visit of visits) releaseUrl(visit.url);
     setVisits([]);
@@ -117,8 +114,8 @@ export default function DfuWorkspace() {
       <div className="dfu-page-inner">
         <header className="dfu-heading">
           <p className="dashboard-kicker">WOUND HEALING WORKSPACE</p>
-          <h2>Track your wound, visit by visit</h2>
-          <p>Collect dated wound images here. Future image analysis will support a conditional healing estimate and changes between visits.</p>
+          <h2>Track your wound images, in order</h2>
+          <p>Add wound photographs in earliest-to-latest order. Include the visit date when it is known.</p>
         </header>
 
         <div className="dfu-workspace-grid">
@@ -127,13 +124,13 @@ export default function DfuWorkspace() {
               <div className="dfu-card-heading">
                 <span className="dfu-step">01</span>
                 <div>
-                  <h2 id="dfu-upload-title">Upload a visit image</h2>
-                  <p>Use a research case ID and the actual date the image was taken.</p>
+                  <h2 id="dfu-upload-title">Upload a wound image</h2>
+                  <p>Add photos in earliest-to-latest order. Leave the date blank if it is unknown.</p>
                 </div>
               </div>
 
               <form onSubmit={addVisit} noValidate>
-                <label htmlFor="dfu-case-id">Research case ID</label>
+                <label htmlFor="dfu-case-id">Patient ID</label>
                 <input
                   id="dfu-case-id"
                   type="text"
@@ -145,15 +142,16 @@ export default function DfuWorkspace() {
                   placeholder="e.g. DFU-001"
                   required
                 />
-                <p className="dfu-field-help">Use a study code, not a patient name. The ID stays fixed after the first visit.</p>
+                <p className="dfu-field-help">Use a study code, not a patient name. The ID stays fixed after the first image.</p>
 
-                <label htmlFor="dfu-visit-date">Visit date</label>
+                <label htmlFor="dfu-visit-date">Visit date (optional)</label>
                 <input
                   id="dfu-visit-date"
                   ref={dateInputRef}
                   type="date"
-                  required
+                  aria-describedby="dfu-date-help"
                 />
+                <p className="dfu-field-help" id="dfu-date-help">Unknown dates stay blank. Images remain in the order you add them.</p>
 
                 <label htmlFor="dfu-image">Wound photograph</label>
                 <input
@@ -170,7 +168,7 @@ export default function DfuWorkspace() {
                 {error && <p className="dfu-form-error" role="alert">{error}</p>}
 
                 <div className="dfu-form-actions">
-                  <button className="dfu-primary-button" type="submit">Add visit image <span aria-hidden="true">↗</span></button>
+                  <button className="dfu-primary-button" type="submit">Add image <span aria-hidden="true">↗</span></button>
                   {selected && <button className="dfu-text-button" type="button" onClick={clearSelection}>Remove selection</button>}
                 </div>
               </form>
@@ -180,12 +178,12 @@ export default function DfuWorkspace() {
               <div className="dfu-card-heading compact">
                 <span className="dfu-step">02</span>
                 <div>
-                  <h2 id="dfu-image-title">Visit image</h2>
-                  <p>{selected ? 'Selected image, ready to add' : visits.length ? `Latest visit · ${displayDate(visits.at(-1).date)}` : 'Your uploaded image will appear here'}</p>
+                  <h2 id="dfu-image-title">Image preview</h2>
+                  <p>{selected ? 'Selected image, ready to add' : visits.length ? `Latest added image · ${displayDate(visits.at(-1).date)}` : 'Your uploaded image will appear here'}</p>
                 </div>
               </div>
               <div className="dfu-image-frame">
-                {currentImage ? <img src={currentImage.url} alt="Selected diabetic foot ulcer visit" /> : <ImagePlaceholderIcon />}
+                {currentImage ? <img src={currentImage.url} alt="Selected wound photograph" /> : <ImagePlaceholderIcon />}
               </div>
               {currentImage && <p className="dfu-image-filename">{currentImage.name}</p>}
             </section>
@@ -219,7 +217,7 @@ export default function DfuWorkspace() {
               <p className="dfu-outlook-copy">
                 {visits.length
                   ? 'The visit image is ready. A healing estimate will appear when a validated prediction model is connected.'
-                  : 'Add a dated visit image to begin. This prototype does not calculate a healing prediction yet.'}
+                  : 'Add a wound image to begin. This prototype does not calculate a healing prediction yet.'}
               </p>
               <div className="dfu-outlook-metrics">
                 <div><span>Estimated healing date</span><strong>—</strong></div>
@@ -240,7 +238,7 @@ export default function DfuWorkspace() {
                 <span className="dfu-step">05</span>
                 <div>
                   <h2 id="dfu-progress-title">Progress across visits</h2>
-                  <p>Compare each image with the previous dated visit</p>
+                  <p>Images are kept in earliest-to-latest upload order</p>
                 </div>
               </div>
               <div className="dfu-chart" role="img" aria-label="No wound area change percentages are available yet">
@@ -248,24 +246,24 @@ export default function DfuWorkspace() {
                 <div className="dfu-chart-axis" aria-hidden="true" />
                 <p>Wound-area change graph will appear after image analysis.</p>
               </div>
-              <p className="dfu-muted-note">The first image is the baseline. A percentage can only compare a later visit with the previous one after comparable wound areas are measured.</p>
+              <p className="dfu-muted-note">The first image is the baseline. Sequence order is available even when dates are unknown; it does not establish the time between images.</p>
 
               <div className="dfu-visit-heading">
-                <h3>Visit images</h3>
-                <span>{visits.length} {visits.length === 1 ? 'visit' : 'visits'}</span>
+                <h3>Image history</h3>
+                <span>{visits.length} {visits.length === 1 ? 'image' : 'images'}</span>
               </div>
               {visits.length === 0 ? (
-                <p className="dfu-visits-empty">No visit images added yet.</p>
+                <p className="dfu-visits-empty">No images added yet.</p>
               ) : (
                 <ol className="dfu-visit-list">
                   {visits.map((visit, index) => (
-                    <li key={visit.date}>
-                      <img src={visit.url} alt={`Wound image from ${displayDate(visit.date)}`} />
+                    <li key={visit.id}>
+                      <img src={visit.url} alt={`Wound image ${index + 1}, ${displayDate(visit.date)}`} />
                       <div className="dfu-visit-info">
-                        <strong>Visit {index + 1} <span>· {displayDate(visit.date)}</span></strong>
-                        <span>{index === 0 ? 'Baseline · no previous comparison' : 'Change from previous visit · pending analysis'}</span>
+                        <strong>Image {index + 1} <span>· {displayDate(visit.date)}</span></strong>
+                        <span>{index === 0 ? 'Baseline · no previous comparison' : 'Previous image comparison · pending analysis'}</span>
                       </div>
-                      <button type="button" onClick={() => removeVisit(visit.date)} aria-label={`Remove visit from ${displayDate(visit.date)}`}>Remove</button>
+                      <button type="button" onClick={() => removeVisit(visit.id)} aria-label={`Remove image ${index + 1}`}>Remove</button>
                     </li>
                   ))}
                 </ol>
