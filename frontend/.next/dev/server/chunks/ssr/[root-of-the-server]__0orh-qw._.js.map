@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/page.jsx"],"sourcesContent":["import { redirect } from 'next/navigation';\r\n\r\nexport default function IndexPage() {\n  redirect('/dashboard');\n}\n"],"names":["IndexPage"],"mappings":";;;;AAAA;AAAA;;AAEe,SAASA;IACtB,IAAA,6MAAQ,EAAC;AACX"}}]
+}

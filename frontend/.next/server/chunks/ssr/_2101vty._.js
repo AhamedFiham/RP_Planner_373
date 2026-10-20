@@ -1,0 +1,3 @@
+module.exports=[32905,a=>{"use strict";a.s(["default",()=>b]);let b=(0,a.i(11857).registerClientReference)(function(){throw Error("Attempted to call the default export of [project]/components/workspace-shell.jsx from the server, but it's on the client. It's not possible to invoke a client function from the server, it can only be rendered as a Component or passed to props of a Client Component.")},"[project]/components/workspace-shell.jsx","default")},30204,a=>{"use strict";var b=a.i(32905);a.n(b)},71012,a=>{"use strict";var b=a.i(7997),c=a.i(30204);a.s(["default",0,function({children:a}){return(0,b.jsx)(c.default,{children:a})}])},64346,function(a){a.n(a.i(71012))}];
+
+//# sourceMappingURL=_2101vty._.js.map

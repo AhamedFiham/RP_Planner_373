@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/diabetes/page.jsx"],"sourcesContent":["export const metadata = { title: 'Diabetes Risk Prediction' };\r\n\r\nexport default function DiabetesRiskPredictionPage() {\r\n  return (\r\n    <section className=\"content-box\">\r\n      <h1>Diabetes Risk Prediction</h1>\r\n      <p>This module is ready for development by its assigned team member.</p>\r\n    </section>\r\n  );\r\n}\r\n"],"names":["metadata","title","DiabetesRiskPredictionPage","className"],"mappings":";;;;;;;;AAAO,MAAMA,WAAW;IAAEC,OAAO;AAA2B;AAE7C,SAASC;IACtB,qBACE,0PAAC;QAAQC,WAAU;;0BACjB,0PAAC;0BAAG;;;;;;0BACJ,0PAAC;0BAAE;;;;;;;;;;;;AAGT"}},
+    {"offset": {"line": 57, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/icon.svg.mjs%20(structured%20image%20object)"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 64, height: 64 }\n"],"names":["src","width","height"],"mappings":";;;;AAAA;;uCACe;IAAEA,KAAAA,4IAAG;IAAEC,OAAO;IAAIC,QAAQ;AAAG"}}]
+}

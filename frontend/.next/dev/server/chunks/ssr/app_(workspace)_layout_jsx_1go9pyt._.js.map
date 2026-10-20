@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/(workspace)/layout.jsx"],"sourcesContent":["import WorkspaceShell from '@/components/workspace-shell';\r\n\r\nexport default function WorkspaceLayout({ children }) {\r\n  return <WorkspaceShell>{children}</WorkspaceShell>;\r\n}\r\n"],"names":["WorkspaceLayout","children","WorkspaceShell"],"mappings":";;;;;;;;;;;;AAEe,SAASA,gBAAgB,EAAEC,QAAQ,EAAE;IAClD,qBAAO,8OAACC;kBAAgBD;;;;;;AAC1B"}}]
+}

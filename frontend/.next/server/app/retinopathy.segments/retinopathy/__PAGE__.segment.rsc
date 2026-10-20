@@ -1,0 +1,22 @@
+1:"$Sreact.fragment"
+2:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+7:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+8:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+a:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+b:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+e:I[22016,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/0axdrs6tow-4n.js"],""]
+:HL["/_next/static/chunks/3qr_hr8g94dww.css","style"]
+6:X
+d:X
+d:C
+0:{"buildId":"tHT3bxiF-U6KLgsPnwblk","data":[{"rsc":["$","$1","c",{"children":[["$","section",null,{"className":"content-box","children":[["$","h1",null,{"children":"Retinopathy Severity Detection"}],["$","p",null,{"children":"This module is ready for development by its assigned team member."}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":"$@5","staleTime":"$6","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L7",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L8",null,{"children":["$","$3",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Retinopathy Severity Detection | RP Planner"}],["$","meta","1",{"name":"description","content":"Research project workspace for DFU and four team members."}]]}]}]}],null]}],"isPartial":"$@9","staleTime":"$6","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}]}]]}],"isPartial":"$@c","staleTime":"$6","varyParams":"$d"},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3qr_hr8g94dww.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$La",null,{"parallelRouterKey":"children","template":["$","$Lb",null,{}],"notFound":[["$","main",null,{"className":"container","children":[["$","h1",null,{"children":"Page not found"}],["$","p",null,{"children":"This project section does not exist."}],["$","$Le",null,{"className":"button","href":"/dashboard","children":"Back to dashboard"}]]}],[]]}]}]}]]}],"isPartial":"$@f","staleTime":"$6","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@10","rootVaryParams":null,"needsRuntimeRequest":"$@11"}
+4:null
+6:300
+11:true
+6:C
+10:0
+9:"$undefined"
+c:"$undefined"
+f:"$undefined"
+5:"$undefined"
