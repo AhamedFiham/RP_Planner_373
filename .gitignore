@@ -2,7 +2,6 @@
 /.next/
 /out/
 /work/
-.env*
 !.env.example
 *.log
 .DS_Store
@@ -32,3 +31,4 @@ backend/datasets/**/*
 
 # Share the diet class catalog without committing image datasets
 !backend/datasets/diet/processed/food_names.csv
+config.bat
