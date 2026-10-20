@@ -5,6 +5,14 @@ export function validateMealFile(file) {
   if (file.size > MAX_MEAL_BYTES) return 'Choose an image smaller than 10 MiB.';
   return null;
 }
+export function validateGlucoseInput(glucose, unit = 'mg/dL') {
+  const trimmed = typeof glucose === 'string' ? glucose.trim() : String(glucose ?? '').trim();
+  if (!trimmed) return 'Enter a valid glucose value to receive meal guidance.';
+  const num = Number(trimmed);
+  if (!Number.isFinite(num) || num <= 0) return 'Enter a valid glucose value to receive meal guidance.';
+  if (!['mg/dL', 'mmol/L'].includes(unit)) return 'Enter a valid glucose value to receive meal guidance.';
+  return null;
+}
 export const foodLabel = name => name.replaceAll('_', ' ');
 export function boxPosition(box, width, height) {
   return { left: `${box.x1 / width * 100}%`, top: `${box.y1 / height * 100}%`, width: `${(box.x2 - box.x1) / width * 100}%`, height: `${(box.y2 - box.y1) / height * 100}%` };
@@ -40,6 +48,8 @@ export function groupedPortionFoods(detections, summaries = []) {
     const group = groups.get(d.food_name);
     group.confidence = Math.max(group.confidence, d.confidence);
     group.observed_detection_count++;
+    if (!group.fast_food_guidance && d.fast_food_guidance) group.fast_food_guidance = d.fast_food_guidance;
+    if (!group.gi && d.gi) group.gi = d.gi;
   }
   return [...groups.values()].map(group => {
     const summary = summaries.find(s => s.food_name === group.food_name && s.class_id === group.class_id);

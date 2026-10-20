@@ -24,9 +24,23 @@ export function validateConsumedResponse(data) {
   const seen=new Set();
   const detections=normalized.detections.map(d=>{
     const key=`${d.class_id}:${d.food_name}`,group=groups.get(key);if(!group)fail();seen.add(key);
-    return {...d,serving_weight:group.serving_weight,consumed_nutrition:group.consumed_nutrition,consumed_nutrition_status:group.consumed_nutrition_status};
+    return {
+      ...d,
+      serving_weight:group.serving_weight,
+      consumed_nutrition:group.consumed_nutrition,
+      consumed_nutrition_status:group.consumed_nutrition_status,
+      fast_food_guidance:group.fast_food_guidance ?? null,
+      gi:group.gi ?? null,
+      available_carbohydrate:group.available_carbohydrate ?? null,
+      glycemic_load:group.glycemic_load ?? null,
+      personalized_recommendation:group.personalized_recommendation ?? null
+    };
   });
   if(seen.size!==groups.size)fail();
   // Attach food-level estimates for cards only; no box or confidence is changed.
-  return {...normalized,foods:data.foods,detections};
+  const result = {...normalized,foods:data.foods,detections};
+  if (data.current_glucose !== undefined) {
+    result.current_glucose = data.current_glucose;
+  }
+  return result;
 }

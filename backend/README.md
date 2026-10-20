@@ -452,3 +452,13 @@ recommendations, meal totals or clinical advice are implemented.
 Run `python -m unittest discover -s tests -v`. Formula/available-state tests use
 explicitly synthetic TEST-ONLY mass records, never values written into production
 serving references. Tests do not establish real serving weights or retrain YOLO.
+
+## Glycemic Index reference mapping
+
+The Diet component reads `datasets/diet/raw/diet_gi_46_classes.csv`, which contains
+one exact row for each of the 46 detector classes. GI is food and preparation
+specific; blank GI values remain unavailable and are never treated as zero. The
+`POST /api/diet/map-gi` endpoint reuses detection and nutrition mapping and adds
+food-level GI references. The guidance endpoint may include the same optional GI
+object. No meal GI or Glycemic Load is calculated; Glycemic Load is planned for a
+later stage using validated carbohydrate amounts.

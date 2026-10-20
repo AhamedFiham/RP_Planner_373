@@ -36,18 +36,24 @@ def load_serving_weights(path=None, classes_path=None):
                 if value is not None and (type(value) not in (int,float) or not math.isfinite(value) or value<=0):
                     raise ValueError('Serving masses must be positive finite numbers or null')
             relevant={'portion_category':{'small_g','medium_g','large_g'},'count_based':{'grams_per_unit'},'reference_serving':{'reference_serving_g'},'unsupported':set()}[method]
-            if any(entry.get(k) is not None for k in _WEIGHT_FIELDS-relevant):
+            provisional = entry.get('mapping_status') == 'provisional' and entry['validated'] is False
+            preserve_category_metadata = entry.get('mapping_status') == 'validated_reference_serving' and entry['validated'] is True
+            allowed = relevant | ({'small_g','medium_g','large_g'} if provisional or preserve_category_metadata else set())
+            if any(entry.get(k) is not None for k in _WEIGHT_FIELDS-allowed):
                 raise ValueError('Weight fields disagree with serving method')
             has_weight=any(entry.get(k) is not None for k in relevant)
             if has_weight:
-                if not entry['validated'] or entry['status']!='available' or not all(isinstance(entry.get(k),str) and entry[k].strip() for k in ['source_name','source_reference','validation_notes']):
+                if provisional:
+                    if entry['status'] != 'needs_reference':
+                        raise ValueError('Provisional weights must remain needs_reference')
+                elif not entry['validated'] or entry['status']!='available' or not all(isinstance(entry.get(k),str) and entry[k].strip() for k in ['source_name','source_reference','validation_notes']):
                     raise ValueError('Available weights require sourced, validated mapping evidence')
             elif entry['status']=='available' or entry['validated']:
                 raise ValueError('Available/validated status requires a usable serving mass')
             category_weights=[entry.get(k) for k in ['small_g','medium_g','large_g'] if entry.get(k) is not None]
             if category_weights!=sorted(category_weights):raise ValueError('Category weights must be ordered')
-            if method=='reference_serving' and has_weight and (entry.get('reference_match_confirmed') is not True or entry.get('matching_portion_category') not in {'Small','Medium','Large'}):
-                raise ValueError('A reference serving requires evidence of an exact serving-category match')
+            if method=='reference_serving' and has_weight and entry.get('reference_match_confirmed') is not True and entry.get('mapping_status') != 'validated_reference_serving':
+                raise ValueError('A reference serving requires evidence or an explicit validated reference-serving status')
         return data
     except (OSError,ValueError,KeyError,TypeError,AttributeError) as exc:
         raise ServingWeightConfigurationError('Serving-weight references are missing, malformed or lack validated source evidence.') from exc
