@@ -73,3 +73,11 @@ coordinates, safe errors, cancellation, nutrient grouping and zero/null handling
 Browser checks cover the dashboard link, a real combined analysis request,
 grouped food cards, nutrient expansion, missing nutrition, one footer note,
 reset, desktop/tablet/mobile overflow and unchanged overlay alignment.
+
+## Glycemic Index
+
+Meal results may show a patient-facing Glycemic Index card with a reference GI
+value and Low, Medium or High explanation. Unavailable values show “Not available
+yet”. Mapping statuses and source identifiers stay out of the patient UI. GI is
+food/preparation specific and does not represent total meal impact; no meal GI or
+Glycemic Load is calculated in this stage.

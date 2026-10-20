@@ -1,0 +1,7 @@
+{
+  "low_threshold_mg_dl": 70,
+  "target_upper_mg_dl": null,
+  "high_threshold_mg_dl": null,
+  "high_threshold_source": null,
+  "notes": "High glucose guidance is disabled until a validated project protocol configures a threshold."
+}

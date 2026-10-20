@@ -184,3 +184,105 @@ class ConsumedNutritionResponse(BaseModel):
     portion_summary: list[PortionSummary]
     model_name: str
     confidence_threshold: float = Field(ge=0, le=1)
+
+class FastFoodGuidance(BaseModel):
+    matched_food_name: str | None = None
+    display_name: str | None = None
+    category: str | None = None
+    is_fast_food: bool = False
+    guidance_available: bool = False
+    fried_food: bool = False
+    dessert: bool = False
+    sweetened_beverage: bool = False
+    glucose_state: Literal['low', 'not_low', 'high']
+    guidance_title: str | None = None
+    guidance_message: str | None = None
+    general_action: str | None = None
+    low_glucose_role: str | None = None
+    source_name: str | None = None
+    source_url: str | None = None
+    notes: str | None = None
+
+class GlucoseReading(BaseModel):
+    value: float = Field(ge=0)
+    unit: Literal['mg/dL', 'mmol/L']
+    normalized_mg_dl: float = Field(ge=0)
+    state: Literal['low', 'not_low', 'high']
+
+class GIReference(BaseModel):
+    gi_value: float | None = Field(default=None, gt=0, allow_inf_nan=False)
+    gi_category: Literal['Low', 'Medium', 'High'] | None = None
+    source_food_name: str | None = None
+    mapping_status: Literal['matched', 'representative', 'candidate', 'needs_source']
+    source_name: str | None = None
+    source_url: str | None = None
+    source_type: str | None = None
+    notes: str | None = None
+
+class FoodWithGI(FoodWithNutrition):
+    gi: GIReference
+
+class GIMappingResponse(NutritionMappingResponse):
+    foods: list[FoodWithGI]
+
+class AvailableCarbohydrateReference(BaseModel):
+    reference_value_g: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    basis: Literal['per_100g', 'per_serving', 'unknown'] | None = None
+    source_food_name: str | None = None
+    source_name: str | None = None
+    source_url: str | None = None
+    mapping_status: str
+    validated: bool = False
+    notes: str | None = None
+
+class ConsumedAvailableCarbohydrate(BaseModel):
+    reference_value_g: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    reference_basis: Literal['per_100g', 'per_serving', 'unknown'] | None = None
+    estimated_serving_weight_g: float | None = Field(default=None, gt=0, allow_inf_nan=False)
+    consumed_available_carbohydrate_g: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    calculation_status: Literal['calculated', 'serving_weight_unavailable', 'reference_unavailable', 'per_serving_reference_unavailable', 'unvalidated_serving_weight']
+    validated: bool = False
+
+class FoodWithAvailableCarbohydrate(ConsumedFoodSummary):
+    available_carbohydrate: ConsumedAvailableCarbohydrate
+
+class AvailableCarbohydrateResponse(ConsumedNutritionResponse):
+    foods: list[FoodWithAvailableCarbohydrate]
+
+
+class GlycemicLoadResult(BaseModel):
+    gi_value: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    consumed_available_carbohydrate_g: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    glycemic_load: float | None = Field(default=None, ge=0, allow_inf_nan=False)
+    gl_category: Literal['Low', 'Medium', 'High'] | None = None
+    calculation_status: Literal['calculated', 'gi_unavailable', 'consumed_carbohydrate_unavailable', 'invalid_input']
+    notes: str | None = None
+
+class PersonalizedDietRecommendation(BaseModel):
+    recommendation_title: str
+    recommendation_message: str
+    recommendation_level: Literal['informational', 'portion_attention', 'higher_attention', 'low_glucose_priority']
+    glucose_state: str | None = None
+    portion_action: str | None = None
+    alternative_suggestion: str | None = None
+    factors_used: list[str] = Field(default_factory=list)
+    limitations: list[str] = Field(default_factory=list)
+
+class GuidanceFood(ConsumedFoodSummary):
+    fast_food_guidance: FastFoodGuidance
+    available_carbohydrate: ConsumedAvailableCarbohydrate | None = None
+    gi: GIReference | None = None
+    glycemic_load: GlycemicLoadResult | None = None
+    personalized_recommendation: PersonalizedDietRecommendation | None = None
+
+class GlycemicLoadFood(ConsumedFoodSummary):
+    available_carbohydrate: ConsumedAvailableCarbohydrate | None = None
+    gi: GIReference | None = None
+    glycemic_load: GlycemicLoadResult
+
+class GlycemicLoadResponse(ConsumedNutritionResponse):
+    foods: list[GlycemicLoadFood]
+
+class MealGuidanceResponse(ConsumedNutritionResponse):
+    current_glucose: GlucoseReading
+    foods: list[GuidanceFood]
