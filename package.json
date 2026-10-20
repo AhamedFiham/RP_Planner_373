@@ -1,0 +1,9 @@
+{
+  "name": "rp-planner-373-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "node init && npm --prefix frontend run dev",
+    "build": "node init && npm --prefix frontend run build",
+    "start": "node init && npm --prefix frontend run start"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "/(workspace)/dfu/page": "/dfu",
+  "/(workspace)/home/page": "/home",
+  "/(workspace)/members/[member]/page": "/members/[member]",
+  "/(workspace)/retino/page": "/retino",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/login/page": "/login",
+  "/page": "/"
+}

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/login/page.jsx"],"sourcesContent":["import LoginForm from '@/components/login-form';\r\n\r\nexport const metadata = { title: 'Login' };\r\n\r\nexport default function LoginPage() {\r\n  return (\r\n    <main className=\"login-page\">\r\n      <div className=\"login-box\">\r\n        <p className=\"site-name\">RP Planner</p>\r\n        <h1>Login</h1>\r\n        <p className=\"muted\">Sign in to your research project workspace.</p>\r\n        <LoginForm />\r\n      </div>\r\n    </main>\r\n  );\r\n}\r\n"],"names":["metadata","title","LoginPage","className","LoginForm"],"mappings":";;;;;;;;;;;;;;AAEO,MAAMA,WAAW;IAAEC,OAAO;AAAQ;AAE1B,SAASC;IACtB,qBACE,0PAAC;QAAKC,WAAU;kBACd,cAAA,0PAAC;YAAIA,WAAU;;8BACb,0PAAC;oBAAEA,WAAU;8BAAY;;;;;;8BACzB,0PAAC;8BAAG;;;;;;8BACJ,0PAAC;oBAAEA,WAAU;8BAAQ;;;;;;8BACrB,0PAACC;;;;;;;;;;;;;;;;AAIT"}}]
+}

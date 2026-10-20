@@ -1,0 +1,26 @@
+1:"$Sreact.fragment"
+2:I[47257,["/_next/static/chunks/3fntmmi971322.js"],"ClientPageRoot"]
+3:I[47824,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/2ruo5ydw3qnni.js"],"default"]
+6:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+7:"$Sreact.suspense"
+b:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+c:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+e:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+f:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+12:I[22016,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/0axdrs6tow-4n.js"],""]
+:HL["/_next/static/chunks/3qr_hr8g94dww.css","style"]
+a:X
+11:X
+11:C
+0:{"buildId":"tHT3bxiF-U6KLgsPnwblk","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"Component":"$3","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@4","$@5"]}}],[["$","script","script-0",{"src":"/_next/static/chunks/2ruo5ydw3qnni.js","async":true}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],"isPartial":"$@9","staleTime":"$a","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$Lb",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$Lc",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"RP Planner"}],["$","meta","1",{"name":"description","content":"Research project workspace for DFU and four team members."}]]}]}]}],null]}],"isPartial":"$@d","staleTime":"$a","varyParams":null},{"rsc":["$","$1","c",{"children":[null,["$","$Le",null,{"parallelRouterKey":"children","template":["$","$Lf",null,{}]}]]}],"isPartial":"$@10","staleTime":"$a","varyParams":"$11"},{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/3qr_hr8g94dww.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$Le",null,{"parallelRouterKey":"children","template":["$","$Lf",null,{}],"notFound":[["$","main",null,{"className":"container","children":[["$","h1",null,{"children":"Page not found"}],["$","p",null,{"children":"This project section does not exist."}],["$","$L12",null,{"className":"button","href":"/dashboard","children":"Back to dashboard"}]]}],[]]}]}]}]]}],"isPartial":"$@13","staleTime":"$a","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@14","rootVaryParams":null,"needsRuntimeRequest":"$@15"}
+4:{}
+5:"$0:data:0:rsc:props:children:0:props:serverProvidedParams:params"
+8:null
+a:300
+15:true
+a:C
+14:0
+d:"$undefined"
+10:"$undefined"
+13:"$undefined"
+9:"$undefined"

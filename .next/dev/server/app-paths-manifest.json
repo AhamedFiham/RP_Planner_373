@@ -1,0 +1,6 @@
+{
+  "/(workspace)/dfu/page": "app/(workspace)/dfu/page.js",
+  "/(workspace)/home/page": "app/(workspace)/home/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

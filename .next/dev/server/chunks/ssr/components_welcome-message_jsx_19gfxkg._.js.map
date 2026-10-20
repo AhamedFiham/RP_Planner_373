@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/components/welcome-message.jsx"],"sourcesContent":["'use client';\n\nimport { useDemoSession } from './demo-session';\n\nexport default function WelcomeMessage() {\n  const { user } = useDemoSession();\n  return <p>Welcome, {user?.email.split('@')[0] || 'team member'}.</p>;\n}\n"],"names":["WelcomeMessage","user","email","split"],"mappings":";;;;;AAEA;AAFA;;;AAIe,SAASA;IACtB,MAAM,EAAEC,IAAI,EAAE,GAAG,IAAA,gJAAc;IAC/B,qBAAO,8OAAC;;YAAE;YAAUA,MAAMC,MAAMC,MAAM,IAAI,CAAC,EAAE,IAAI;YAAc;;;;;;;AACjE"}}]
+}
