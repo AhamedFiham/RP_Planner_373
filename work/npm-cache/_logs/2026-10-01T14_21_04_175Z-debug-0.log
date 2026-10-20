@@ -1,0 +1,28 @@
+0 verbose cli C:\Users\User\.cache\codex-runtimes\codex-primary-runtime\dependencies\node\bin\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.2
+2 info using node@v24.19.0
+3 silly config load:file:C:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Projects\RP_Planner_373\.npmrc
+5 silly config load:file:C:\Users\User\.npmrc
+6 silly config load:file:C:\Users\User\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm install
+8 verbose argv "install" "--cache" "C:\\Projects\\RP_Planner_373\\work\\npm-cache" "--no-fund" "--no-audit" "--prefer-offline" "--fetch-retries" "1" "--fetch-timeout" "20000"
+9 verbose logfile logs-max:10 dir:C:\Projects\RP_Planner_373\work\npm-cache\_logs\2026-10-01T14_21_04_175Z-
+10 verbose logfile C:\Projects\RP_Planner_373\work\npm-cache\_logs\2026-10-01T14_21_04_175Z-debug-0.log
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:4496293888 maxSize:1124073472 maxEntrySize:562036736
+13 silly idealTree buildDeps
+14 silly reify mark retired [ 'C:\\Projects\\RP_Planner_373\\node_modules\\@emnapi\\runtime' ]
+15 silly reify mark retired [ 'C:\\Projects\\RP_Planner_373\\node_modules\\@img\\sharp-wasm32' ]
+16 silly reify moves {
+16 silly reify   'C:\\Projects\\RP_Planner_373\\node_modules\\@emnapi\\runtime': 'C:\\Projects\\RP_Planner_373\\node_modules\\@emnapi\\.runtime-UfazXhBZ',
+16 silly reify   'C:\\Projects\\RP_Planner_373\\node_modules\\@img\\sharp-wasm32': 'C:\\Projects\\RP_Planner_373\\node_modules\\@img\\.sharp-wasm32-QECR5AVf'
+16 silly reify }
+17 silly REMOVE node_modules/@img/sharp-wasm32
+18 silly REMOVE node_modules/@emnapi/runtime
+19 verbose cwd C:\Projects\RP_Planner_373
+20 verbose os Windows_NT 10.0.26200
+21 verbose node v24.19.0
+22 verbose npm  v10.9.2
+23 verbose exit 0
+24 info ok

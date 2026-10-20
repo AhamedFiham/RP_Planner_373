@@ -1,0 +1,34 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/retinopathy/layout,_N_T_/retinopathy/page,_N_T_/retinopathy"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/retinopathy/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 64,
+    "slots": {
+      "children": {
+        "hints": 96,
+        "slots": {
+          "children": {
+            "hints": 160,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/99f947b13b086cd8ac9298773c66483145bb34b39245c68cb8b3dcbb7050a1b7/$/retinopathy",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/retinopathy/page"
+    },
+    "isFallback": false
+  }
+}

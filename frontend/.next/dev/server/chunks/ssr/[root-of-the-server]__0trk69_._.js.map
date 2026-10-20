@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/retinopathy/page.jsx"],"sourcesContent":["export const metadata = { title: 'Retinopathy Severity Detection' };\r\n\r\nexport default function RetinopathySeverityDetectionPage() {\r\n  return (\r\n    <section className=\"content-box\">\r\n      <h1>Retinopathy Severity Detection</h1>\r\n      <p>This module is ready for development by its assigned team member.</p>\r\n    </section>\r\n  );\r\n}\r\n"],"names":["metadata","title","RetinopathySeverityDetectionPage","className"],"mappings":";;;;;;;;AAAO,MAAMA,WAAW;IAAEC,OAAO;AAAiC;AAEnD,SAASC;IACtB,qBACE,0PAAC;QAAQC,WAAU;;0BACjB,0PAAC;0BAAG;;;;;;0BACJ,0PAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
+}

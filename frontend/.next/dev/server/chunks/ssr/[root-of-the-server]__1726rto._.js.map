@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 13, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/icon.svg.mjs%20(structured%20image%20object)"],"sourcesContent":["import src from \"IMAGE\";\nexport default { src, width: 64, height: 64 }\n"],"names":["src","width","height"],"mappings":";;;;AAAA;;uCACe;IAAEA,KAAAA,4IAAG;IAAEC,OAAO;IAAIC,QAAQ;AAAG"}},
+    {"offset": {"line": 28, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/page.jsx"],"sourcesContent":["import { redirect } from 'next/navigation';\r\n\r\nexport default function IndexPage() {\n  redirect('/dashboard');\n}\n"],"names":["IndexPage"],"mappings":";;;;AAAA;AAAA;;AAEe,SAASA;IACtB,IAAA,6MAAQ,EAAC;AACX"}}]
+}

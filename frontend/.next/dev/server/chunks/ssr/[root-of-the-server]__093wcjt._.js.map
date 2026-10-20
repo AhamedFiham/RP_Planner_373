@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///C:/Projects/RP_Planner_373/frontend/app/diet/page.jsx"],"sourcesContent":["export const metadata = { title: 'Personalized Diet Planning' };\r\n\r\nexport default function PersonalizedDietPlanningPage() {\r\n  return (\r\n    <section className=\"content-box\">\r\n      <h1>Personalized Diet Planning</h1>\r\n      <p>This module is ready for development by its assigned team member.</p>\r\n    </section>\r\n  );\r\n}\r\n"],"names":["metadata","title","PersonalizedDietPlanningPage","className"],"mappings":";;;;;;;;AAAO,MAAMA,WAAW;IAAEC,OAAO;AAA6B;AAE/C,SAASC;IACtB,qBACE,8OAAC;QAAQC,WAAU;;0BACjB,8OAAC;0BAAG;;;;;;0BACJ,8OAAC;0BAAE;;;;;;;;;;;;AAGT"}}]
+}
