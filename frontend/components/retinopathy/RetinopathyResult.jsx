@@ -17,8 +17,8 @@ export default function RetinopathyResult({ result, api }) {
     {images.loading && <p role="status">Loading protected retinal images…</p>}{images.error && <p role="alert" className="retino-error">{images.error}</p>}
     {!result.gradcam?.available && <p role="status" className="retino-error">Grad-CAM explanations are unavailable for this assessment.</p>}
     <GradCAMVisualization imageUrl={images.urls[result.gradcam?.original]} gradcam={view.gradcam[result.predictedClass]} />
-    <SeverityComparison key={result.assessmentId || result.receivedAt} result={view} />
-    <div className="retino-result-grid"><ConfidenceIndicator result={view} /><EyeCareGuidance result={view} /></div>
+    {/* <SeverityComparison key={result.assessmentId || result.receivedAt} result={view} /> */}
+    {/* <div className="retino-result-grid"><ConfidenceIndicator result={view} /><EyeCareGuidance result={view} /></div> */}
     {result.disclaimer && <p className="retino-result-disclaimer">{result.disclaimer}</p>}
   </div>;
 }

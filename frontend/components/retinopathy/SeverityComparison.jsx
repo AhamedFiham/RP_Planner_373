@@ -1,4 +1,4 @@
-'use client';
+/*'use client';
 
 import { Check, Maximize2 } from 'lucide-react';
 import { useState } from 'react';
@@ -30,3 +30,4 @@ export default function SeverityComparison({ result }) {
     </section>
   );
 }
+*/
