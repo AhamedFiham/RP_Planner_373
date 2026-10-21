@@ -1,14 +1,16 @@
-# Dependencies and build output
-**/node_modules/
-**/.next/
-**/out/
+/node_modules/
+/.next/
+/out/
 /work/
-
-# Environment and local configuration
 .env*
 !.env.example
 *.log
 .DS_Store
+
+# Dependencies and build output in project subdirectories
+**/node_modules/
+**/.next/
+**/out/
 
 # Python and backend runtime artifacts
 **/__pycache__/
