@@ -7,6 +7,8 @@ export default function WorkspaceShell({ children }) {
   const pathname = usePathname();
   const isDfu = pathname === '/dfu';
 
+  if (isDfu) return children;
+
   return (
     <>
       <a className="skip-link" href="#main-content">Skip to content</a>

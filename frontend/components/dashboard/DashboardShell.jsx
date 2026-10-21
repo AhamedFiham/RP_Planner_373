@@ -53,7 +53,7 @@ export default function DashboardShell({ children, title, contentAs: ContentElem
         <nav className="dashboard-nav" aria-label="Dashboard navigation">
           <NavLink href={dashboard} label="My Dashboard" icon={Home} active={pathname === dashboard} onClick={closeMenu} />
           <p className="nav-label">AI Health Tools</p>
-          {healthTools.map(tool => <NavLink key={tool.href} {...tool} active={pathname === tool.href} onClick={closeMenu} />)}
+          {healthTools.map(tool => <NavLink key={tool.href} {...tool} active={pathname === tool.href || (tool.href === '/dashboard/wound' && pathname === '/dfu')} onClick={closeMenu} />)}
           <p className="nav-label">My Health</p>
           {healthLinks.map(link => <NavLink key={link.label} {...link} onClick={closeMenu} />)}
         </nav><button className="dashboard-logout" type="button" onClick={logout}><X size={17} /> Sign out</button>

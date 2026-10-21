@@ -1,285 +1,109 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { ArrowRight, CalendarDays, Check, ChevronRight, ClipboardList, ImagePlus, Plus, Search, ShieldCheck, Users, X } from 'lucide-react';
+import { useAuth } from '@/components/auth-provider';
 import DashboardShell from '@/components/dashboard/DashboardShell';
+import useWoundClinic from '@/hooks/useWoundClinic';
+import ClinicDialog from '@/components/wound/ClinicDialog';
+import PrivateImage from '@/components/wound/PrivateImage';
+import HealingChart from '@/components/wound/HealingChart';
+import ModelAnalysisPanel from '@/components/wound/ModelAnalysisPanel';
+import styles from '@/components/wound/clinic.module.css';
 
-const acceptedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-const maxImageBytes = 10 * 1024 * 1024;
-
-function ImagePlaceholderIcon() {
-  return (
-    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true" focusable="false">
-      <rect x="6" y="9" width="52" height="46" rx="8" stroke="currentColor" strokeWidth="2" />
-      <circle cx="22" cy="23" r="5" fill="currentColor" />
-      <path d="m13 47 14-15 9 9 6-6 10 12H13Z" fill="currentColor" />
-    </svg>
-  );
+function displayDate(value) {
+  if (!value) return '—';
+  return new Date(`${value}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
 }
-
-function displayDate(date) {
-  const [year, month, day] = date.split('-');
-  return `${day}/${month}/${year}`;
-}
+function shortId(value) { return `WND-${value.slice(0, 8).toUpperCase()}`; }
 
 export default function DfuWorkspace() {
-  const [caseId, setCaseId] = useState('');
-  const [selected, setSelected] = useState(null);
-  const [visits, setVisits] = useState([]);
-  const [error, setError] = useState('');
-  const inputRef = useRef(null);
-  const dateInputRef = useRef(null);
-  const imageUrls = useRef(new Set());
+  const { token, ready } = useAuth() || {};
+  const clinic = useWoundClinic(token);
+  const [search, setSearch] = useState('');
+  const [dialog, setDialog] = useState('');
+  const [tab, setTab] = useState('overview');
+  const [visitId, setVisitId] = useState('');
+  const [statusBusy, setStatusBusy] = useState(false);
+  const [actionError, setActionError] = useState('');
+  const [notice, setNotice] = useState('');
+  const { patient, wound, visits, progress } = clinic;
+  const selectedVisit = visits.find(visit => visit.id === visitId) || visits.at(-1);
+  const filteredPatients = clinic.patients.filter(item => `${item.patient_code} ${item.display_name}`.toLowerCase().includes(search.toLowerCase()));
 
-  useEffect(() => {
-    const urls = imageUrls.current;
-    return () => {
-      for (const url of urls) URL.revokeObjectURL(url);
-      urls.clear();
-    };
-  }, []);
-
-  function releaseUrl(url) {
-    if (!url) return;
-    URL.revokeObjectURL(url);
-    imageUrls.current.delete(url);
+  async function saveRecord(body) {
+    if (dialog === 'patient') await clinic.createPatient(body);
+    if (dialog === 'wound') await clinic.createWound(body);
+    if (dialog === 'visit') { const visit = await clinic.createVisit(body); setVisitId(visit.id); setTab('visits'); }
+    setNotice({ patient: 'Patient created. You can now assign a wound.', wound: 'Wound created. You can now record the first visit.', visit: 'Visit images saved. Model analysis is pending.' }[dialog]);
+  }
+  async function toggleWoundStatus() {
+    setStatusBusy(true); setActionError('');
+    try { await clinic.changeStatus(wound.status === 'healed' ? 'active' : 'healed'); setNotice(wound.status === 'healed' ? 'Wound reopened.' : 'Wound marked as healed. Its visit history is preserved.'); }
+    catch (error) { setActionError(error.message); }
+    finally { setStatusBusy(false); }
   }
 
-  function clearSelection() {
-    releaseUrl(selected?.url);
-    setSelected(null);
-    if (inputRef.current) inputRef.current.value = '';
-  }
-
-  function handleImageChange(event) {
-    const file = event.target.files?.[0];
-    if (!file) return;
-    clearSelection();
-    setError('');
-
-    if (!acceptedTypes.includes(file.type)) {
-      setError('Choose a JPEG, PNG, or WebP image.');
-      return;
-    }
-    if (file.size > maxImageBytes) {
-      setError('Choose an image smaller than 10 MB.');
-      return;
-    }
-
-    const url = URL.createObjectURL(file);
-    imageUrls.current.add(url);
-    setSelected({ name: file.name, url });
-  }
-
-  function addVisit(event) {
-    event.preventDefault();
-    const researchId = caseId.trim();
-    const visitDate = dateInputRef.current?.value ?? '';
-
-    if (!researchId || !visitDate || !selected) {
-      setError('Enter a research case ID, visit date, and image before adding the visit.');
-      return;
-    }
-    if (visits.some(visit => visit.date === visitDate)) {
-      setError('This case already has an image for that visit date. Choose a different date or remove the earlier entry.');
-      return;
-    }
-
-    const newVisit = { date: visitDate, name: selected.name, url: selected.url };
-    setVisits(current => [...current, newVisit].sort((a, b) => a.date.localeCompare(b.date)));
-    setCaseId(researchId);
-    setSelected(null);
-    if (dateInputRef.current) dateInputRef.current.value = '';
-    setError('');
-    if (inputRef.current) inputRef.current.value = '';
-  }
-
-  function removeVisit(date) {
-    const visit = visits.find(item => item.date === date);
-    releaseUrl(visit?.url);
-    setVisits(current => current.filter(item => item.date !== date));
-  }
-
-  function clearCase() {
-    if (!window.confirm('Discard this case and its visit images from this browser tab?')) return;
-    clearSelection();
-    for (const visit of visits) releaseUrl(visit.url);
-    setVisits([]);
-    setCaseId('');
-    if (dateInputRef.current) dateInputRef.current.value = '';
-    setError('');
-  }
-
-  const currentImage = selected ?? visits.at(-1) ?? null;
-
-  return (
-    <DashboardShell title="Wound Healing" contentAs="div" showSkipLink={false}>
-    <div className="dfu-page">
-      <div className="dfu-page-inner">
-        <header className="dfu-heading">
-          <p className="dashboard-kicker">WOUND HEALING WORKSPACE</p>
-          <h2>Track your wound, visit by visit</h2>
-          <p>Collect dated wound images here. Future image analysis will support a conditional healing estimate and changes between visits.</p>
-        </header>
-
-        <div className="dfu-workspace-grid">
-          <div className="dfu-left-column">
-            <section className="dfu-card dfu-upload-card" aria-labelledby="dfu-upload-title">
-              <div className="dfu-card-heading">
-                <span className="dfu-step">01</span>
-                <div>
-                  <h2 id="dfu-upload-title">Upload a visit image</h2>
-                  <p>Use a research case ID and the actual date the image was taken.</p>
-                </div>
-              </div>
-
-              <form onSubmit={addVisit} noValidate>
-                <label htmlFor="dfu-case-id">Research case ID</label>
-                <input
-                  id="dfu-case-id"
-                  type="text"
-                  value={caseId}
-                  onChange={event => setCaseId(event.target.value)}
-                  disabled={visits.length > 0}
-                  maxLength={40}
-                  autoComplete="off"
-                  placeholder="e.g. DFU-001"
-                  required
-                />
-                <p className="dfu-field-help">Use a study code, not a patient name. The ID stays fixed after the first visit.</p>
-
-                <label htmlFor="dfu-visit-date">Visit date</label>
-                <input
-                  id="dfu-visit-date"
-                  ref={dateInputRef}
-                  type="date"
-                  required
-                />
-
-                <label htmlFor="dfu-image">Wound photograph</label>
-                <input
-                  id="dfu-image"
-                  ref={inputRef}
-                  type="file"
-                  accept="image/jpeg,image/png,image/webp"
-                  onChange={handleImageChange}
-                  aria-describedby="dfu-image-help"
-                  required
-                />
-                <p className="dfu-field-help" id="dfu-image-help">JPEG, PNG, or WebP · Up to 10 MB</p>
-
-                {error && <p className="dfu-form-error" role="alert">{error}</p>}
-
-                <div className="dfu-form-actions">
-                  <button className="dfu-primary-button" type="submit">Add visit image <span aria-hidden="true">↗</span></button>
-                  {selected && <button className="dfu-text-button" type="button" onClick={clearSelection}>Remove selection</button>}
-                </div>
-              </form>
-            </section>
-
-            <section className="dfu-card dfu-image-card" aria-labelledby="dfu-image-title">
-              <div className="dfu-card-heading compact">
-                <span className="dfu-step">02</span>
-                <div>
-                  <h2 id="dfu-image-title">Visit image</h2>
-                  <p>{selected ? 'Selected image, ready to add' : visits.length ? `Latest visit · ${displayDate(visits.at(-1).date)}` : 'Your uploaded image will appear here'}</p>
-                </div>
-              </div>
-              <div className="dfu-image-frame">
-                {currentImage ? <img src={currentImage.url} alt="Selected diabetic foot ulcer visit" /> : <ImagePlaceholderIcon />}
-              </div>
-              {currentImage && <p className="dfu-image-filename">{currentImage.name}</p>}
-            </section>
-
-            <section className="dfu-card dfu-image-card" aria-labelledby="dfu-area-title">
-              <div className="dfu-card-heading compact">
-                <span className="dfu-step">03</span>
-                <div>
-                  <h2 id="dfu-area-title">Classified wound area</h2>
-                  <p>Future model output</p>
-                </div>
-              </div>
-              <div className="dfu-image-frame dfu-classified-placeholder">
-                <ImagePlaceholderIcon />
-                <span>Area analysis will appear here</span>
-              </div>
-              <p className="dfu-muted-note">No wound boundary or area has been calculated.</p>
-            </section>
+  return <DashboardShell title="Wound Clinic">
+    <div className={styles.workspace}>
+      <header className={styles.heading}>
+        <div><p className={styles.eyebrow}>CLINIC WORKSPACE</p><h2>Every patient. Every wound. Every visit.</h2><p>A continuous image record, from the first visit to follow-up.</p></div>
+        <button type="button" className={styles.primaryButton} onClick={() => setDialog('patient')} disabled={!token}><Plus size={16} /> New patient</button>
+      </header>
+      <ol className={styles.steps} aria-label="Clinic workflow">
+        <li className={patient ? styles.completed : styles.current}><span>{patient ? <Check size={14} /> : '1'}</span> Select patient</li><li aria-hidden="true"><ChevronRight size={15} /></li>
+        <li className={wound ? styles.completed : patient ? styles.current : ''}><span>{wound ? <Check size={14} /> : '2'}</span> Assign wound</li><li aria-hidden="true"><ChevronRight size={15} /></li>
+        <li className={visits.length ? styles.completed : wound ? styles.current : ''}><span>{visits.length ? <Check size={14} /> : '3'}</span> Record visits</li><li aria-hidden="true"><ChevronRight size={15} /></li>
+        <li><span>4</span> Review analysis <small>Pending models</small></li>
+      </ol>
+      {(clinic.error || actionError) && <div className={styles.errorBanner} role="alert"><span>{clinic.error || actionError}</span><button type="button" onClick={() => { setActionError(''); clinic.refresh(); }}>Try again</button></div>}
+      {notice && <div className={styles.notice} role="status"><Check size={16} /><span>{notice}</span><button type="button" onClick={() => setNotice('')} aria-label="Dismiss notification"><X size={16} /></button></div>}
+      {!ready || !token ? <div className={styles.empty}><ShieldCheck size={30} /><h3>Opening your clinic workspace</h3><p>A signed-in session is required to access patient records.</p></div> :
+      <div className={styles.layout}>
+        <aside className={styles.patientPanel} aria-label="Patient records">
+          <div className={styles.panelHeading}><div><Users size={18} /><h3>Patients</h3><span className={styles.count}>{clinic.patients.length}</span></div></div>
+          <label className={styles.search}><Search size={16} /><input aria-label="Search patients by ID or name" value={search} onChange={event => setSearch(event.target.value)} placeholder="Search ID or name" /></label>
+          <div className={styles.patientList} aria-busy={clinic.loading.patients}>
+            {clinic.loading.patients && !clinic.patients.length ? <p className={styles.listEmpty}>Loading patients…</p> : !filteredPatients.length ? <div className={styles.listEmpty}><p>{clinic.patients.length ? 'No matching patients.' : 'Your patient list starts here.'}</p>{!clinic.patients.length && <button className={styles.textButton} type="button" onClick={() => setDialog('patient')}>Create your first patient <ArrowRight size={14} /></button>}</div> :
+            filteredPatients.map(item => <button type="button" key={item.id} className={`${styles.patientItem} ${clinic.patientId === item.id ? styles.patientSelected : ''}`} onClick={() => { clinic.selectPatient(item.id); setNotice(''); setActionError(''); setVisitId(''); }} aria-pressed={clinic.patientId === item.id}>
+              <span className={styles.patientAvatar}>{item.display_name.slice(0, 1).toUpperCase()}</span><span><small>{item.patient_code}</small><strong>{item.display_name}</strong><em>{item.wound_count || 0} {(item.wound_count || 0) === 1 ? 'wound' : 'wounds'}</em></span><ChevronRight size={15} />
+            </button>)}
           </div>
-
-          <div className="dfu-right-column">
-            <section className="dfu-card dfu-outlook-card" aria-labelledby="dfu-outlook-title">
-              <div className="dfu-card-heading">
-                <span className="dfu-step">04</span>
-                <div>
-                  <h2 id="dfu-outlook-title">Healing outlook</h2>
-                  <p>Explanation and estimated timing</p>
-                </div>
-              </div>
-              <div className="dfu-status"><span aria-hidden="true" /> Awaiting model analysis</div>
-              <p className="dfu-outlook-copy">
-                {visits.length
-                  ? 'The visit image is ready. A healing estimate will appear when a validated prediction model is connected.'
-                  : 'Add a dated visit image to begin. This prototype does not calculate a healing prediction yet.'}
-              </p>
-              <div className="dfu-outlook-metrics">
-                <div><span>Estimated healing date</span><strong>—</strong></div>
-                <div><span>Possible date range</span><strong>—</strong></div>
-              </div>
-              <div className="dfu-explanation">
-                <strong>Wound analysis</strong>
-                <p>Image-derived wound findings and an explanation will appear here after the classifier is connected.</p>
-              </div>
-              <div className="dfu-guidance-note">
-                <strong>Care guidance</strong>
-                <p>A clinician-approved care plan will appear here when available. A future healing date could be conditional on following that plan, but it would remain an estimate, not a guarantee or a substitute for clinical review.</p>
-              </div>
+          <p className={styles.panelFootnote}>Each patient has a separate wound and visit history.</p>
+        </aside>
+        <div className={styles.content}>
+          {!patient ? <section className={styles.empty}><Users size={34} /><h3>{clinic.loading.patients ? 'Loading clinic records…' : 'Create a patient to begin'}</h3><p>Register a patient, assign their wound, then add images for each clinic visit.</p>{!clinic.loading.patients && <button className={styles.primaryButton} onClick={() => setDialog('patient')} type="button"><Plus size={16} /> Create patient</button>}</section> : <>
+            <section className={styles.patientHeader}>
+              <div><p className={styles.eyebrow}>{patient.patient_code}</p><h2>{patient.display_name}</h2>{patient.notes && <p className={styles.recordNotes}>{patient.notes}</p>}</div>
+              <button type="button" className={styles.secondaryButton} onClick={() => setDialog('wound')}><Plus size={16} /> Assign wound</button>
             </section>
-
-            <section className="dfu-card dfu-progress-card" aria-labelledby="dfu-progress-title">
-              <div className="dfu-card-heading">
-                <span className="dfu-step">05</span>
-                <div>
-                  <h2 id="dfu-progress-title">Progress across visits</h2>
-                  <p>Compare each image with the previous dated visit</p>
-                </div>
-              </div>
-              <div className="dfu-chart" role="img" aria-label="No wound area change percentages are available yet">
-                <div className="dfu-chart-empty-bars" aria-hidden="true"><span /><span /><span /></div>
-                <div className="dfu-chart-axis" aria-hidden="true" />
-                <p>Wound-area change graph will appear after image analysis.</p>
-              </div>
-              <p className="dfu-muted-note">The first image is the baseline. A percentage can only compare a later visit with the previous one after comparable wound areas are measured.</p>
-
-              <div className="dfu-visit-heading">
-                <h3>Visit images</h3>
-                <span>{visits.length} {visits.length === 1 ? 'visit' : 'visits'}</span>
-              </div>
-              {visits.length === 0 ? (
-                <p className="dfu-visits-empty">No visit images added yet.</p>
-              ) : (
-                <ol className="dfu-visit-list">
-                  {visits.map((visit, index) => (
-                    <li key={visit.date}>
-                      <img src={visit.url} alt={`Wound image from ${displayDate(visit.date)}`} />
-                      <div className="dfu-visit-info">
-                        <strong>Visit {index + 1} <span>· {displayDate(visit.date)}</span></strong>
-                        <span>{index === 0 ? 'Baseline · no previous comparison' : 'Change from previous visit · pending analysis'}</span>
-                      </div>
-                      <button type="button" onClick={() => removeVisit(visit.date)} aria-label={`Remove visit from ${displayDate(visit.date)}`}>Remove</button>
-                    </li>
-                  ))}
-                </ol>
-              )}
+            <section className={styles.woundBar} aria-busy={clinic.loading.wounds}>
+              <label htmlFor="clinic-wound">Wound record<select id="clinic-wound" value={clinic.woundId} onChange={event => { clinic.selectWound(event.target.value); setVisitId(''); setActionError(''); }} disabled={!clinic.wounds.length || clinic.loading.wounds}>
+                {!clinic.wounds.length && <option value="">{clinic.loading.wounds ? 'Loading wounds…' : 'No wounds assigned'}</option>}
+                {clinic.wounds.map(item => <option key={item.id} value={item.id}>{item.label} · {shortId(item.id)}{item.status === 'healed' ? ' · Healed' : ''}</option>)}
+              </select></label>
+              {wound && <><div className={styles.woundLocation}><span>Location</span><strong>{wound.location}</strong></div><span className={`${styles.status} ${wound.status === 'healed' ? styles.healed : ''}`}>{wound.status === 'healed' ? 'Healed' : 'Active wound'}</span></>}
             </section>
-          </div>
+            {!wound ? <section className={styles.empty}><ClipboardList size={34} /><h3>{clinic.loading.wounds ? 'Loading wound records…' : 'Assign this patient’s first wound'}</h3><p>A separate wound ID keeps photographs and analysis together, even when a patient has multiple wounds.</p>{!clinic.loading.wounds && <button type="button" className={styles.primaryButton} onClick={() => setDialog('wound')}><Plus size={16} /> Assign wound</button>}</section> : <>
+              <div className={styles.recordToolbar}><div className={styles.tabs} aria-label="Wound record views"><button type="button" aria-pressed={tab === 'overview'} className={tab === 'overview' ? styles.tabActive : ''} onClick={() => setTab('overview')}>Overview</button><button type="button" aria-pressed={tab === 'visits'} className={tab === 'visits' ? styles.tabActive : ''} onClick={() => setTab('visits')}>Visit history <span>{visits.length}</span></button></div><button type="button" className={styles.primaryButton} onClick={() => setDialog('visit')} disabled={wound.status === 'healed' || clinic.loading.visits}><ImagePlus size={16} /> Record visit</button></div>
+              <div className={styles.stats}><div><span>Recorded visits</span><strong>{visits.length}</strong></div><div><span>Latest visit</span><strong>{displayDate(visits.at(-1)?.visit_date)}</strong></div><div><span>Healing analysis</span><strong>Pending</strong></div></div>
+              {wound.status === 'healed' && <p className={styles.infoNote}>This wound is marked as healed. Its images remain available; reopen it to record another visit.</p>}
+              {clinic.loading.visits ? <section className={styles.empty} role="status"><p>Loading visit images and progress…</p></section> : tab === 'overview' ? <div className={styles.overview}>
+                <HealingChart progress={progress} />
+                <ModelAnalysisPanel visit={selectedVisit} />
+              </div> : <section className={styles.visitSection}>
+                <div className={styles.sectionHeading}><div><h3>Visit image history</h3><p>Wound images ordered by capture date.</p></div><CalendarDays size={21} /></div>
+                {!visits.length ? <div className={styles.empty}><ImagePlus size={32} /><h3>Record the first visit</h3><p>Add the visit date and wound images to start this wound’s visit history.</p><button type="button" className={styles.secondaryButton} onClick={() => setDialog('visit')} disabled={wound.status === 'healed'}>Add visit images</button></div> : <div className={styles.visitLayout}>
+                  <ol className={styles.visitList}>{visits.map((visit, index) => <li key={visit.id}><button type="button" className={`${styles.visitItem} ${visit.id === selectedVisit?.id ? styles.visitSelected : ''}`} aria-pressed={visit.id === selectedVisit?.id} onClick={() => setVisitId(visit.id)}><span className={styles.visitMarker}>{index + 1}</span><span><strong>{displayDate(visit.visit_date)}</strong><small>{index === 0 ? 'First visit' : `Follow-up ${index}`} · {visit.images.length} {visit.images.length === 1 ? 'image' : 'images'}</small></span><ChevronRight size={14} /></button></li>)}</ol>
+                  {selectedVisit && <article className={styles.visitDetail}><div className={styles.imageHeading}><h4>{displayDate(selectedVisit.visit_date)}</h4><span className={styles.pending}>Analysis pending</span></div><div className={styles.visitImages}>{selectedVisit.images.map((image, index) => <figure key={image.id}><PrivateImage image={image} token={token} className={styles.visitImage} alt={`Wound photograph ${index + 1}, ${displayDate(selectedVisit.visit_date)}`} /><figcaption>{image.filename}</figcaption></figure>)}</div>{selectedVisit.notes && <div className={styles.visitNotes}><strong>Visit notes</strong><p>{selectedVisit.notes}</p></div>}</article>}
+                </div>}
+              </section>}
+              <footer className={styles.woundFooter}><span>{shortId(wound.id)}{wound.onset_date ? ` · Onset ${displayDate(wound.onset_date)}` : ''}{wound.notes && <span className={styles.woundNotes}>{wound.notes}</span>}</span><button type="button" className={styles.textButton} onClick={toggleWoundStatus} disabled={statusBusy}>{statusBusy ? 'Updating…' : wound.status === 'healed' ? 'Reopen wound' : 'Mark wound as healed'}</button></footer>
+            </>}
+          </>}
         </div>
-
-        <div className="dfu-page-bottom">
-          <p>Prototype only. Images and case details stay in this browser tab and disappear on refresh. Do not use this page for clinical decisions.</p>
-          {visits.length > 0 && <button type="button" onClick={clearCase}>Start a different case</button>}
-        </div>
-      </div>
+      </div>}
+      {dialog && <ClinicDialog key={dialog} kind={dialog} patient={patient} wound={wound} onSave={saveRecord} onClose={() => setDialog('')} />}
     </div>
-    </DashboardShell>
-  );
+  </DashboardShell>;
 }

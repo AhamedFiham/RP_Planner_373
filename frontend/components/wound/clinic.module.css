@@ -1,0 +1,131 @@
+.workspace { max-width: 1600px; margin: auto; padding: 32px clamp(18px, 3vw, 40px) 48px; color: #182c3f; }
+.heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 25px; }
+.eyebrow { margin: 0 0 7px; color: #16805b; font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+.heading h2 { margin: 0 0 8px; font-size: clamp(22px, 2.3vw, 30px); letter-spacing: -.035em; }
+.heading p:last-child { margin: 0; color: #66798a; font-size: 13px; }
+.primaryButton, .secondaryButton { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; gap: 8px; min-height: 41px; padding: 10px 15px; border: 1px solid #126e58; border-radius: 8px; background: #126e58; color: #fff; font: inherit; font-size: 12px; font-weight: 700; cursor: pointer; text-decoration: none; }
+.primaryButton:hover { background: #0d5947; }
+.secondaryButton { border-color: #d4dfe7; background: #fff; color: #29475a; }
+.secondaryButton:hover { background: #f2f7f8; }
+.workspace button:disabled, .dialog button:disabled { cursor: not-allowed; opacity: .55; }
+.steps { display: flex; align-items: center; gap: 17px; margin: 0 0 26px; padding: 15px 20px; list-style: none; border: 1px solid #dce6eb; border-radius: 10px; background: #f8fbfc; color: #8898a5; }
+.steps li { display: flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 600; }
+.steps li > span { display: grid; place-items: center; width: 23px; height: 23px; border: 1px solid #d3dde3; border-radius: 50%; font-size: 10px; }
+.steps .current { color: #146d57; }
+.steps .current > span { border-color: #146d57; }
+.steps .completed { color: #285744; }
+.steps .completed > span { border-color: #c8e3d5; background: #e6f4ed; }
+.steps small { margin-left: 2px; font-size: 9px; font-weight: 500; }
+.layout { display: grid; grid-template-columns: 245px minmax(0, 1fr); gap: 23px; align-items: start; }
+.patientPanel { overflow: hidden; border: 1px solid #dbe4ea; border-radius: 12px; background: #fff; }
+.panelHeading { padding: 20px 17px 9px; }
+.panelHeading > div { display: flex; align-items: center; gap: 9px; }
+.panelHeading h3 { margin: 0; font-size: 14px; }
+.panelHeading svg { color: #618495; }
+.count { margin-left: auto; padding: 2px 7px; border-radius: 5px; background: #edf3f6; color: #587083; font-size: 10px; }
+.search { display: flex; align-items: center; gap: 8px; margin: 9px 13px 12px; padding: 0 10px; border: 1px solid #dce5eb; border-radius: 7px; color: #8b9caa; }
+.search input { min-width: 0; min-height: 36px; border: 0; padding: 8px 0; background: transparent; font-size: 11px; }
+.patientList { max-height: 600px; overflow-y: auto; padding: 0 9px 10px; }
+.patientItem { display: flex; align-items: center; gap: 9px; width: 100%; padding: 12px 9px; border: 1px solid transparent; border-radius: 8px; background: #fff; text-align: left; cursor: pointer; }
+.patientItem:hover { background: #f5f9fa; }
+.patientSelected { border-color: #c8e4d9; background: #edf7f2; }
+.patientItem > span:nth-child(2) { min-width: 0; flex: 1; }
+.patientItem strong, .patientItem small, .patientItem em { display: block; overflow-wrap: anywhere; }
+.patientItem strong { margin: 2px 0; font-size: 12px; line-height: 1.4; }
+.patientItem small { color: #527a6a; font-size: 9px; font-weight: 700; }
+.patientItem em { color: #80918e; font-size: 10px; font-style: normal; }
+.patientItem > svg { flex-shrink: 0; color: #8da2a7; }
+.patientAvatar { display: grid; place-items: center; flex-shrink: 0; width: 32px; height: 32px; border-radius: 9px; background: #eef2f5; color: #516c7c; font-size: 12px; font-weight: 700; }
+.patientSelected .patientAvatar { background: #d8eee3; color: #21654c; }
+.panelFootnote { margin: 0; padding: 14px 17px; border-top: 1px solid #edf1f4; color: #81919e; font-size: 10px; line-height: 1.6; }
+.listEmpty { padding: 20px 10px; color: #768a99; font-size: 12px; text-align: center; }
+.listEmpty p { margin-bottom: 10px; }
+.content { min-width: 0; }
+.overview { display: grid; gap: 20px; }
+.patientHeader { display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; margin: 0 0 19px; padding: 4px 0; }
+.patientHeader h2 { margin: 0; font-size: 24px; letter-spacing: -.03em; overflow-wrap: anywhere; }
+.recordNotes { max-width: 600px; margin: 8px 0 0; color: #6f8291; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.woundBar { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; padding: 15px 18px; border: 1px solid #dce5eb; border-radius: 10px; background: #fff; }
+.woundBar label { min-width: 180px; flex: 1; margin: 0; color: #81929d; font-size: 10px; font-weight: 500; }
+.woundBar select { display: block; width: 100%; max-width: 420px; margin-top: 3px; padding: 4px 20px 4px 0; border: 0; border-radius: 3px; background: #fff; color: #233d4f; font: inherit; font-size: 12px; font-weight: 700; }
+.woundLocation { display: grid; gap: 4px; }
+.woundLocation span { color: #81929d; font-size: 10px; }
+.woundLocation strong { font-size: 12px; font-weight: 500; }
+.status, .pending { display: inline-flex; align-items: center; gap: 6px; padding: 5px 9px; border-radius: 99px; background: #edf7f2; color: #267b56; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.status::before { width: 5px; height: 5px; border-radius: 50%; background: currentColor; content: ''; }
+.healed { background: #edf2fa; color: #53749c; }
+.recordToolbar { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin: 23px 0 18px; }
+.tabs { display: flex; align-self: stretch; gap: 23px; border-bottom: 1px solid #dce5eb; }
+.tabs button { padding: 8px 0 12px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: #7c8c99; font-size: 12px; font-weight: 600; cursor: pointer; }
+.tabs .tabActive { border-bottom-color: #14745a; color: #14745a; }
+.tabs button span { margin-left: 5px; font-size: 10px; }
+.stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-bottom: 20px; }
+.stats > div { display: flex; flex-direction: column; gap: 8px; padding: 17px 18px; border: 1px solid #dce5eb; border-radius: 9px; background: #fff; }
+.stats span { color: #82929e; font-size: 10px; }
+.stats strong { font-size: 16px; font-weight: 600; letter-spacing: -.02em; }
+.stats > div:last-child strong { color: #80909d; font-size: 13px; }
+.empty { display: grid; justify-items: center; gap: 12px; padding: 60px 25px; border: 1px dashed #d0dee5; border-radius: 12px; background: #fafcfd; text-align: center; }
+.empty > svg { color: #82aaab; }
+.empty h3 { margin: 0; font-size: 19px; }
+.empty p { max-width: 420px; margin: 0; color: #7a8c98; font-size: 12px; line-height: 1.7; }
+.empty button { margin-top: 7px; }
+.errorBanner, .notice { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; padding: 12px 15px; border: 1px solid #f3cbc7; border-radius: 8px; background: #fff4f2; color: #a4493c; font-size: 12px; }
+.errorBanner button, .notice button { flex-shrink: 0; margin-left: auto; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.notice { border-color: #cbe4d6; background: #edf8f1; color: #317654; }
+.notice span { flex: 1; }
+.infoNote { margin: 0 0 20px; padding: 12px 15px; border-radius: 8px; background: #eaf1fa; color: #526c8a; font-size: 12px; }
+.visitSection { overflow: hidden; border: 1px solid #dce5eb; border-radius: 12px; background: #fff; }
+.sectionHeading { display: flex; justify-content: space-between; align-items: center; padding: 22px 23px; border-bottom: 1px solid #edf1f4; }
+.sectionHeading h3 { margin: 0 0 5px; font-size: 15px; }
+.sectionHeading p { margin: 0; color: #8394a0; font-size: 11px; }
+.sectionHeading > svg { color: #87a29e; }
+.visitLayout { display: grid; grid-template-columns: 190px minmax(0, 1fr); }
+.visitList { padding: 12px; margin: 0; border-right: 1px solid #e6edf0; list-style: none; }
+.visitItem { display: flex; align-items: center; gap: 8px; width: 100%; padding: 12px 8px; border: 0; border-radius: 7px; background: #fff; color: #537082; text-align: left; cursor: pointer; }
+.visitSelected { background: #edf6f3; color: #276852; }
+.visitItem > span:nth-child(2) { flex: 1; }
+.visitItem strong, .visitItem small { display: block; }
+.visitItem strong { font-size: 11px; }
+.visitItem small { margin-top: 5px; color: #8a9a9f; font-size: 9px; line-height: 1.5; }
+.visitMarker { display: grid; place-items: center; width: 21px; height: 21px; border: 1px solid #dae4e7; border-radius: 50%; font-size: 9px; }
+.visitDetail { min-width: 0; padding: 21px; }
+.imageHeading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 16px; }
+.imageHeading h4 { margin: 0; font-size: 13px; }
+.pending { background: #f0f4f7; color: #7d8f9c; font-size: 9px; }
+.visitImages { display: grid; gap: 18px; }
+.visitImages figure { min-width: 0; margin: 0; }
+.visitImage { display: grid; align-content: center; justify-items: center; gap: 10px; width: 100%; min-height: 170px; max-height: 430px; border: 1px solid #e3ebef; border-radius: 9px; background: #f3f7f8; object-fit: contain; color: #8398a3; font-size: 11px; }
+.visitImages figcaption { margin-top: 7px; color: #91a0a9; font-size: 10px; overflow-wrap: anywhere; }
+.visitNotes { margin-top: 20px; padding-top: 15px; border-top: 1px solid #e8eef1; }
+.visitNotes strong { font-size: 11px; }
+.visitNotes p { margin: 7px 0 0; color: #6e8290; font-size: 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.woundFooter { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 20px; padding: 5px 0; color: #8a9ba7; font-size: 10px; }
+.woundNotes { display: block; max-width: 600px; margin-top: 5px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.textButton { display: inline-flex; align-items: center; gap: 6px; padding: 5px 0; border: 0; background: transparent; color: #3f7d6c; font-size: 11px; cursor: pointer; }
+.textButton:hover { text-decoration: underline; }
+.dialog { width: min(540px, calc(100% - 32px)); max-height: calc(100vh - 48px); padding: 0; border: 1px solid #d6e3e8; border-radius: 15px; color: #213d4d; box-shadow: 0 30px 100px #102e3b38; }
+.dialog::backdrop { background: #102c4299; backdrop-filter: blur(3px); }
+.dialogHeader { display: flex; align-items: center; justify-content: space-between; padding: 25px 27px 16px; }
+.dialogHeader h2 { margin: 0; font-size: 23px; letter-spacing: -.03em; }
+.iconButton { display: grid; place-items: center; width: 32px; height: 32px; border: 0; border-radius: 6px; background: #f2f6f7; color: #6f8390; cursor: pointer; }
+.fields { min-width: 0; margin: 0; padding: 0 27px 20px; border: 0; }
+.fields label { margin: 14px 0 0; color: #395564; font-size: 12px; font-weight: 600; }
+.fields label span { color: #8b9da6; font-size: 10px; font-weight: 400; }
+.fields input:not([type=file]), .fields textarea { display: block; width: 100%; min-height: 41px; margin-top: 7px; padding: 10px 12px; border: 1px solid #d4e0e7; border-radius: 7px; background: #fff; color: #243e50; font: inherit; font-size: 12px; }
+.fields textarea { resize: vertical; }
+.fields input::placeholder, .fields textarea::placeholder { color: #9aabb4; }
+.help { margin: 10px 0 0; color: #899ca6; font-size: 11px; line-height: 1.6; }
+.formContext { margin: 0 27px 5px; padding: 10px 12px; border-radius: 6px; background: #f1f7f5; color: #517c6b; font-size: 11px; overflow-wrap: anywhere; }
+.fields .uploadLabel { display: grid; justify-items: center; gap: 9px; padding: 23px 15px 14px; border: 1px dashed #aacac1; border-radius: 9px; background: #f6faf8; color: #4d8571; text-align: center; }
+.uploadLabel > strong { font-size: 12px; }
+.uploadLabel > input { width: 100%; min-height: auto; padding: 8px 0; border: 0; color: #6b837b; font-size: 10px; }
+.previews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+.previews figure { min-width: 0; margin: 0; }
+.previews img { width: 100%; height: 85px; border-radius: 6px; background: #f2f6f7; object-fit: contain; }
+.previews figcaption { overflow: hidden; color: #8b9ba4; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.dialogFooter { display: flex; justify-content: flex-end; gap: 10px; padding: 17px 27px; border-top: 1px solid #e3ebef; background: #fafcfd; }
+.formError { margin: 0 27px 20px; padding: 12px; border-radius: 7px; background: #fff1ef; color: #ad4f42; font-size: 12px; }
+.workspace :is(button, select, input, textarea):focus-visible, .dialog :is(button, input, textarea):focus-visible { outline: 2px solid #2d8f76; outline-offset: 3px; }
+@media (max-width: 1180px) { .layout { grid-template-columns: 210px minmax(0, 1fr); gap: 17px; } .steps { gap: 9px; padding: 13px; } .steps li { font-size: 10px; } .steps small { display: none; } .visitLayout { grid-template-columns: 160px minmax(0, 1fr); } }
+@media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .patientList { display: flex; max-height: 230px; flex-wrap: wrap; gap: 5px; } .patientItem { width: min(230px, 100%); flex: 1 1 180px; } .panelFootnote { padding: 10px 17px; } .heading { align-items: flex-start; } .stats strong { font-size: 14px; } }
+@media (max-width: 600px) { .workspace { padding: 24px 16px 35px; } .heading { flex-direction: column; gap: 17px; } .heading h2 { font-size: 24px; } .steps { flex-wrap: wrap; gap: 12px; } .steps > li[aria-hidden] { display: none; } .steps li { flex: 1 1 40%; font-size: 10px; } .patientHeader h2 { font-size: 21px; } .patientHeader { gap: 10px; } .patientHeader .secondaryButton { padding: 8px 10px; font-size: 10px; } .recordToolbar { gap: 10px; } .recordToolbar .primaryButton { padding: 9px 10px; font-size: 10px; } .tabs { gap: 16px; } .tabs button { font-size: 11px; } .stats { gap: 8px; } .stats > div { padding: 12px 10px; } .stats span { font-size: 9px; } .stats strong { font-size: 12px; } .stats > div:last-child strong { font-size: 11px; } .woundLocation { flex: 1; } .woundBar { gap: 12px; } .woundBar label { flex-basis: 100%; } .visitLayout { grid-template-columns: 1fr; } .visitList { display: flex; gap: 6px; overflow-x: auto; border-right: 0; border-bottom: 1px solid #e6edf0; } .visitList li { min-width: 155px; } .visitDetail { padding: 16px; } .sectionHeading { padding: 18px 16px; } .woundFooter { align-items: flex-start; flex-direction: column; } .empty { padding: 38px 20px; } .dialogHeader, .dialogFooter { padding: 20px; } .fields { padding: 0 20px 20px; } .formContext { margin-inline: 20px; } }
