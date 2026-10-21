@@ -22,16 +22,18 @@ export default function RetinopathyAnalysis() {
 function PatientAnalysis({ api }) {
   const analysis = useRetinopathyAnalysis(api);
   const [health, setHealth] = useState(null);
+  const [databaseError, setDatabaseError] = useState('');
   const [healthError, setHealthError] = useState('');
   useEffect(() => {
     const controller = new AbortController(); let active = true;
     api.health(controller.signal).then(value => { if (active) setHealth(value); }).catch(error => { if (active) setHealthError(error.message); });
+    api.dbHealth(controller.signal).catch(error => { if (active) setDatabaseError(error.message); });
     return () => { active = false; controller.abort(); };
   }, [api]);
   const { status, selectedImage, error, quality, result, selectImage, reset, analyze, historyRevision } = analysis;
   return <DashboardShell title="Retinopathy Analysis"><div className="retino-page" data-state={status}>
     <header className="retino-page-header"><div><div className="retino-breadcrumb"><Link href="/dashboard">Dashboard</Link><ArrowRight size={13} /><strong>Retinopathy Analysis</strong></div><div className="retino-title-line"><div><p className="retino-kicker">AI-ASSISTED RETINAL SCREENING</p><h2>Diabetic Retinopathy Analysis</h2><p>Upload a retinal fundus image to assess diabetic retinopathy severity and explore AI-generated visual explanations.</p></div><span className="retino-header-badge"><CheckCircle2 size={15} /> AI-Assisted Retinal Screening</span></div></div></header>
-    <div className="retino-demo-banner" role="status"><span>Research analysis service</span><p>{healthError || (health ? health.ready ? 'Required analysis models are ready. Results require professional review.' : 'The retinal analysis service is unavailable: required models are not ready. No quality gate will be bypassed.' : 'Checking model availability…')}</p></div>
+    <div className="retino-demo-banner" role="status"><span>Research analysis service</span><p>{databaseError || healthError || (health ? health.ready ? 'Required analysis models are ready. Results require professional review.' : 'The retinal analysis service is unavailable: required models are not ready. No quality gate will be bypassed.' : 'Checking model availability…')}</p></div>
     <div className="retino-top-grid"><RetinalImageUpload selectedImage={selectedImage} onSelect={selectImage} onRemove={reset} onAnalyze={analyze} error={error} status={status} /><div className="retino-quality-slot"><ImageQualityAssessment quality={quality} onUploadAnother={reset} />{!quality && <div className="retino-empty-quality"><span>2</span><div><strong>Quality gate</strong><p>Actual image quality feedback will appear after analysis.</p></div></div>}</div></div>
     {status === 'quality_rejected' && <div className="retino-rejected-callout"><strong>Severity analysis stopped.</strong><span>Upload a clearer retinal image to continue.</span><button type="button" className="retino-button ghost" onClick={reset}>Upload another image</button></div>}
     {result && <RetinopathyResult result={result} api={api} />}
