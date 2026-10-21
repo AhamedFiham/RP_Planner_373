@@ -1,62 +1,73 @@
+'use client';
 
-"use client";
+import { useState, useCallback, useEffect } from 'react';
+import { predictDiabetesRisk, fetchDiabetesHistory, fetchDiabetesModelInfo } from '@/lib/api';
 
-import { useState } from "react";
-import { predictDiabetes } from "../lib/api";
-
-export default function useDiabetesPrediction() {
-  const [result, setResult] = useState(null);
+export function useDiabetesPrediction() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [result, setResult] = useState(null);
+  const [history, setHistory] = useState([]);
+  const [historyLoading, setHistoryLoading] = useState(false);
+  const [modelInfo, setModelInfo] = useState(null);
 
-  async function runPrediction(measurements) {
+  const submitAssessment = useCallback(async (formData, token) => {
     setLoading(true);
     setError(null);
-    setResult(null);
-
-    // Convert frontend field names into the backend's expected names.
-    const payload = {
-      Pregnancies:
-        measurements.pregnancies === "" ||
-        measurements.pregnancies === null ||
-        measurements.pregnancies === undefined ||
-        isNaN(Number(measurements.pregnancies))
-          ? 0
-          : Number(measurements.pregnancies),
-      Glucose: Number(measurements.glucose),
-      BloodPressure: Number(measurements.blood_pressure),
-      SkinThickness: Number(measurements.skin_thickness),
-      Insulin: Number(measurements.insulin),
-      BMI: Number(measurements.bmi),
-      DiabetesPedigreeFunction: Number(
-        measurements.diabetes_pedigree_function
-      ),
-      Age: Number(measurements.age),
-    };
-
     try {
-      // Use the API helper that already exists in lib/api.js.
-      const response = await predictDiabetes(payload);
-
-      setResult(response);
-      return response;
+      const data = await predictDiabetesRisk(formData, token);
+      setResult(data);
+      // Prepend to current session history
+      setHistory((prev) => [data, ...prev.filter((h) => h.id !== data.id)]);
+      return data;
     } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : "Unable to complete the prediction."
-      );
-
-      return null;
+      setError(err.message || 'An error occurred during assessment.');
+      throw err;
     } finally {
       setLoading(false);
     }
-  }
+  }, []);
+
+  const loadHistory = useCallback(async (token) => {
+    setHistoryLoading(true);
+    try {
+      const past = await fetchDiabetesHistory(token);
+      setHistory(past || []);
+    } catch (err) {
+      console.warn('Could not load history:', err);
+    } finally {
+      setHistoryLoading(false);
+    }
+  }, []);
+
+  const loadModelInfo = useCallback(async () => {
+    try {
+      const info = await fetchDiabetesModelInfo();
+      setModelInfo(info);
+    } catch (err) {
+      console.warn('Could not load model info:', err);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadModelInfo();
+    loadHistory();
+  }, [loadModelInfo, loadHistory]);
+
+  const resetAssessment = useCallback(() => {
+    setResult(null);
+    setError(null);
+  }, []);
 
   return {
-    result,
     loading,
     error,
-    runPrediction,
+    result,
+    history,
+    historyLoading,
+    modelInfo,
+    submitAssessment,
+    loadHistory,
+    resetAssessment,
   };
 }

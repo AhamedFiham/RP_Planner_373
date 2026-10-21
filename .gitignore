@@ -5,7 +5,6 @@
 /work/
 
 # Environment and local configuration
-.env*
 !.env.example
 *.log
 .DS_Store
@@ -27,3 +26,4 @@ backend/trained_models/**/*
 backend/datasets/**/*
 !backend/datasets/**/
 !backend/datasets/**/.gitkeep
+config.bat
