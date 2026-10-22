@@ -45,6 +45,36 @@
 .table tbody { color: #506c79; }
 .baselineBadge { margin-left: 8px; padding: 3px 5px; border-radius: 4px; background: #e8f3f0; color: #3e7e74; font-size: 9px; font-weight: 600; }
 .srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+.tissueLegend { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+.tissueLegend button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 10px; border: 1px solid #dce7ea; border-radius: 7px; background: #fff; color: #3e5866; font: inherit; font-size: 11px; cursor: pointer; }
+.tissueLegend button[aria-pressed='false'] { opacity: .55; text-decoration: line-through; }
+.tissueLegend button > span, .trendValues i, .trendChangeGrid i { display: inline-block; flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 1px #1d374322; }
+.trendChart { display: block; width: 100%; min-width: 540px; height: auto; overflow: visible; }
+.trendCursor { stroke: #c6d6dc; stroke-width: 1; stroke-dasharray: 4 4; }
+.trendInspection { display: grid; grid-template-columns: minmax(150px, 190px) 1fr; gap: 18px; align-items: start; margin-top: 20px; padding: 16px; border: 1px solid #e2eaee; border-radius: 10px; background: #fbfdfd; }
+.trendInspection label { display: grid; gap: 7px; color: #536d7a; font-size: 11px; font-weight: 600; }
+.trendInspection select, .table select { max-width: 220px; min-height: 35px; padding: 6px 9px; border: 1px solid #d5e2e6; border-radius: 6px; background: white; color: #334e5d; font: inherit; font-size: 11px; }
+.trendValues { display: flex; flex-wrap: wrap; gap: 10px 18px; padding-top: 2px; }
+.trendValues > span { display: inline-flex; align-items: center; gap: 6px; color: #697f8a; font-size: 10px; }
+.trendValues strong { margin-left: 2px; color: #2d4d5c; font-variant-numeric: tabular-nums; }
+.trendValues p { margin: 0; color: #697f8a; font-size: 11px; line-height: 1.7; }
+.trendComparison { margin-top: 22px; padding-top: 20px; border-top: 1px solid #e6edef; }
+.trendComparison h3 { margin: 0 0 7px; color: #304e5c; font-size: 13px; }
+.trendComparison > p { margin: 7px 0; color: #778b96; font-size: 11px; line-height: 1.7; }
+.trendChangeGrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin: 14px 0; }
+.trendChangeGrid > div { display: grid; gap: 7px; padding: 12px; border: 1px solid #e3ebed; border-radius: 8px; }
+.trendChangeGrid span { display: inline-flex; align-items: center; gap: 6px; color: #607985; font-size: 10px; }
+.trendChangeGrid strong { color: #345665; font-size: 18px; font-variant-numeric: tabular-nums; }
+.trendChangeGrid small { color: #82959f; font-size: 10px; }
+.trendDateButton { padding: 0; border: 0; border-bottom: 1px dotted #84aaa9; background: transparent; color: #28736e; font: inherit; font-weight: 600; cursor: pointer; }
+.trendReady, .trendMissing { display: inline-block; padding: 4px 6px; border-radius: 4px; background: #eaf6f1; color: #2d7662; font-size: 10px; }
+.trendMissing { background: #f1f4f6; color: #6a7e8a; }
+.trendReason { display: block; max-width: 230px; margin-top: 5px; color: #7f909a; font-size: 10px; line-height: 1.5; white-space: normal; }
+.trendAlert { margin: 12px 0; padding: 12px; border: 1px solid #eed5d4; border-radius: 8px; background: #fff7f6; color: #9a4844; font-size: 12px; }
+.trendAlert p { margin: 0 0 9px; }
+.trendAlert button { padding: 7px 10px; border: 1px solid #d7e2e6; border-radius: 6px; background: white; color: #456673; font: inherit; cursor: pointer; }
+.tissueLegend button:focus-visible, .trendDateButton:focus-visible, .trendInspection select:focus-visible, .table select:focus-visible, .trendAlert button:focus-visible { outline: 3px solid #48a6aa; outline-offset: 3px; }
+@media (max-width: 700px) { .trendInspection { grid-template-columns: 1fr; } .trendChart { min-width: 540px; } .chartWrap { overflow-x: auto; } }
 .modelGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .modelCard { display: flex; flex-direction: column; min-width: 0; padding: 18px; border: 1px solid #e2eaee; border-radius: 12px; background: #fff; }
 .modelTop { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin-bottom: 17px; }
@@ -63,3 +93,44 @@
 @media (max-width: 1000px) { .modelGrid { grid-template-columns: 1fr; } .modelPlaceholder { min-height: 105px; } .modelDescription { min-height: 0; } }
 @media (max-width: 600px) { .panel { padding: 18px; border-radius: 13px; } .panelHeader { flex-wrap: wrap; gap: 12px; margin-bottom: 18px; } .heading { font-size: 18px; } .metric { padding: 13px 10px; } .metric > span { font-size: 10px; } .metric > strong { font-size: 17px; } .metric > small { font-size: 9px; } .metrics { margin-bottom: 19px; } .chartWrap { overflow-x: auto; } .chart { min-width: 430px; } }
 @media (prefers-reduced-motion: reduce) { .panel * { scroll-behavior: auto; } }
+
+.analysisSelectors { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+.analysisSelectors label { display: grid; flex: 1 1 180px; gap: 7px; min-width: 0; color: #5d7681; font-size: 11px; font-weight: 600; }
+.analysisSelectors select { width: 100%; min-height: 38px; padding: 8px 10px; border: 1px solid #d5e3e7; border-radius: 7px; background: #fff; color: #2d4c5b; font: inherit; font-weight: 400; }
+.analysisSelectors select:disabled { background: #f7f9fa; color: #7b8c95; }
+.analysisRefresh { padding: 7px 11px; border: 1px solid #cfe1e3; border-radius: 7px; background: #f5fafa; color: #3b7376; font: inherit; font-size: 11px; cursor: pointer; }
+.analysisRun { width: 100%; min-height: 37px; margin-top: 15px; padding: 9px 12px; border: 1px solid #247c7d; border-radius: 7px; background: #247c7d; color: #fff; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer; }
+.analysisRun:disabled, .analysisRefresh:disabled { opacity: .5; cursor: not-allowed; }
+.analysisSelectors select:focus-visible, .analysisRun:focus-visible, .analysisRefresh:focus-visible, .analysisHistory summary:focus-visible { outline: 3px solid #48a6aa; outline-offset: 3px; }
+.analysisMaskWrap { display: flex; flex: 1; flex-direction: column; }
+.analysisMask { display: block; width: 100%; height: 190px; object-fit: contain; border: 1px solid #dbe7e9; border-radius: 8px; background: #f3f6f7; }
+div.analysisMask { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px; color: #7c919a; font-size: 11px; }
+.analysisVersion { margin: 8px 0 0; color: #7b8c96; font-size: 10px; line-height: 1.6; overflow-wrap: anywhere; }
+.analysisMessage { margin: 10px 0 0; color: #748b96; font-size: 10px; line-height: 1.7; }
+.analysisError { margin: 0 0 16px; padding: 11px 13px; border: 1px solid #edc8c3; border-radius: 8px; background: #fff6f5; color: #a04f45; font-size: 12px; line-height: 1.6; }
+.analysisStageError { margin: 10px 0 0; color: #a04f45; font-size: 10px; line-height: 1.7; }
+.analysisLegend { display: flex; flex-wrap: wrap; gap: 7px 11px; margin-top: 13px; }
+.analysisLegend > span { display: inline-flex; align-items: center; gap: 5px; color: #70848f; font-size: 9px; }
+.analysisLegend i { display: inline-block; flex-shrink: 0; width: 9px; height: 9px; border: 1px solid #b8c8cd; border-radius: 2px; }
+.analysisHistory { margin-top: 19px; padding-top: 14px; border-top: 1px solid #e5edef; }
+.analysisHistory summary { color: #477881; font-size: 11px; font-weight: 600; cursor: pointer; }
+.comparisonCardBody { display: flex; flex: 1; flex-direction: column; min-height: 190px; padding: 15px; border: 1px solid #e0ebe9; border-radius: 8px; background: #f8fcfb; }
+.comparisonCardDates { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 17px; }
+.comparisonCardDates > span { display: grid; gap: 6px; color: #7b9097; font-size: 9px; line-height: 1.5; }
+.comparisonCardDates strong { color: #355f65; font-size: 11px; font-weight: 600; }
+.comparisonCardCaption { margin: 0 0 8px; color: #607f87; font-size: 9px; line-height: 1.6; }
+.comparisonCardStack { display: flex; flex-shrink: 0; width: 100%; height: 16px; margin-bottom: 17px; overflow: hidden; border: 1px solid #b9d0cd; border-radius: 5px; background: #e9efef; }
+.comparisonCardStack > span { display: block; height: 100%; }
+.comparisonCardChanges { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.comparisonCardChanges li { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #57737e; font-size: 10px; line-height: 1.5; }
+.comparisonCardChanges li > span { display: inline-flex; align-items: center; gap: 6px; min-width: 0; }
+.comparisonCardChanges i { display: inline-block; flex: 0 0 8px; width: 8px; height: 8px; border-radius: 50%; box-shadow: 0 0 0 1px #1d374322; }
+.comparisonCardChanges strong { flex-shrink: 0; color: #365e69; font-size: 11px; font-variant-numeric: tabular-nums; }
+.comparisonCardEmpty { margin: auto 0; color: #7b8f99; font-size: 11px; line-height: 1.8; }
+.comparisonCardError { flex: 1; margin: 0; padding: 14px; border: 1px solid #edd2cd; border-radius: 8px; background: #fff7f5; color: #9e5148; font-size: 11px; line-height: 1.7; }
+.comparisonCardLoading { display: grid; flex: 1; align-content: center; gap: 12px; min-height: 190px; padding: 15px; border: 1px solid #e0ebe9; border-radius: 8px; background: #f8fcfb; }
+.comparisonCardLoading > span { display: block; height: 12px; border-radius: 3px; background: #e5eeee; }
+.comparisonCardLoading > span:nth-child(2) { width: 80%; }
+.comparisonCardLoading > span:nth-child(3) { width: 60%; }
+.comparisonCardLoading p { margin: 0; color: #748b96; font-size: 10px; line-height: 1.7; }
+.comparisonCardButton { margin-top: 15px; }
