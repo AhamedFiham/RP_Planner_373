@@ -1,14 +1,17 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { ArrowRight, CalendarDays, Check, ChevronRight, ClipboardList, ImagePlus, Plus, Search, ShieldCheck, Users, X } from 'lucide-react';
 import { useAuth } from '@/components/auth-provider';
 import DashboardShell from '@/components/dashboard/DashboardShell';
 import useWoundClinic from '@/hooks/useWoundClinic';
+import useVisitComparison from '@/hooks/useVisitComparison';
 import ClinicDialog from '@/components/wound/ClinicDialog';
 import PrivateImage from '@/components/wound/PrivateImage';
 import HealingChart from '@/components/wound/HealingChart';
 import ModelAnalysisPanel from '@/components/wound/ModelAnalysisPanel';
+import TissueComparison from '@/components/wound/TissueComparison';
+import { woundRequest } from '@/lib/wound-api';
 import styles from '@/components/wound/clinic.module.css';
 
 function displayDate(value) {
@@ -16,10 +19,13 @@ function displayDate(value) {
   return new Date(`${value}T12:00:00`).toLocaleDateString(undefined, { day: 'numeric', month: 'short', year: 'numeric' });
 }
 function shortId(value) { return `WND-${value.slice(0, 8).toUpperCase()}`; }
+const modelLabels = { unet_resnet18: 'U-Net · ResNet18', deeplabv3plus_mobilenet_v2: 'DeepLabV3+ · MobileNet V2', segformer_mit_b0: 'SegFormer · MiT-B0' };
 
 export default function DfuWorkspace() {
   const { token, ready } = useAuth() || {};
-  const clinic = useWoundClinic(token);
+  const [modelId, setModelId] = useState('');
+  const [modelCatalog, setModelCatalog] = useState(null);
+  const clinic = useWoundClinic(token, modelId);
   const [search, setSearch] = useState('');
   const [dialog, setDialog] = useState('');
   const [tab, setTab] = useState('overview');
@@ -28,8 +34,22 @@ export default function DfuWorkspace() {
   const [actionError, setActionError] = useState('');
   const [notice, setNotice] = useState('');
   const { patient, wound, visits, progress } = clinic;
-  const selectedVisit = visits.find(visit => visit.id === visitId) || visits.at(-1);
+  const visitRecord = visits.find(visit => visit.id === visitId) || visits.at(-1);
+  const selectedVisit = visitRecord ? { ...visitRecord, progress_image_id: progress?.points.find(point => point.visit_id === visitRecord.id)?.image_id || visitRecord.progress_image_id } : undefined;
+  const comparison = useVisitComparison({ token, woundId: wound?.id, modelId, progress, onComplete: clinic.refreshProgress });
+  const modelChoices = modelCatalog?.token === token ? modelCatalog.models : [];
   const filteredPatients = clinic.patients.filter(item => `${item.patient_code} ${item.display_name}`.toLowerCase().includes(search.toLowerCase()));
+
+  useEffect(() => {
+    if (!token) { setModelCatalog(null); setModelId(''); return; }
+    const controller = new AbortController();
+    woundRequest('/models', token, { signal: controller.signal }).then(data => {
+      if (controller.signal.aborted) return;
+      setModelCatalog({ token, models: data.models });
+      setModelId(current => data.models.some(model => model.id === current) ? current : data.selected_model_id || '');
+    }).catch(() => { /* The analysis and progress panels display actionable API errors. */ });
+    return () => controller.abort();
+  }, [token]);
 
   async function saveRecord(body) {
     if (dialog === 'patient') await clinic.createPatient(body);
@@ -54,7 +74,7 @@ export default function DfuWorkspace() {
         <li className={patient ? styles.completed : styles.current}><span>{patient ? <Check size={14} /> : '1'}</span> Select patient</li><li aria-hidden="true"><ChevronRight size={15} /></li>
         <li className={wound ? styles.completed : patient ? styles.current : ''}><span>{wound ? <Check size={14} /> : '2'}</span> Assign wound</li><li aria-hidden="true"><ChevronRight size={15} /></li>
         <li className={visits.length ? styles.completed : wound ? styles.current : ''}><span>{visits.length ? <Check size={14} /> : '3'}</span> Record visits</li><li aria-hidden="true"><ChevronRight size={15} /></li>
-        <li><span>4</span> Review analysis <small>Healing pending</small></li>
+        <li><span>4</span> Review analysis <small>Tissue trends</small></li>
       </ol>
       {(clinic.error || actionError) && <div className={styles.errorBanner} role="alert"><span>{clinic.error || actionError}</span><button type="button" onClick={() => { setActionError(''); clinic.refresh(); }}>Try again</button></div>}
       {notice && <div className={styles.notice} role="status"><Check size={16} /><span>{notice}</span><button type="button" onClick={() => setNotice('')} aria-label="Dismiss notification"><X size={16} /></button></div>}
@@ -85,12 +105,22 @@ export default function DfuWorkspace() {
               {wound && <><div className={styles.woundLocation}><span>Location</span><strong>{wound.location}</strong></div><span className={`${styles.status} ${wound.status === 'healed' ? styles.healed : ''}`}>{wound.status === 'healed' ? 'Healed' : 'Active wound'}</span></>}
             </section>
             {!wound ? <section className={styles.empty}><ClipboardList size={34} /><h3>{clinic.loading.wounds ? 'Loading wound records…' : 'Assign this patient’s first wound'}</h3><p>A separate wound ID keeps photographs and analysis together, even when a patient has multiple wounds.</p>{!clinic.loading.wounds && <button type="button" className={styles.primaryButton} onClick={() => setDialog('wound')}><Plus size={16} /> Assign wound</button>}</section> : <>
-              <div className={styles.recordToolbar}><div className={styles.tabs} aria-label="Wound record views"><button type="button" aria-pressed={tab === 'overview'} className={tab === 'overview' ? styles.tabActive : ''} onClick={() => setTab('overview')}>Overview</button><button type="button" aria-pressed={tab === 'visits'} className={tab === 'visits' ? styles.tabActive : ''} onClick={() => setTab('visits')}>Visit history <span>{visits.length}</span></button></div><button type="button" className={styles.primaryButton} onClick={() => setDialog('visit')} disabled={wound.status === 'healed' || clinic.loading.visits}><ImagePlus size={16} /> Record visit</button></div>
-              <div className={styles.stats}><div><span>Recorded visits</span><strong>{visits.length}</strong></div><div><span>Latest visit</span><strong>{displayDate(visits.at(-1)?.visit_date)}</strong></div><div><span>Healing analysis</span><strong>Pending</strong></div></div>
+              <div className={styles.recordToolbar}><div className={styles.tabs} aria-label="Wound record views"><button type="button" aria-pressed={tab === 'overview'} className={tab === 'overview' ? styles.tabActive : ''} onClick={() => setTab('overview')}>Overview</button><button type="button" aria-pressed={tab === 'visits'} className={tab === 'visits' ? styles.tabActive : ''} onClick={() => setTab('visits')}>Visit history <span>{visits.length}</span></button><button type="button" aria-pressed={tab === 'comparison'} className={tab === 'comparison' ? styles.tabActive : ''} onClick={() => setTab('comparison')}>Tissue comparison</button></div><button type="button" className={styles.primaryButton} onClick={() => setDialog('visit')} disabled={wound.status === 'healed' || clinic.loading.visits}><ImagePlus size={16} /> Record visit</button></div>
+              <div className={styles.stats}><div><span>Recorded visits</span><strong>{visits.length}</strong></div><div><span>Latest visit</span><strong>{displayDate(visits.at(-1)?.visit_date)}</strong></div><div><span>Tissue trends</span><strong>{clinic.progressLoading ? 'Loading…' : `${progress?.summary?.analyzed_visit_count ?? 0} analyzed visits`}</strong></div></div>
               {wound.status === 'healed' && <p className={styles.infoNote}>This wound is marked as healed. Its images remain available; reopen it to record another visit.</p>}
               {clinic.loading.visits ? <section className={styles.empty} role="status"><p>Loading visit images and progress…</p></section> : tab === 'overview' ? <div className={styles.overview}>
-                <HealingChart progress={progress} />
-                <ModelAnalysisPanel visit={selectedVisit} visits={visits} onSelectVisit={setVisitId} token={token} />
+                <ModelAnalysisPanel key={wound.id} visit={selectedVisit} visits={visits} onSelectVisit={setVisitId} token={token} selectedModelId={modelId} onModelChange={setModelId} onAnalysisComplete={clinic.refreshProgress} progress={progress} progressLoading={clinic.progressLoading} progressError={clinic.progressError} onCompareVisits={() => setTab('comparison')} onRefreshProgress={clinic.refreshProgress} onModelsLoaded={data => setModelCatalog({ token, models: data.models })} />
+                <HealingChart key={`${wound.id}:${modelId}`} progress={progress} loading={clinic.progressLoading} error={clinic.progressError} modelLabel={modelLabels[modelId]} onRetry={clinic.refreshProgress} onChooseImage={clinic.selectProgressImage} onSelectVisit={setVisitId} />
+              </div> : tab === 'comparison' ? <div className={styles.overview}>
+                <div className={styles.comparisonToolbar}>
+                  <label>Segmentation model<select value={modelId} onChange={event => setModelId(event.target.value)} disabled={!modelChoices.length || comparison.analyzing}>
+                    {!modelChoices.length && <option value={modelId}>{modelLabels[modelId] || 'Select a model in Overview'}</option>}
+                    {modelChoices.map(model => <option key={model.id} value={model.id}>{model.label}</option>)}
+                  </select></label>
+                  <button type="button" className={styles.secondaryButton} onClick={clinic.refreshProgress} disabled={comparison.analyzing || clinic.progressLoading}>Refresh results</button>
+                </div>
+                <TissueComparison key={`${wound.id}:${modelId}`} progress={progress} loading={clinic.progressLoading} error={clinic.progressError} onRetry={clinic.refreshProgress} token={token} onChooseImage={clinic.selectProgressImage} onAnalyze={comparison.analyzeVisits} analyzing={comparison.analyzing} analysisMessage={comparison.analysisMessage} onInspectVisit={id => { setVisitId(id); setTab('overview'); }} />
+                <HealingChart key={`comparison-chart:${wound.id}:${modelId}`} progress={progress} loading={clinic.progressLoading} error={clinic.progressError} modelLabel={modelLabels[modelId]} onRetry={clinic.refreshProgress} onChooseImage={comparison.analyzing ? undefined : clinic.selectProgressImage} onSelectVisit={setVisitId} />
               </div> : <section className={styles.visitSection}>
                 <div className={styles.sectionHeading}><div><h3>Visit image history</h3><p>Wound images ordered by capture date.</p></div><CalendarDays size={21} /></div>
                 {!visits.length ? <div className={styles.empty}><ImagePlus size={32} /><h3>Record the first visit</h3><p>Add the visit date and wound images to start this wound’s visit history.</p><button type="button" className={styles.secondaryButton} onClick={() => setDialog('visit')} disabled={wound.status === 'healed'}>Add visit images</button></div> : <div className={styles.visitLayout}>
