@@ -1,5 +1,6 @@
 """JWT authentication with MongoDB persistence (configured through environment variables)."""
 import os
+from contextlib import closing
 from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, EmailStr, Field, field_validator, model_validator, StrictBool
@@ -85,7 +86,7 @@ def find(email):
     try:
         if _users is not None:
             return _users.find_one({'email': email})
-        with local_connection() as connection:
+        with closing(local_connection()) as connection, connection:
             row = connection.execute('SELECT * FROM users WHERE email = ?', (email,)).fetchone()
             return dict(row) if row else None
     except (PyMongoError, sqlite3.Error):
@@ -101,7 +102,7 @@ def save(user):
             _users.create_index('username', unique=True, sparse=True)
             _users.insert_one(user)
         else:
-            with local_connection() as connection:
+            with closing(local_connection()) as connection, connection:
                 connection.execute('INSERT INTO users (email, name, password_hash, role, username, phone, is_diabetic, dashboard) VALUES (?, ?, ?, ?, ?, ?, ?, ?)', (user['email'], user['name'], user['password_hash'], user['role'], user['username'], user['phone'], int(user['is_diabetic']), user.get('dashboard', '/dashboard')))
     except (DuplicateKeyError, sqlite3.IntegrityError):
         raise HTTPException(status_code=409, detail='Email or username is already registered.')
