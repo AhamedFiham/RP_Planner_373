@@ -2,6 +2,8 @@
 /.next/
 /out/
 /work/
+/backend/wound-models.local.json
+/backend/wound-runtime.local.json
 .env*
 !.env.example
 *.log
@@ -16,6 +18,7 @@
 **/__pycache__/
 *.py[cod]
 **/.venv/
+**/.venv-*/
 .pytest_cache/
 backend/uploads/*
 !backend/uploads/.gitkeep
@@ -24,6 +27,9 @@ backend/outputs/*
 backend/trained_models/**/*
 !backend/trained_models/**/
 !backend/trained_models/**/.gitkeep
+
+# Local archive of the three wound models' original training code
+/backend/training/wound/
 
 # Component datasets
 backend/datasets/**/*
